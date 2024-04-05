@@ -1,0 +1,27 @@
+{
+  "name": "websitejulianame",
+  "version": "1.0.0",
+  "description": "Personal website for Julián Mario Amé",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/imperioame/website_julian_2023.git"
+  },
+  "scripts": {
+    "build": "parcel build ./src/index.html",
+    "start": "parcel ./src/index.html"
+  },
+  "keywords": [
+    "Julián",
+    "Mario Amé",
+    "Amé",
+    "ImperioAme"
+  ],
+  "author": "Julián Mario Amé",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "buffer": "^5.7.1",
+    "eslint": "^8.33.0"
+  }
+}
