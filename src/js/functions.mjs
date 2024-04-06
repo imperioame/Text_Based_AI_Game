@@ -78,26 +78,6 @@ export function changeLanguage(new_language) {
     }
     document.documentElement.lang = new_language;
     document.title = textos_a_usar.TITULO_PAGINA;
-    document.getElementById('subtitle').innerHTML = textos_a_usar.SUBTITLE_HERO;
-    document.getElementById('extracto_banner').innerHTML = textos_a_usar.EXTRACTO_BANNER_MI_PERSONA;
-    document.getElementById('boton_cv').innerHTML = textos_a_usar.BOTON_CV_BANNER_MI_PERSONA;
-    document.getElementById('boton_cv').href = `./cvweb.html#${new_language}`;
-
-    document.getElementById('porfolio_bloque_interior_subtitle').innerHTML = textos_a_usar.CATEGORIAS_PORFOLIO.DISENO;
-    document.getElementById('seccion_contacto_titulo').innerHTML = textos_a_usar.TITULO_CONTACTO;
-    document.getElementById('contacto_extra_input').placeholder = textos_a_usar.BLOQUE_CONTACTO_EXTRA.PLACEHOLDER_INPUT;
-    document.getElementById('contacto_extra_button').innerHTML = textos_a_usar.BLOQUE_CONTACTO_EXTRA.BOTON_GENERAR_TEXTO;
-    document.getElementById('small_info').innerHTML = textos_a_usar.BLOQUE_CONTACTO_EXTRA.SMALL_INFO;
-    document.getElementById('small_pd').innerHTML = textos_a_usar.BLOQUE_CONTACTO_EXTRA.SMALL_PD;
-    document.getElementById('div_form_contacto_container_titulo').innerHTML = textos_a_usar.BLOQUE_CONTACTO_TITULO;
-    document.getElementById('campo_form_nombre').innerHTML = textos_a_usar.CAMPOS_FORMULARIO.NOMBRE;
-    document.getElementById('campo_form_email').innerHTML = textos_a_usar.CAMPOS_FORMULARIO.EMAIL;
-    document.getElementById('campo_form_mensaje').innerHTML = textos_a_usar.CAMPOS_FORMULARIO.MENSAJE;
-    document.getElementById('submit_button').innerHTML = textos_a_usar.CAMPOS_FORMULARIO.BOTON_ENVIAR;
-    document.getElementById('contact_form_nombre').placeholder = textos_a_usar.CAMPOS_FORMULARIO.NOMBRE_PLACEHOLDER;
-    document.getElementById('contact_form_email').placeholder = textos_a_usar.CAMPOS_FORMULARIO.EMAIL_PLACEHOLDER;
-    document.getElementById('contact_form_mensaje').placeholder = textos_a_usar.CAMPOS_FORMULARIO.MENSAJE_PLACEHOLDER;
-    document.getElementById('footer').innerHTML = textos_a_usar.FOOTER;
 
     const a = document.createElement('a');
     a.href = 'https://media.marioa.me';

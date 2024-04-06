@@ -18,3 +18,8 @@ if (userLanguages.indexOf(LANGUAGES.ESPANOL) > -1) {
 }
 
 changeLanguage(window.currentLanguage.pop());
+
+//export const URL_HF_API = 'https://api-inference.huggingface.co/models/openai-community/gpt2-xl';
+//export const URL_HF_API = 'https://api-inference.huggingface.co/models/openai-community/gpt2';
+export const URL_HF_API = "Xenova/gpt2";
+export const INPUT_TEXT_SIZE = 200;

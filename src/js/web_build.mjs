@@ -1,11 +1,16 @@
 import {
-    call_api_hf_gpt2
+    //HF_STARTUP,
+    HF_DEVELOP_STORY
 } from '../services/text_generation.mjs';
 
-
+//HF_STARTUP();
 export var IS_MOBILE = window.innerWidth < 900;
 
-//agrego la llamada a la api de gpt2
-document.querySelector('#contacto_extra button').addEventListener('click', call_api_hf_gpt2);
-//call_api_hf_gpt2();
+//Add the call to the GPT2 API
+document.addEventListener('keypress', function (e) {
+    //Been trigered only on an enter keyboard imput from the user
+    if (e.key === 'Enter'){
+        HF_DEVELOP_STORY();
 
+    }
+});
