@@ -11,6 +11,5 @@ document.addEventListener('keypress', function (e) {
     //Been trigered only on an enter keyboard imput from the user
     if (e.key === 'Enter'){
         HF_DEVELOP_STORY();
-
     }
 });

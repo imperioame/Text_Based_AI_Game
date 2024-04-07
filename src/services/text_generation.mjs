@@ -12,11 +12,12 @@ import {
 //env.allowLocalModels = false;
 //env.useBrowserCache = false;
 
-env.localModelPath = '/models/gpt2/';
-env.allowRemoteModels = false;
+//fetch( require("url:/src/models/gpt2/") );
 
-// Set location of .wasm files. Defaults to use a CDN.
-//env.backends.onnx.wasm.wasmPaths = '/path/to/files/';
+env.localModelPath = "/models/gpt2/";
+env.allowRemoteModels = false;
+env.allowLocalModels = true;
+
 /*
 export async function HF_STARTUP() {
     return pipe = await pipeline('text-generation', "Xenova/gpt2");

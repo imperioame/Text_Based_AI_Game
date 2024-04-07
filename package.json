@@ -10,6 +10,13 @@
     "build": "parcel build ./src/index.html",
     "start": "parcel ./src/index.html"
   },
+  "parcelOptions": {
+    "copyFiles": [{
+      "source": "./src/models/gpt2",
+      "fileName": "*",
+      "destination": "/"
+    }]
+  },
   "keywords": [
     "Julián",
     "Mario Amé",
