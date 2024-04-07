@@ -7,15 +7,8 @@
     "url": "git://github.com/imperioame/website_julian_2023.git"
   },
   "scripts": {
-    "build": "parcel build ./src/index.html",
-    "start": "parcel ./src/index.html"
-  },
-  "parcelOptions": {
-    "copyFiles": [{
-      "source": "./src/models/gpt2",
-      "fileName": "*",
-      "destination": "/"
-    }]
+    "build": "parcel build ./src/index.html --public-url ./models",
+    "start": "parcel ./src/index.html --public-url ./models"
   },
   "keywords": [
     "Julián",

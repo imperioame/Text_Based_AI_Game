@@ -10,6 +10,6 @@ export var IS_MOBILE = window.innerWidth < 900;
 document.addEventListener('keypress', function (e) {
     //Been trigered only on an enter keyboard imput from the user
     if (e.key === 'Enter'){
-        HF_DEVELOP_STORY();
+        document.getElementById("story_text").innerHTML = HF_DEVELOP_STORY();
     }
 });

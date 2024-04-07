@@ -1,5 +1,4 @@
 import {
-    URL_HF_API,
     INPUT_TEXT_SIZE
 } from '../configs/configs.mjs';
 
@@ -12,9 +11,7 @@ import {
 //env.allowLocalModels = false;
 //env.useBrowserCache = false;
 
-//fetch( require("url:/src/models/gpt2/") );
-
-env.localModelPath = "/models/gpt2/";
+env.localModelPath = './models/gpt2/';
 env.allowRemoteModels = false;
 env.allowLocalModels = true;
 
@@ -29,12 +26,19 @@ export async function HF_DEVELOP_STORY() {
     document.getElementById("error_msj").style.display = "none";
 
     const query_content = document.getElementById("user_prompt").value;
-
+/*
     let response_limit = INPUT_TEXT_SIZE;
     if (query_content.length > INPUT_TEXT_SIZE) {
         response_limit = query_content.length + INPUT_TEXT_SIZE;
     }
+*/
+    let final_response = await pipe(query_content,{
+        max_new_tokens: 20,
+        do_sample: true,
+        top_k: 5,
+    });
 
+    /*
     recursive_call(query_content);
 
     async function recursive_call(text) {
@@ -43,7 +47,7 @@ export async function HF_DEVELOP_STORY() {
             do_sample: true,
             top_k: 5,
         });
-
+*/
         /*
         // Error handling
         if (!response.error) {
@@ -52,11 +56,13 @@ export async function HF_DEVELOP_STORY() {
             document.getElementById("error_msj").style.display = "block";
         }
         */
-        if (final_response.length < response_limit) {
+/*        if (final_response.length < response_limit) {
             text = final_response;
             recursive_call(text)
         }
 
         document.getElementById("story_text").innerHTML = final_response + '...';
     }
+*/
+    document.getElementById("story_text").innerHTML = final_response + '...';
 }
