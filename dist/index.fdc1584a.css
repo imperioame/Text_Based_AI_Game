@@ -1,0 +1,164 @@
+@media screen and (width <= 900px) {
+  #idiomas_disponibles li {
+    margin: 5px 0;
+  }
+
+  #idiomas_disponibles .idioma_seleccionado {
+    display: none;
+  }
+
+  #three_overlay, #seccion_mis_trabajos, #seccion_contacto, #banner_mi_persona, #seccion_escaneame {
+    box-sizing: border-box;
+    background-clip: border-box;
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+
+  #loading_container {
+    transform: translate(-50%, 100%);
+  }
+
+  #scroll_button {
+    background-color: var(--accent_color);
+    z-index: 2;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    min-width: 60px;
+    max-width: 100px;
+    height: 20vw;
+    min-height: 60px;
+    max-height: 100px;
+    display: flex;
+    position: fixed;
+    bottom: 3vh;
+    right: 3vh;
+    cursor: pointer !important;
+  }
+
+  #scroll_button:hover {
+    background-color: var(--accent_color_hover);
+  }
+
+  #scroll_button i {
+    font-size: 2em;
+    cursor: pointer !important;
+  }
+
+  #hero_section {
+    width: 100%;
+  }
+
+  #hero_section #subtitle, #extracto_banner {
+    text-shadow: 0 0 6px var(--containers_color);
+  }
+
+  #hero_section #subtitle {
+    font-weight: 600;
+  }
+
+  #banner_mi_persona {
+    align-items: flex-end;
+  }
+
+  #extracto_banner, #boton_cv {
+    z-index: 1;
+  }
+
+  #bloque_trabajos {
+    height: 70vh;
+  }
+
+  .flex_row {
+    min-height: 70%;
+  }
+
+  .img_trabajo {
+    width: auto;
+    max-width: 100%;
+    max-height: 95%;
+  }
+
+  #mis_trabajos_background {
+    background-size: 200% 200%;
+    border-radius: 50%;
+    width: 25vh;
+    height: 25vh;
+    top: calc(50% - 12.5vh);
+    left: calc(50% - 12.5vh);
+  }
+
+  #bloque_contacto {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  #contacto_extra, #form_contacto_container {
+    flex: 1;
+  }
+
+  #form_contacto_container {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+  }
+
+  #form_contacto_container #div_form_contacto_container, #contacto_extra div {
+    width: 100%;
+  }
+
+  #form_contacto_container div, #contacto_extra div {
+    width: 100%;
+    margin: 0;
+    padding: 10%;
+  }
+
+  #form_contacto_container div h3 {
+    margin-top: 0;
+  }
+
+  #contacto_extra img {
+    max-width: 30vw;
+    padding: 2em;
+  }
+
+  #contacto_extra p {
+    max-width: 100%;
+  }
+
+  #submit_button {
+    background-color: var(--accent_color);
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    padding: 1em 0;
+    font-weight: 800;
+    box-shadow: 0 5px 8px #0003;
+  }
+
+  #submit_button:hover {
+    background-color: var(--accent_color_hover);
+  }
+
+  .tooltip {
+    width: auto !important;
+    padding: 1em !important;
+  }
+
+  #footer {
+    text-align: center;
+    border-top: 1px solid var(--background_color);
+    color: var(--dimmed_text_color);
+    width: 100%;
+    padding: 2em 0;
+    box-shadow: 0 -2px 10px #0000009f;
+  }
+
+  #footer a {
+    text-decoration: none;
+  }
+}
+/*# sourceMappingURL=index.fdc1584a.css.map */

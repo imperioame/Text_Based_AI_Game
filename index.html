@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="imgs/favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=description content="">
+    <meta name=Keywords content="">
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Julián Mario Amé | marioa.me">
+    <meta name="copyright" content="Julián Mario Amé | marioa.me">
+    <meta property="og:title" content="Mario Amé | Diseñador Multimedial">
+    <meta property=og:type content="website">
+    <meta property="og:url" content="https://marioa.me/">
+    <meta property="og:description" content="">
+    <meta property="og:image" itemprop="image" content="./imgs/ogimage.jpg">
+
+
+    <meta name="twitter:card" content="https://marioa.me/imgs/ogimage.jpg">
+    <meta name="twitter:image" content="https://marioa.me/imgs/ogimage.jpg">
+    <meta name="twitter:site" content="https://marioa.me/">
+    <meta name="twitter:title" content="Mario Amé | Diseñador Multimedial">
+    <meta name="twitter:description"
+        content="Página web de Mario Amé, Diseñador multimedial y Licenciado en Comunicación, especializado gestión de proyectos digitales y audiovisuales, realización audiovisual y desarrollo web.">
+
+
+    <link rel="canonical" href="https://marioa.me/" />
+    <!-- <link rel="manifest" href="/manifest.json"> -->
+
+    <title>Text Based AI Game</title>
+    <link rel="stylesheet" href="./css/colors.css">
+    <link rel="stylesheet" href="./css/framework_styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/mobile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&family=Raleway:wght@100;400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+
+
+    <script src="https://kit.fontawesome.com/596df2045c.js" crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- Íconos de paises por Flaticon:
+        https://www.flaticon.es/iconos-gratis/argentina 
+        https://www.flaticon.es/iconos-gratis/estados-unidos
+    -->
+</head>
+
+<body>
+
+    <header id="header">
+        <ul>
+            <li> </li>
+            <li> <object id="logo" data="./imgs/Logo_ImperioAme.svg" type=""
+                    alt="Logo del ImperioAme, marca personal de Julián Mario Amé" title="Isologo ImperioAme"></object>
+            </li>
+            <li>
+                <ul id="idiomas_disponibles">
+                    <li id="grid_idioma_esp"><a id="cambiar_lenguaje_a_español" title="Español"><img
+                                src="imgs/argentina.png" alt="Icono de Argentina para idioma Español"></a></li>
+                    <li id="grid_idioma_ing"><a id="cambiar_lenguaje_a_ingles" title="English"><img
+                                src="imgs/estados-unidos.png" alt="Icono de Estados Unidos para idioma Ingles"></a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <main>
+        <section id="messages">
+            <p id="messages_text"></p>
+        </section>
+        <section id="story">
+            <p id="story_text"></p>
+        </section>
+        <section id="new_options">
+            <p></p>
+        </section>
+        <section id="prompt">
+            <input type="text" id="user_prompt" placeholder="start writing here">
+        </section>
+    </main>
+    <footer id="footer">
+
+    </footer>
+
+    <script>
+        //Saves a const in window
+        window.currentLanguage = [];
+    </script>
+    <script src="js/handler.mjs" type="module"></script>
+</body>
+
+</html>

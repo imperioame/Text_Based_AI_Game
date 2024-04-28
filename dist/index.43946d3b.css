@@ -1,0 +1,26 @@
+html {
+  --background_color: #141414;
+  --background_gradient: linear-gradient(-180deg, #141414 75%, #352755 100%);
+  --background_with_transparency: #141414d0;
+  --text_color: #f2f2f2;
+  --dimmed_text_color: #d3d3d3;
+  --containers_color: #2f2f2f;
+  --containers_color_transparency: #2f2f2f8a;
+  --containers_color_hovered: #4e4e4e;
+  --accent_color: #bd34fe;
+  --accent_color_hover: #9f18dd;
+  --complementary_accent_color: #ff964d;
+  --red: #990b0b;
+  --red_bright_desaturated: #f37676;
+  --green: #0b9917;
+  --language_selected: #b632f3;
+  --language_unselected: #6e04a0;
+  --porfolio_gradient: linear-gradient(-45deg, #bd34fe 50%, #ff3670 50%);
+  --porfolio_overlay_gradient: linear-gradient(0deg, #141414 -10%, #14141400 25%);
+  --hero_overlay_gradient: linear-gradient(0deg, #141414 0%, #14141400 25%);
+  --about_overlay_gradient: linear-gradient(0deg, #141414 0%, #14141400 20%, #14141400 80%, #141414 100%);
+  --porfolio_overlay_gradient_horizontal_left: linear-gradient(-90deg, #141414 0%, #14141400 100%);
+  --porfolio_overlay_gradient_horizontal_right: linear-gradient(90deg, #141414 0%, #14141400 100%);
+  --porfolio_gradient_filter: blur(72px);
+}
+/*# sourceMappingURL=index.43946d3b.css.map */
