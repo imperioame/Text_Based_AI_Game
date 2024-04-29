@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"cp7K3":[function(require,module,exports) {
+})({"fVvGJ":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -586,18 +586,28 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"fu8nu":[function(require,module,exports) {
 var _transformers = require("@xenova/transformers");
 const messages_text = document.getElementById("messages_text");
-(0, _transformers.env).allowRemoteModels = true;
-(0, _transformers.env).allowLocalModels = false;
+//env.allowRemoteModels = true;
+//env.allowLocalModels = false;
 //env.useBrowserCache = false;
-//env.localModelPath = './models/gpt2/';
-//env.allowRemoteModels = false;
-//env.allowLocalModels = true;
+(0, _transformers.env).localModelPath = "./models/gpt2";
+console.log((0, _transformers.env).localModelPath);
+(0, _transformers.env).allowRemoteModels = false;
+(0, _transformers.env).allowLocalModels = true;
+let pipe;
 window.onload = async function() {
     messages_text.innerHTML = "Loading models, please wait...";
-    const pipe = await (0, _transformers.pipeline)("text-generation", "Xenova/gpt2");
+    pipe = await (0, _transformers.pipeline)("text-generation", model = (0, _transformers.env).localModelPath);
     messages_text.innerHTML = "Ready to play";
 };
 let storyline = document.getElementById("story_text");
+async function generateStory(text) {
+    const output = await pipe(text, {
+        max_new_tokens: 20,
+        do_sample: true,
+        top_k: 5
+    });
+    document.getElementById("story_text").innerHTML = output;
+}
 document.addEventListener("keypress", function(e) {
     //Get the user input
     let user_prompt = document.getElementById("user_prompt").value;
@@ -605,12 +615,7 @@ document.addEventListener("keypress", function(e) {
     //Been trigered only on an enter keyboard imput from the user
     if (e.key === "Enter") {
         storyline += user_prompt + "\n";
-        const output = await generator(storyline, {
-            max_new_tokens: 20,
-            do_sample: true,
-            top_k: 5
-        });
-        document.getElementById("story_text").innerHTML = output;
+        generateStory(storyline);
     }
 });
 
@@ -649,7 +654,7 @@ parcelHelpers.exportAll(_tensorJs, exports);
 var _mathsJs = require("./utils/maths.js");
 parcelHelpers.exportAll(_mathsJs, exports);
 
-},{"./pipelines.js":"emrhv","./env.js":"7pc4k","./models.js":"5MKS9","./tokenizers.js":"aUywq","./processors.js":"c7dx1","./configs.js":"dqUyV","./utils/audio.js":"hass9","./utils/image.js":"epJnQ","./utils/tensor.js":"edyR7","./utils/maths.js":"j2dov","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"emrhv":[function(require,module,exports) {
+},{"./pipelines.js":"emrhv","./env.js":"7pc4k","./models.js":"5MKS9","./tokenizers.js":"aUywq","./processors.js":"c7dx1","./configs.js":"dqUyV","./utils/audio.js":"hass9","./utils/image.js":"epJnQ","./utils/tensor.js":"edyR7","./utils/maths.js":"j2dov","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"emrhv":[function(require,module,exports) {
 /**
  * @file Pipelines provide a high-level, easy to use, API for running machine learning models.
  * 
@@ -3359,7 +3364,7 @@ async function pipeline(task, model = null, { quantized = true, progress_callbac
     return result;
 }
 
-},{"./tokenizers.js":"aUywq","./models.js":"5MKS9","./processors.js":"c7dx1","./utils/core.js":"fCs5s","./utils/maths.js":"j2dov","./utils/audio.js":"hass9","./utils/tensor.js":"edyR7","./utils/image.js":"epJnQ","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"aUywq":[function(require,module,exports) {
+},{"./tokenizers.js":"aUywq","./models.js":"5MKS9","./processors.js":"c7dx1","./utils/core.js":"fCs5s","./utils/maths.js":"j2dov","./utils/audio.js":"hass9","./utils/tensor.js":"edyR7","./utils/image.js":"epJnQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aUywq":[function(require,module,exports) {
 /**
  * @file Tokenizers are used to prepare textual inputs for a model.
  * 
@@ -7080,7 +7085,7 @@ class AutoTokenizer {
     }
 }
 
-},{"./utils/core.js":"fCs5s","./utils/hub.js":"gC4YA","./utils/maths.js":"j2dov","./utils/tensor.js":"edyR7","./utils/data-structures.js":"2sE6Z","@huggingface/jinja":"gnBt1","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"fCs5s":[function(require,module,exports) {
+},{"./utils/core.js":"fCs5s","./utils/hub.js":"gC4YA","./utils/maths.js":"j2dov","./utils/tensor.js":"edyR7","./utils/data-structures.js":"2sE6Z","@huggingface/jinja":"gnBt1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fCs5s":[function(require,module,exports) {
 /**
  * @file Core utility functions/classes for Transformers.js.
  * 
@@ -7240,7 +7245,7 @@ function calculateReflectOffset(i, w) {
     return Math.abs((i + w) % (2 * w) - w);
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"cCJet":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -7770,7 +7775,7 @@ async function getModelJSON(modelPath, fileName, fatal = true, options = {}) {
     return parts.join("/");
 }
 
-},{"c0edbddfdbef5238":"d5jf4","f639a2b222defb3d":"fCgem","fs":"6mmIE","path":"6mmIE","stream/web":"6mmIE","../env.js":"7pc4k","./core.js":"fCs5s","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"d5jf4":[function(require,module,exports) {
+},{"c0edbddfdbef5238":"d5jf4","f639a2b222defb3d":"fCgem","fs":"jhUEF","path":"jhUEF","stream/web":"jhUEF","../env.js":"7pc4k","./core.js":"fCs5s","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d5jf4":[function(require,module,exports) {
 // shim for using process in browser
 var process = module.exports = {};
 // cached from whatever global is present so that test runners that stub it
@@ -9315,7 +9320,7 @@ exports.write = function(buffer, value, offset, isLE, mLen, nBytes) {
     buffer[offset + i - d] |= s * 128;
 };
 
-},{}],"6mmIE":[function(require,module,exports) {
+},{}],"jhUEF":[function(require,module,exports) {
 "use strict";
 
 },{}],"7pc4k":[function(require,module,exports) {
@@ -9400,7 +9405,7 @@ const env = {
     return Object.keys(obj).length === 0;
 }
 
-},{"fs":"6mmIE","path":"6mmIE","url":"6mmIE","./backends/onnx.js":"hud3n","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"hud3n":[function(require,module,exports) {
+},{"fs":"jhUEF","path":"jhUEF","url":"jhUEF","./backends/onnx.js":"hud3n","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hud3n":[function(require,module,exports) {
 /**
  * @file Handler file for choosing the correct version of ONNX Runtime, based on the environment.
  * Ideally, we could import the `onnxruntime-web` and `onnxruntime-node` packages only when needed,
@@ -9446,7 +9451,7 @@ if (typeof process !== "undefined" && process?.release?.name === "node") {
     if (isIOS) ONNX.env.wasm.simd = false;
 }
 
-},{"8c15d8a5439ab8f2":"d5jf4","onnxruntime-node":"6mmIE","onnxruntime-web":"7MNnr","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"7MNnr":[function(require,module,exports) {
+},{"8c15d8a5439ab8f2":"d5jf4","onnxruntime-node":"jhUEF","onnxruntime-web":"7MNnr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7MNnr":[function(require,module,exports) {
 /*!
 * ONNX Runtime Web v1.14.0
 * Copyright (c) Microsoft Corporation. All rights reserved.
@@ -24750,7 +24755,7 @@ parcelHelpers.exportAll(_tensor, exports);
 var _onnxValue = require("./onnx-value");
 parcelHelpers.exportAll(_onnxValue, exports);
 
-},{"./backend":"hS8GK","./env":"kAFxu","./inference-session":"5c4S4","./tensor":"am6mQ","./onnx-value":"ieKPa","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"hS8GK":[function(require,module,exports) {
+},{"./backend":"hS8GK","./env":"kAFxu","./inference-session":"5c4S4","./tensor":"am6mQ","./onnx-value":"ieKPa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hS8GK":[function(require,module,exports) {
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -24758,7 +24763,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "registerBackend", ()=>(0, _backendImpl.registerBackend));
 var _backendImpl = require("./backend-impl");
 
-},{"./backend-impl":"1SBjz","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"1SBjz":[function(require,module,exports) {
+},{"./backend-impl":"1SBjz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1SBjz":[function(require,module,exports) {
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -24820,7 +24825,7 @@ const resolveBackend = async (backendHints)=>{
     throw new Error(`no available backend found. ERR: ${errors.map((e)=>`[${e.name}] ${e.err}`).join(", ")}`);
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"kAFxu":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kAFxu":[function(require,module,exports) {
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -24829,7 +24834,7 @@ parcelHelpers.export(exports, "env", ()=>env);
 var _envImpl = require("./env-impl");
 const env = new (0, _envImpl.EnvImpl)();
 
-},{"./env-impl":"a3xop","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"a3xop":[function(require,module,exports) {
+},{"./env-impl":"a3xop","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a3xop":[function(require,module,exports) {
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -24858,7 +24863,7 @@ class EnvImpl {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"5c4S4":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5c4S4":[function(require,module,exports) {
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -24867,7 +24872,7 @@ parcelHelpers.export(exports, "InferenceSession", ()=>InferenceSession);
 var _inferenceSessionImpl = require("./inference-session-impl");
 const InferenceSession = (0, _inferenceSessionImpl.InferenceSession);
 
-},{"./inference-session-impl":"9kYah","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"9kYah":[function(require,module,exports) {
+},{"./inference-session-impl":"9kYah","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9kYah":[function(require,module,exports) {
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -24984,7 +24989,7 @@ class InferenceSession {
     }
 }
 
-},{"./backend-impl":"1SBjz","./tensor":"am6mQ","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"am6mQ":[function(require,module,exports) {
+},{"./backend-impl":"1SBjz","./tensor":"am6mQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"am6mQ":[function(require,module,exports) {
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -24993,7 +24998,7 @@ parcelHelpers.export(exports, "Tensor", ()=>Tensor);
 var _tensorImpl = require("./tensor-impl");
 const Tensor = (0, _tensorImpl.Tensor);
 
-},{"./tensor-impl":"klk5G","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"klk5G":[function(require,module,exports) {
+},{"./tensor-impl":"klk5G","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"klk5G":[function(require,module,exports) {
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -25407,13 +25412,13 @@ class Tensor {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"ieKPa":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ieKPa":[function(require,module,exports) {
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"j2dov":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j2dov":[function(require,module,exports) {
 /**
  * @file Helper module for mathematical processing. 
  * 
@@ -26211,7 +26216,7 @@ function bankers_round(x) {
     return br;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"edyR7":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"edyR7":[function(require,module,exports) {
 /**
  * @file Helper module for `Tensor` processing.
  * 
@@ -27142,7 +27147,7 @@ function quantize_embeddings(tensor, precision) {
     ]);
 }
 
-},{"../backends/onnx.js":"hud3n","./maths.js":"j2dov","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"2sE6Z":[function(require,module,exports) {
+},{"../backends/onnx.js":"hud3n","./maths.js":"j2dov","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2sE6Z":[function(require,module,exports) {
 /**
  * @file Custom data structures.
  * 
@@ -27483,7 +27488,7 @@ class TokenLatticeNode {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"gnBt1":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gnBt1":[function(require,module,exports) {
 // src/lexer.ts
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -29042,7 +29047,7 @@ var Template = class {
     }
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"5MKS9":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5MKS9":[function(require,module,exports) {
 /**
  * @file Definitions of all models available in Transformers.js.
  * 
@@ -35904,7 +35909,7 @@ class VitsModelOutput extends ModelOutput {
     }
 }
 
-},{"./configs.js":"dqUyV","./utils/core.js":"fCs5s","./utils/hub.js":"gC4YA","./utils/generation.js":"cYSd3","./utils/tensor.js":"edyR7","./backends/onnx.js":"hud3n","./transformers.js":"8EOkg","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"dqUyV":[function(require,module,exports) {
+},{"./configs.js":"dqUyV","./utils/core.js":"fCs5s","./utils/hub.js":"gC4YA","./utils/generation.js":"cYSd3","./utils/tensor.js":"edyR7","./backends/onnx.js":"hud3n","./transformers.js":"8EOkg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dqUyV":[function(require,module,exports) {
 /**
  * @file Helper module for using model configs. For more information, see the corresponding
  * [Python documentation](https://huggingface.co/docs/transformers/main/en/model_doc/auto#transformers.AutoConfig).
@@ -35990,7 +35995,7 @@ class AutoConfig {
     }
 }
 
-},{"./utils/hub.js":"gC4YA","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"cYSd3":[function(require,module,exports) {
+},{"./utils/hub.js":"gC4YA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cYSd3":[function(require,module,exports) {
 /**
  * @file Classes, functions, and utilities for generation.
  * 
@@ -36632,7 +36637,7 @@ class Sampler extends (0, _coreJs.Callable) {
     }
 }
 
-},{"./tensor.js":"edyR7","./core.js":"fCs5s","./maths.js":"j2dov","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"c7dx1":[function(require,module,exports) {
+},{"./tensor.js":"edyR7","./core.js":"fCs5s","./maths.js":"j2dov","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c7dx1":[function(require,module,exports) {
 /**
  * @file Processors are used to prepare non-textual inputs (e.g., image or audio) for a model.
  * 
@@ -38293,7 +38298,7 @@ class AutoProcessor {
     }
 }
 
-},{"./utils/core.js":"fCs5s","./utils/hub.js":"gC4YA","./utils/maths.js":"j2dov","./utils/tensor.js":"edyR7","./utils/image.js":"epJnQ","./utils/audio.js":"hass9","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"epJnQ":[function(require,module,exports) {
+},{"./utils/core.js":"fCs5s","./utils/hub.js":"gC4YA","./utils/maths.js":"j2dov","./utils/tensor.js":"edyR7","./utils/image.js":"epJnQ","./utils/audio.js":"hass9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"epJnQ":[function(require,module,exports) {
 /**
  * @file Helper module for image processing. 
  * 
@@ -38858,7 +38863,7 @@ class RawImage {
     }
 }
 
-},{"./hub.js":"gC4YA","../env.js":"7pc4k","./tensor.js":"edyR7","sharp":"6mmIE","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}],"hass9":[function(require,module,exports) {
+},{"./hub.js":"gC4YA","../env.js":"7pc4k","./tensor.js":"edyR7","sharp":"jhUEF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hass9":[function(require,module,exports) {
 /**
  * @file Helper module for audio processing. 
  * 
@@ -39327,6 +39332,6 @@ function window_function(window_length, name, { periodic = true, frame_length = 
     return window;
 }
 
-},{"./hub.js":"gC4YA","./maths.js":"j2dov","./core.js":"fCs5s","@parcel/transformer-js/src/esmodule-helpers.js":"cCJet"}]},["cp7K3","fu8nu"], "fu8nu", "parcelRequire94c2")
+},{"./hub.js":"gC4YA","./maths.js":"j2dov","./core.js":"fCs5s","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["fVvGJ","fu8nu"], "fu8nu", "parcelRequire94c2")
 
 //# sourceMappingURL=index.5b924430.js.map
