@@ -1,4 +1,3 @@
-// server/src/routes/gameRoutes.js
 const express = require('express');
 const { startNewGame, continueGame, submitAction } = require('../controllers/gameController');
 

@@ -1,0 +1,17 @@
+{
+  "name": "text-adventure-ai-server",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.1.2",
+    "sequelize": "^6.31.0",
+    "mysql2": "^2.3.3",
+    "@huggingface/inference": "^1.5.1",
+    "dotenv": "^10.0.0"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  }
+}

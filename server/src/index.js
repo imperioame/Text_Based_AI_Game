@@ -1,8 +1,7 @@
-// server/src/index.js
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
-const sequelize = require('./config/database');
+const { sequelize, connectWithRetry } = require('./config/database');
 const dotenv = require('dotenv');
 const gameRoutes = require('./routes/gameRoutes');
 
@@ -12,19 +11,30 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
 
-sequelize.sync()
-  .then(() => console.log('Database connected'))
-  .catch(err => console.error('Database connection error:', err));
+const startServer = async () => {
+  await connectWithRetry();
+  
+  try {
+    await sequelize.authenticate();
+    console.log('Database connected');
+    await sequelize.sync();
+    console.log('Database synchronized');
 
-app.use(express.json());
-app.use('/api/game', gameRoutes);
+    app.use(express.json());
+    app.use('/api/game', gameRoutes);
 
-io.on('connection', (socket) => {
-  console.log('New client connected');
-  socket.on('disconnect', () => {
-    console.log('Client disconnected');
-  });
-});
+    io.on('connection', (socket) => {
+      console.log('New client connected');
+      socket.on('disconnect', () => {
+        console.log('Client disconnected');
+      });
+    });
 
-const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    const PORT = process.env.PORT || 5000;
+    server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+};
+
+startServer();

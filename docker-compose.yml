@@ -1,40 +1,21 @@
-version: '3'
+version: '3.8'
 services:
-  mysql:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: text_adventure_ai
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
-
   server:
-    build:
-      context: ./server
-      dockerfile: Dockerfile
+    build: ./server
     ports:
-      - "5000:5000"
-    environment:
-      - DB_HOST=mysql
-      - DB_NAME=text_adventure_ai
-      - DB_USER=user
-      - DB_PASSWORD=password
-      - HUGGINGFACE_API_KEY=${HUGGINGFACE_API_KEY}
-    depends_on:
-      - mysql
+      - '5000:5000'
+    env_file:
+      - .env
+    volumes:
+      - ./server:/usr/src/app
+    command: npm run dev
 
   client:
-    build:
-      context: ./client
-      dockerfile: Dockerfile
+    build: ./client
     ports:
-      - "3000:3000"
+      - '3000:3000'
     environment:
-      - REACT_APP_API_URL=http://localhost:5000
-
-volumes:
-  mysql_data:
+      - NODE_ENV=development
+    volumes:
+      - ./client:/usr/src/app
+    command: npm start

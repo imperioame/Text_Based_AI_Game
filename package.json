@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "AI powered text based game",
   "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "docker-compose up",
+    "build": "docker-compose build",
+    "client": "cd client && npm start",
+    "server": "cd server && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
@@ -27,6 +32,7 @@
     "@huggingface/inference": "^1.5.1"
   },
   "devDependencies": {
+    "concurrently": "^6.2.0",
     "@babel/core": "^7.24.9",
     "@babel/preset-env": "^7.24.8",
     "@babel/preset-react": "^7.24.7",

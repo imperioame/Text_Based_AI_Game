@@ -1,29 +1,17 @@
-// client/src/components/Sidebar.js
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
-function Sidebar() {
-  const { savedGames } = useSelector((state) => state.game);
-
+function Sidebar({ isOpen, onClose, onNewGame }) {
   return (
-    <aside className="w-64 bg-white shadow-md">
-      <div className="p-4">
-        <h2 className="text-xl font-bold mb-4">Your Adventures</h2>
-        <Link to="/" className="block mb-2 text-blue-600 hover:underline">
-          Start New Adventure
-        </Link>
-        <ul>
-          {savedGames.map((game) => (
-            <li key={game.id}>
-              <Link to={`/game/${game.id}`} className="block py-2 hover:bg-gray-100">
-                {game.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </aside>
+    <div className={fixed inset-y-0 left-0 w-64 bg-gray-800 p-4 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-200 ease-in-out}>
+      <button className="absolute top-0 right-0 m-4 text-white" onClick={onClose}>
+        X
+      </button>
+      <h2 className="text-xl font-bold mb-4">Your Adventures</h2>
+      <button className="w-full px-4 py-2 bg-green-700 text-white rounded" onClick={onNewGame}>
+        Start New Game
+      </button>
+      {/* TODO: Add list of saved games */}
+    </div>
   );
 }
 

@@ -1,17 +1,20 @@
-// client/src/redux/gameSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 
 export const startNewGame = createAsyncThunk('game/startNew', async () => {
-  // TODO: Implement API call to start a new game
+  const response = await axios.post('/api/game/new');
+  return response.data;
 });
 
 export const continueGame = createAsyncThunk('game/continue', async (gameId) => {
-  // TODO: Implement API call to continue an existing game
+  const response = await axios.get(/api/game/${gameId});
+  return response.data;
 });
 
 export const submitAction = createAsyncThunk('game/submitAction', async (action, { getState }) => {
-  // TODO: Implement API call to submit user action and get next story segment
+  const { gameId } = getState().game;
+  const response = await axios.post(/api/game/${gameId}/action, { action });
+  return response.data;
 });
 
 const gameSlice = createSlice({
@@ -20,19 +23,26 @@ const gameSlice = createSlice({
     currentStory: '',
     options: [],
     gameState: null,
-    savedGames: [],
+    gameId: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(startNewGame.fulfilled, (state, action) => {
-        // TODO: Update state with new game data
+        state.currentStory = action.payload.story;
+        state.options = action.payload.options;
+        state.gameState = action.payload.gameState;
+        state.gameId = action.payload.id;
       })
       .addCase(continueGame.fulfilled, (state, action) => {
-        // TODO: Update state with continued game data
+        state.currentStory = action.payload.story;
+        state.options = action.payload.options;
+        state.gameState = action.payload.gameState;
       })
       .addCase(submitAction.fulfilled, (state, action) => {
-        // TODO: Update state with new story segment and options
+        state.currentStory += '\n\n' + action.payload.story;
+        state.options = action.payload.options;
+        state.gameState = action.payload.gameState;
       });
   },
 });
