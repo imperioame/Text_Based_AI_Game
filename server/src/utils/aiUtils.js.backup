@@ -1,13 +1,8 @@
-const { pipeline } = require('@xenova/transformers');
+const { HfInference } = require('@huggingface/inference');
 
-// Load the model and tokenizer
-const setupModel = async () => {
-  const generator = await pipeline('text-generation', 'facebook/blenderbot-400M-distill');
-  return generator;
-};
+const hf = new HfInference(process.env.HUGGINGFACE_API_KEY);
 
-// Initialize the model
-let modelPromise = setupModel();
+const conversationHistory = [];
 
 const storyThemes = [
   "space exploration",
@@ -23,24 +18,25 @@ const storyThemes = [
   "random"
 ];
 
-const conversationHistory = [];
-
 exports.generateStory = async () => {
   const randomTheme = storyThemes[Math.floor(Math.random() * storyThemes.length)];
-  const prompt = `Human: Generate a text-based adventure game opening scenario for a ${randomTheme} theme. Follow this structure:
+  const prompt = `Generate a ${randomTheme} adventure game opening scenario:
+1. Setting: Describe the setting.
+2. Character: Introduce the main character.
+3. Situation: Explain the current challenge.
+4. Options: Provide 3 choices for the player.`;
 
-1. Setting: Describe the initial setting in 2-3 sentences.
-2. Character: Introduce the main character in 1-2 sentences.
-3. Situation: Explain the current situation or challenge in 2-3 sentences.
-4. Options: Provide exactly three numbered options for the player, each on a new line.
+  const response = await hf.textGeneration({
+    model: 'facebook/blenderbot-400M-distill',
+    inputs: prompt,
+    parameters: {
+      max_new_tokens: 250,
+      temperature: 0.8,
+      top_p: 0.9,
+    },
+  });
 
-AI:`;
-
-  // Use the model to generate text
-  const generator = await modelPromise;
-  const response = await generator(prompt, { max_length: 400, temperature: 0.8, top_p: 0.9 });
-  const story = response[0].generated_text.trim();
-
+  const story = response.generated_text.trim();
   conversationHistory.push(story);
   const { processedStory, options } = extractStoryAndOptions(story);
   const gameState = { scene: 'opening', theme: randomTheme };
@@ -61,11 +57,17 @@ exports.processAction = async (gameState, action) => {
 
 AI:`;
 
-  // Use the model to generate text
-  const generator = await modelPromise;
-  const response = await generator(prompt, { max_length: 400, temperature: 0.8, top_p: 0.9 });
-  const story = response[0].generated_text.trim();
+  const response = await hf.textGeneration({
+    model: 'facebook/blenderbot-400M-distill',
+    inputs: prompt,
+    parameters: {
+      max_new_tokens: 400,
+      temperature: 0.8,
+      top_p: 0.9,
+    },
+  });
 
+  const story = response.generated_text.trim();
   conversationHistory.push(story);
   const { processedStory, options } = extractStoryAndOptions(story);
   const newGameState = { ...gameState, scene: 'continuation' };
