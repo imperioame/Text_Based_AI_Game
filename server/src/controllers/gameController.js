@@ -11,6 +11,7 @@ exports.startNewGame = async (req, res) => {
     });
     res.status(201).json(newGame);
   } catch (error) {
+    console.error('Error starting new game:', error);
     res.status(500).json({ message: 'Error starting new game', error });
   }
 };
@@ -23,6 +24,7 @@ exports.continueGame = async (req, res) => {
     }
     res.json(game);
   } catch (error) {
+    console.error('Error continuing game:', error);
     res.status(500).json({ message: 'Error continuing game', error });
   }
 };
@@ -41,6 +43,7 @@ exports.submitAction = async (req, res) => {
     await game.save();
     res.json(game);
   } catch (error) {
+    console.error('Error processing action:', error);
     res.status(500).json({ message: 'Error processing action', error });
   }
 };

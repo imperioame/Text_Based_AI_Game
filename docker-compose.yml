@@ -9,6 +9,8 @@ services:
     volumes:
       - ./server:/usr/src/app
     command: npm run dev
+    depends_on:
+      - db
 
   client:
     build: ./client
@@ -19,3 +21,18 @@ services:
     volumes:
       - ./client:/usr/src/app
     command: npm start
+
+  db:
+    image: mysql:5.7
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: text_adventure
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

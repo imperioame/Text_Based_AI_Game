@@ -2,7 +2,7 @@ import React from 'react';
 
 function Sidebar({ isOpen, onClose, onNewGame }) {
   return (
-    <div className={fixed inset-y-0 left-0 w-64 bg-gray-800 p-4 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-200 ease-in-out}>
+    <div className={`fixed inset-y-0 left-0 w-64 bg-gray-800 p-4 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-200 ease-in-out`}>
       <button className="absolute top-0 right-0 m-4 text-white" onClick={onClose}>
         X
       </button>

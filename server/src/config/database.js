@@ -15,12 +15,12 @@ const connectWithRetry = async () => {
         user: dbUser,
         password: dbPassword,
       });
-      await connection.query(CREATE DATABASE IF NOT EXISTS \${dbName}\;);
+      await connection.query(`CREATE DATABASE IF NOT EXISTS \`${dbName}\`;`);
       console.log('Database created or already exists');
       connection.end();
       break;
     } catch (err) {
-      console.log(Failed to connect to database (${retries} retries left):, err);
+      console.log(`Failed to connect to database (${retries} retries left):`, err);
       retries -= 1;
       await new Promise(res => setTimeout(res, 5000));
     }
