@@ -1,13 +1,11 @@
-const { pipeline } = require('@xenova/transformers');
+const { HfInference } = require('@huggingface/inference');
+const fs = require('fs');
+const path = require('path');
 
-// Load the model and tokenizer
-const setupModel = async () => {
-  const generator = await pipeline('text-generation', 'facebook/blenderbot-400M-distill');
-  return generator;
-};
+const hf = new HfInference(process.env.HUGGINGFACE_API_KEY);
 
-// Initialize the model
-let modelPromise = setupModel();
+const conversationHistory = [];
+const logFilePath = path.join(__dirname, 'interaction_log.txt');
 
 const storyThemes = [
   "space exploration",
@@ -20,30 +18,55 @@ const storyThemes = [
   "wild west frontier",
   "arctic expedition",
   "jungle survival",
-  "random"
+  "random topic"
 ];
 
-const conversationHistory = [];
+const isDevelopment = process.env.SERVER === 'development';
+
+function logInteraction(type, message) {
+  const logEntry = `[${new Date().toISOString()}] ${type}: ${message}\n`;
+  fs.appendFileSync(logFilePath, logEntry);
+  console.log(logEntry);
+}
+
+function checkPromptLength(prompt) {
+  if (prompt.length > 250) {
+    const warning = `Warning: Prompt exceeds 250 characters. Length: ${prompt.length}`;
+    logInteraction('Warning', warning);
+    if (isDevelopment) {
+      return warning;
+    }
+  }
+  return null;
+}
 
 exports.generateStory = async () => {
   const randomTheme = storyThemes[Math.floor(Math.random() * storyThemes.length)];
-  const prompt = `Human: Generate a text-based adventure game opening scenario for a ${randomTheme} theme. Follow this structure:
+  const prompt = `You're a master storyteller. Tell me a story of a ${randomTheme} where I'm the main character.`;
+  // What do I see? What's the current situation?. Tell me what can I do.
 
-1. Setting: Describe the initial setting in 2-3 sentences.
-2. Character: Introduce the main character in 1-2 sentences.
-3. Situation: Explain the current situation or challenge in 2-3 sentences.
-4. Options: Provide exactly three numbered options for the player, each on a new line.
+  logInteraction('User', prompt);
 
-AI:`;
+  const warning = checkPromptLength(prompt);
+  if (warning) return warning;
 
-  // Use the model to generate text
-  const generator = await modelPromise;
-  const response = await generator(prompt, { max_length: 400, temperature: 0.8, top_p: 0.9 });
-  const story = response[0].generated_text.trim();
+  const response = await hf.textGeneration({
+    model: 'facebook/blenderbot-400M-distill',
+    inputs: prompt,
+    parameters: {
+      max_new_tokens: 250,
+      temperature: 0.8,
+      top_p: 0.9,
+    },
+  });
 
+  const story = response.generated_text.trim();
   conversationHistory.push(story);
+
+  logInteraction('AI', story);
+
   const { processedStory, options } = extractStoryAndOptions(story);
-  const gameState = { scene: 'opening', theme: randomTheme };
+  const gameState = { scene: 'opening', theme: randomTheme, lastScene: processedStory };
 
   return { story: processedStory, options, gameState };
 };
@@ -53,22 +76,32 @@ exports.getConversationHistory = () => {
 };
 
 exports.processAction = async (gameState, action) => {
-  const prompt = `Human: Continue the ${gameState.theme} themed text-based adventure game. Previous scene: ${gameState.scene}. Player's action: ${action}. Follow this structure:
+  const actionWithoutNumber = action.replace(/^\d+\.\s*/, '').trim();
+  const prompt = `I ${actionWithoutNumber}. What happens next? Remember that this is a ${gameState.theme} story`;
 
-1. Outcome: Describe the result of the player's action in 2-3 sentences.
-2. New Situation: Explain the new situation or challenge in 2-3 sentences.
-3. Options: Provide exactly three numbered options for the player, each on a new line.
+  logInteraction('System', gameState.lastScene);
+  logInteraction('User', prompt);
 
-AI:`;
+  const warning = checkPromptLength(prompt);
+  if (warning) return warning;
 
-  // Use the model to generate text
-  const generator = await modelPromise;
-  const response = await generator(prompt, { max_length: 400, temperature: 0.8, top_p: 0.9 });
-  const story = response[0].generated_text.trim();
+  const response = await hf.textGeneration({
+    model: 'facebook/blenderbot-400M-distill',
+    inputs: prompt,
+    parameters: {
+      max_new_tokens: 250,
+      temperature: 0.8,
+      top_p: 0.9,
+    },
+  });
 
+  const story = response.generated_text.trim();
   conversationHistory.push(story);
+
+  logInteraction('AI', story);
+
   const { processedStory, options } = extractStoryAndOptions(story);
-  const newGameState = { ...gameState, scene: 'continuation' };
+  const newGameState = { ...gameState, scene: 'continuation', lastScene: processedStory };
 
   return { story: processedStory, options, gameState: newGameState };
 };
@@ -111,5 +144,11 @@ function extractStoryAndOptions(text) {
     });
   }
 
-  return { processedStory, options };
+  // Separate the last scene narrative from the options for optimization
+  const narrative = processedStory.split("\n\nYour options are:")[0].trim();
+
+  logInteraction('System', processedStory);  
+  logInteraction('System', options);  
+  logInteraction('System', narrative);  
+  return { processedStory, options, narrative };
 }

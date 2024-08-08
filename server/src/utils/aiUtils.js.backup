@@ -1,8 +1,11 @@
 const { HfInference } = require('@huggingface/inference');
+const fs = require('fs');
+const path = require('path');
 
 const hf = new HfInference(process.env.HUGGINGFACE_API_KEY);
 
 const conversationHistory = [];
+const logFilePath = path.join(__dirname, 'interaction_log.txt');
 
 const storyThemes = [
   "space exploration",
@@ -18,28 +21,73 @@ const storyThemes = [
   "random"
 ];
 
-exports.generateStory = async () => {
-  const randomTheme = storyThemes[Math.floor(Math.random() * storyThemes.length)];
-  const prompt = `Generate a ${randomTheme} adventure game opening scenario:
-1. Setting: Describe the setting.
-2. Character: Introduce the main character.
-3. Situation: Explain the current challenge.
-4. Options: Provide 3 choices for the player.`;
+const EOP = "<EOP>"; // End Of Prompt
+const WFP = "<WFP>"; // Wait For Prompt
+
+function logInteraction(type, message) {
+  const logEntry = `[${new Date().toISOString()}] ${type}: ${message}\n`;
+  fs.appendFileSync(logFilePath, logEntry);
+  console.log(logEntry);
+}
+
+async function initializeAI() {
+  const initPrompt = `You will receive prompts in parts. When you see "${WFP}", wait for the next part. Respond only after you see "${EOP}".`;
+
+  logInteraction('System', initPrompt);
 
   const response = await hf.textGeneration({
     model: 'facebook/blenderbot-400M-distill',
-    inputs: prompt,
+    inputs: initPrompt,
     parameters: {
-      max_new_tokens: 250,
+      max_new_tokens: 50,
       temperature: 0.8,
       top_p: 0.9,
     },
   });
 
-  const story = response.generated_text.trim();
+  logInteraction('AI', response.generated_text.trim());
+}
+
+exports.generateStory = async () => {
+  await initializeAI();
+  const randomTheme = storyThemes[Math.floor(Math.random() * storyThemes.length)];
+  const prompt =`Tell me a story in ${randomTheme}. I'm the main character. What do I see, what's the current situation. Tell me what can i do.`;
+  /*const prompt = `Generate a text-based adventure game opening scenario for a ${randomTheme} theme. Follow this structure:
+1. Setting: Describe the initial setting in 2-3 sentences.
+2. Character: Introduce the main character in 1-2 sentences.
+3. Situation: Explain the current situation or challenge in 2-3 sentences.
+4. Options: Provide exactly three numbered options for the player, each on a new line.`;
+*/
+  logInteraction('User', prompt);
+
+  const serializedPrompts = serializePrompt(prompt);
+
+  let fullResponse = '';
+  for (const chunk of serializedPrompts) {
+    logInteraction('User Chunk', chunk);
+
+    const response = await hf.textGeneration({
+      model: 'facebook/blenderbot-400M-distill',
+      inputs: chunk,
+      parameters: {
+        max_new_tokens: 250,
+        temperature: 0.8,
+        top_p: 0.9,
+      },
+    });
+
+    const chunkResponse = response.generated_text.trim();
+    logInteraction('AI Chunk', chunkResponse);
+    fullResponse += chunkResponse + ' ';
+  }
+
+  const story = fullResponse.replace(EOP, '').replace(WFP, '').trim();
   conversationHistory.push(story);
+
+  logInteraction('AI', story);
+
   const { processedStory, options } = extractStoryAndOptions(story);
-  const gameState = { scene: 'opening', theme: randomTheme };
+  const gameState = { scene: 'opening', theme: randomTheme, lastScene: processedStory };
 
   return { story: processedStory, options, gameState };
 };
@@ -49,28 +97,44 @@ exports.getConversationHistory = () => {
 };
 
 exports.processAction = async (gameState, action) => {
-  const prompt = `Human: Continue the ${gameState.theme} themed text-based adventure game. Previous scene: ${gameState.scene}. Player's action: ${action}. Follow this structure:
+  const prompt =`I ${action}. What happens next? Remember that this is a ${gameState.theme} story`
+  /*const prompt = `Continue the ${gameState.theme} adventure. Last: ${gameState.lastScene}. Action: ${action}. Follow with:
+1. Outcome: Result of the action in 2-3 sentences.
+2. New Situation: New situation or challenge in 2-3 sentences.
+3. Options: Three numbered options for the player.`;
+*/
 
-1. Outcome: Describe the result of the player's action in 2-3 sentences.
-2. New Situation: Explain the new situation or challenge in 2-3 sentences.
-3. Options: Provide exactly three numbered options for the player, each on a new line.
+  logInteraction('System', gameState.lastScene);
+  logInteraction('User', prompt);
 
-AI:`;
+  const serializedPrompts = serializePrompt(prompt);
 
-  const response = await hf.textGeneration({
-    model: 'facebook/blenderbot-400M-distill',
-    inputs: prompt,
-    parameters: {
-      max_new_tokens: 400,
-      temperature: 0.8,
-      top_p: 0.9,
-    },
-  });
+  let fullResponse = '';
+  for (const chunk of serializedPrompts) {
+    logInteraction('User Chunk', chunk);
 
-  const story = response.generated_text.trim();
+    const response = await hf.textGeneration({
+      model: 'facebook/blenderbot-400M-distill',
+      inputs: chunk,
+      parameters: {
+        max_new_tokens: 250,
+        temperature: 0.8,
+        top_p: 0.9,
+      },
+    });
+
+    const chunkResponse = response.generated_text.trim();
+    logInteraction('AI Chunk', chunkResponse);
+    fullResponse += chunkResponse + ' ';
+  }
+
+  const story = fullResponse.replace(EOP, '').replace(WFP, '').trim();
   conversationHistory.push(story);
+
+  logInteraction('AI', story);
+
   const { processedStory, options } = extractStoryAndOptions(story);
-  const newGameState = { ...gameState, scene: 'continuation' };
+  const newGameState = { ...gameState, scene: 'continuation', lastScene: processedStory };
 
   return { story: processedStory, options, gameState: newGameState };
 };
@@ -113,5 +177,36 @@ function extractStoryAndOptions(text) {
     });
   }
 
-  return { processedStory, options };
+  // Separate the last scene narrative from the options for optimization
+  const narrative = processedStory.split("\n\nYour options are:")[0].trim();
+
+  logInteraction('System', processedStory);  
+  logInteraction('System', options);  
+  logInteraction('System', narrative);  
+  return { processedStory, options, narrative };
+}
+
+function serializePrompt(prompt, chunkSize = 250) {
+  const chunks = [];
+  let currentChunk = '';
+
+  const addChunk = (text) => {
+    if (currentChunk.length + text.length > chunkSize) {
+      chunks.push(currentChunk.trim());
+      currentChunk = WFP + ' ';
+    }
+    currentChunk += text;
+  };
+
+  const parts = prompt.split(/\s+/);
+  for (const part of parts) {
+    addChunk(part + ' ');
+  }
+  if (currentChunk) {
+    chunks.push(currentChunk.trim() + ' ' + EOP);
+  } else {
+    chunks[chunks.length - 1] += ' ' + EOP;
+  }
+
+  return chunks;
 }
