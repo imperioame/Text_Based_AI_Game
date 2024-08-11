@@ -43,7 +43,6 @@ const gameSlice = createSlice({
         state.gameState = action.payload.gameState;
       })
       .addCase(submitAction.fulfilled, (state, action) => {
-        //state.currentStory += '\n\n' + action.payload.story;
         state.currentStory = action.payload.story;
         state.options = action.payload.options;
         state.gameState = action.payload.gameState;

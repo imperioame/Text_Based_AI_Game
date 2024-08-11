@@ -30,9 +30,11 @@ function getModelConfig(prompt) {
     model: MODELS[0].repo,
     inputs: prompt,
     parameters: {
-      max_new_tokens: 250,
+      max_new_tokens: 100,
+      max_time: 20,
+      repetition_penalty: 50,
       // to adjust randomness
-      temperature: 1,
+      temperature: .3,
       top_p: 0.9,
     },
   }
@@ -77,7 +79,7 @@ function checkPromptLength(prompt) {
 
 exports.generateStory = async () => {
   const randomTheme = storyThemes[Math.floor(Math.random() * storyThemes.length)];
-  const prompt = `Tell me a brief story of a ${randomTheme} where I'm the main character. Keep the story brief, no more than 2 sentences, only answer back with the story.`;
+  const prompt = `Tell me a brief story of a ${randomTheme} where I'm the main character. Keep the story very short, only answer back with the story.`;
   //to give me options, tell me What's the current situation and What do I see. 
 
   logInteraction('User', prompt);

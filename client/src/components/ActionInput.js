@@ -10,12 +10,12 @@ function ActionInput({ options, onSubmit }) {
   };
 
   return (
-    <div>
-      <div className="mb-4">
+    <div className="space-y-4">
+      <div className="flex flex-wrap gap-2">
         {options.map((option, index) => (
           <button
             key={index}
-            className="mr-2 mb-2 px-4 py-2 bg-green-700 text-white rounded option_button"
+            className="px-4 py-2 bg-green-700 text-white rounded hover:bg-green-600 transition-colors duration-200 option_button"
             onClick={() => onSubmit(option)}
           >
             {option}
@@ -27,10 +27,13 @@ function ActionInput({ options, onSubmit }) {
           type="text"
           value={customAction}
           onChange={(e) => setCustomAction(e.target.value)}
-          className="flex-1 px-4 py-2 bg-gray-800 text-white rounded-l"
+          className="flex-1 px-4 py-2 bg-gray-800 text-white rounded-l focus:outline-none focus:ring-2 focus:ring-green-500"
           placeholder="Enter your action..."
         />
-        <button type="submit" className="px-4 py-2 bg-green-700 text-white rounded-r">
+        <button
+          type="submit"
+          className="px-4 py-2 bg-green-700 text-white rounded-r hover:bg-green-600 transition-colors duration-200"
+        >
           Submit
         </button>
       </form>
