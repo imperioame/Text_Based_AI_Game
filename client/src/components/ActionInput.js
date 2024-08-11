@@ -15,7 +15,7 @@ function ActionInput({ options, onSubmit }) {
         {options.map((option, index) => (
           <button
             key={index}
-            className="mr-2 mb-2 px-4 py-2 bg-green-700 text-white rounded"
+            className="mr-2 mb-2 px-4 py-2 bg-green-700 text-white rounded option_button"
             onClick={() => onSubmit(option)}
           >
             {option}

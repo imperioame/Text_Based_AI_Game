@@ -5,6 +5,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 export const startNewGame = createAsyncThunk('game/startNew', async () => {
   const response = await axios.post(`${API_URL}/game/new`);
+  console.log('response data (returned)', response.data);
   return response.data;
 });
 
@@ -42,7 +43,8 @@ const gameSlice = createSlice({
         state.gameState = action.payload.gameState;
       })
       .addCase(submitAction.fulfilled, (state, action) => {
-        state.currentStory += '\n\n' + action.payload.story;
+        //state.currentStory += '\n\n' + action.payload.story;
+        state.currentStory = action.payload.story;
         state.options = action.payload.options;
         state.gameState = action.payload.gameState;
       });

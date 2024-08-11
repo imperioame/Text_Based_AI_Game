@@ -1,8 +1,43 @@
-const { HfInference } = require('@huggingface/inference');
+const {
+  HfInference
+} = require('@huggingface/inference');
 const fs = require('fs');
 const path = require('path');
 
 const hf = new HfInference(process.env.HUGGINGFACE_API_KEY);
+
+// I can do a repo of different models that work for this game, for the user to select them
+const MODELS = [
+  {
+    name: 'GPT-Neo-2.7B',
+    repo: 'EleutherAI/gpt-neo-2.7B',
+    comments: 'continues what ive written'
+  },
+  {
+    name: 'OPT-2.7B',
+    repo: 'facebook/opt-2.7b',
+    comments: 'a slow loading model'
+  },
+  {
+    name: 'OPT-1.3b',
+    repo: 'facebook/opt-1.3b',
+    comments: 'a slow loading model'
+  }
+];
+
+function getModelConfig(prompt) {
+  return {
+    model: MODELS[0].repo,
+    inputs: prompt,
+    parameters: {
+      max_new_tokens: 250,
+      // to adjust randomness
+      temperature: 1,
+      top_p: 0.9,
+    },
+  }
+};
+
 
 const conversationHistory = [];
 const logFilePath = path.join(__dirname, 'interaction_log.txt');
@@ -42,33 +77,37 @@ function checkPromptLength(prompt) {
 
 exports.generateStory = async () => {
   const randomTheme = storyThemes[Math.floor(Math.random() * storyThemes.length)];
-  const prompt = `You're a master storyteller. Tell me a story of a ${randomTheme} where I'm the main character.`;
-  // What do I see? What's the current situation?. Tell me what can I do.
+  const prompt = `Tell me a brief story of a ${randomTheme} where I'm the main character. Keep the story brief, no more than 2 sentences, only answer back with the story.`;
+  //to give me options, tell me What's the current situation and What do I see. 
 
   logInteraction('User', prompt);
 
   const warning = checkPromptLength(prompt);
   if (warning) return warning;
 
-  const response = await hf.textGeneration({
-    model: 'facebook/blenderbot-400M-distill',
-    inputs: prompt,
-    parameters: {
-      max_new_tokens: 250,
-      temperature: 0.8,
-      top_p: 0.9,
-    },
-  });
+  const response = await hf.textGeneration(getModelConfig(prompt));
 
-  const story = response.generated_text.trim();
+  const fullText = response.generated_text.trim();
+  const story = fullText.replace(prompt, '').trim();
   conversationHistory.push(story);
 
   logInteraction('AI', story);
 
-  const { processedStory, options } = extractStoryAndOptions(story);
-  const gameState = { scene: 'opening', theme: randomTheme, lastScene: processedStory };
+  const {
+    processedStory,
+    options
+  } = extractStoryAndOptions(story);
+  const gameState = {
+    scene: 'opening',
+    theme: randomTheme,
+    lastScene: processedStory
+  };
 
-  return { story: processedStory, options, gameState };
+  return {
+    story: processedStory,
+    options,
+    gameState
+  };
 };
 
 exports.getConversationHistory = () => {
@@ -77,7 +116,7 @@ exports.getConversationHistory = () => {
 
 exports.processAction = async (gameState, action) => {
   const actionWithoutNumber = action.replace(/^\d+\.\s*/, '').trim();
-  const prompt = `I ${actionWithoutNumber}. What happens next? Remember that this is a ${gameState.theme} story`;
+  const prompt = `What happens next? Following the ${gameState.theme} story, I ${actionWithoutNumber}. What follows?`;
 
   logInteraction('System', gameState.lastScene);
   logInteraction('User', prompt);
@@ -85,25 +124,29 @@ exports.processAction = async (gameState, action) => {
   const warning = checkPromptLength(prompt);
   if (warning) return warning;
 
-  const response = await hf.textGeneration({
-    model: 'facebook/blenderbot-400M-distill',
-    inputs: prompt,
-    parameters: {
-      max_new_tokens: 250,
-      temperature: 0.8,
-      top_p: 0.9,
-    },
-  });
+  const response = await hf.textGeneration(getModelConfig(prompt));
 
-  const story = response.generated_text.trim();
+  const fullText = response.generated_text.trim();
+  const story = fullText.replace(prompt, '').trim();
   conversationHistory.push(story);
 
   logInteraction('AI', story);
 
-  const { processedStory, options } = extractStoryAndOptions(story);
-  const newGameState = { ...gameState, scene: 'continuation', lastScene: processedStory };
+  const {
+    processedStory,
+    options
+  } = extractStoryAndOptions(story);
+  const newGameState = {
+    ...gameState,
+    scene: 'continuation',
+    lastScene: processedStory
+  };
 
-  return { story: processedStory, options, gameState: newGameState };
+  return {
+    story: processedStory,
+    options,
+    gameState: newGameState
+  };
 };
 
 function extractStoryAndOptions(text) {
@@ -138,17 +181,22 @@ function extractStoryAndOptions(text) {
     }
 
     // Append the generated options to the story
-    processedStory += "\n\nYour options are:";
+    /*processedStory += "\n\nYour options are:";
     options.forEach(option => {
       processedStory += `\n${option}`;
     });
+    */
   }
 
   // Separate the last scene narrative from the options for optimization
   const narrative = processedStory.split("\n\nYour options are:")[0].trim();
 
-  logInteraction('System', processedStory);  
-  logInteraction('System', options);  
-  logInteraction('System', narrative);  
-  return { processedStory, options, narrative };
+  logInteraction('System', processedStory);
+  logInteraction('System', options);
+  logInteraction('System', narrative);
+  return {
+    processedStory,
+    options,
+    narrative
+  };
 }
