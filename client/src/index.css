@@ -1,19 +1,13 @@
-@import 'tailwindcss/base.css';
-@import 'tailwindcss/components.css';
-@import 'tailwindcss/utilities.css';
-* {
-  font-family: "VT323", monospace;
+html {
+  background-color: rgb(64, 64, 64);
 }
 
 body {
-  background-color: black;
-  background-image: radial-gradient(rgba(0, 52, 150, 0.75), black 120%);
+  font-family: "VT323", monospace;
   height: 100vh;
   margin: 0;
   overflow: hidden;
-  padding: 2rem;
   color: white;
-  /*font: 1.3rem Inconsolata, monospace;*/
   text-shadow: 0 0 5px #C8C8C8;
 }
 body::after {
@@ -23,35 +17,32 @@ body::after {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 2px, transparent 2px, transparent 4px);
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 2px, transparent 2px, transparent 4px);
   pointer-events: none;
 }
 
 ::-moz-selection {
-  background: #0080FF;
-  text-shadow: none;
+  @apply bg-blue-600 text-shadow-none;
 }
 
 ::selection {
-  background: #0080FF;
-  text-shadow: none;
-}
-
-pre p {
-  margin: 0;
+  @apply bg-blue-600 text-shadow-none;
 }
 
 #storyDisplay {
-  text-align: center;
-  max-height: 25vh;
-  overflow-y: auto;
-  font-size: 1.3em;
+  @apply text-center max-h-[25vh] overflow-y-auto text-xl;
 }
 
-/*
-.option_button{
-  background-color: transparent;
-  border: 2px solid white;
-  text-shadow: 0 0 5px #C8C8C8;
+.option_button {
+  @apply bg-transparent border-2 border-white text-shadow;
 }
-  *//*# sourceMappingURL=index.css.map */
+
+#root {
+  margin: 2em;
+  height: calc(100vh - 4rem);
+  border-radius: 6px;
+}
+
+/*#root div{ 
+  height: 100%;
+}*//*# sourceMappingURL=index.css.map */

@@ -5,7 +5,7 @@ import Game from './components/Game';
 function App() {
   return (
     <Router>
-      <div className="bg-gray-900 min-h-screen text-green-400 font-mono">
+      <div className="p-16 rounded-xl h-full bg-gray-900 text-indigo-300">
         <Switch>
           <Route exact path="/" component={Game} />
         </Switch>

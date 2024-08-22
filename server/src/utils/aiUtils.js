@@ -2,41 +2,100 @@ const {
   HfInference
 } = require('@huggingface/inference');
 const fs = require('fs');
+const {
+  type
+} = require('os');
 const path = require('path');
 
 const hf = new HfInference(process.env.HUGGINGFACE_API_KEY);
 
+const MODELTYPES = [
+  'textgen',
+  'qa',
+  'conversational'
+];
+
 // I can do a repo of different models that work for this game, for the user to select them
-const MODELS = [
+const MODELS = [{
+    name: 'DialoGPT-medium',
+    repo: 'microsoft/DialoGPT-medium',
+    comments: '',
+    type: MODELTYPES[2]
+  },
+  {
+    name: 'RoBERTa',
+    repo: 'deepset/roberta-base-squad2',
+    comments: '',
+    type: MODELTYPES[1]
+  },
   {
     name: 'GPT-Neo-2.7B',
     repo: 'EleutherAI/gpt-neo-2.7B',
-    comments: 'continues what ive written'
+    comments: 'Its ok, difficult to limit the answer',
+    type: MODELTYPES[0]
   },
   {
     name: 'OPT-2.7B',
     repo: 'facebook/opt-2.7b',
-    comments: 'a slow loading model'
+    comments: 'a slow loading model',
+    type: MODELTYPES[0]
   },
   {
     name: 'OPT-1.3b',
     repo: 'facebook/opt-1.3b',
-    comments: 'a slow loading model'
+    comments: 'a slow loading model',
+    type: MODELTYPES[0]
   }
 ];
 
-function getModelConfig(prompt) {
-  return {
-    model: MODELS[0].repo,
-    inputs: prompt,
-    parameters: {
-      max_new_tokens: 100,
-      max_time: 20,
-      repetition_penalty: 50,
-      // to adjust randomness
-      temperature: .3,
-      top_p: 0.9,
-    },
+function getModelConfig(prompt1, prompt2 = '', prompt3 = '') {
+  switch (MODELS[0].type) {
+    case MODELTYPES[0]:
+      return {
+        model: MODELS[0].repo,
+          inputs: prompt,
+          parameters: {
+            max_new_tokens: 100,
+            max_time: 20,
+            repetition_penalty: 50,
+            // to adjust randomness
+            temperature: .3,
+            top_p: 0.9,
+          },
+      };
+    case MODELTYPES[1]:
+      return {
+        model: MODELS[0].repo,
+          inputs: {
+            question: prompt2,
+            context: prompt1
+          },
+          parameters: {
+            max_new_tokens: 100,
+            max_time: 20,
+            repetition_penalty: 50,
+            // to adjust randomness
+            temperature: .3,
+            top_p: 0.9,
+          },
+      };
+    case MODELTYPES[2]:
+      return {
+        model: MODELS[0].repo,
+          inputs: {
+            past_user_inputs: prompt1,
+            generated_responses: prompt3,
+            text: prompt2
+          },
+          parameters: {
+            max_new_tokens: 100,
+            max_time: 20,
+            repetition_penalty: 50,
+            // to adjust randomness
+            temperature: .3,
+            top_p: 0.9,
+          },
+      }
   }
 };
 
@@ -79,15 +138,46 @@ function checkPromptLength(prompt) {
 
 exports.generateStory = async () => {
   const randomTheme = storyThemes[Math.floor(Math.random() * storyThemes.length)];
-  const prompt = `Tell me a brief story of a ${randomTheme} where I'm the main character. Keep the story very short, only answer back with the story.`;
-  //to give me options, tell me What's the current situation and What do I see. 
+  let prompt1;
+  let prompt2 = '';
+  let prompt3 = '';
+  switch (MODELS[0].type) {
+    case MODELTYPES[0]:
+      //prompt1 is the base text for the ai to continue
+      prompt1 = `In 20 words, tell me a ${randomTheme} story where I'm the main character. Only answer back with the story`;
+      break;
+    case MODELTYPES[1]:
+      //prompt1 is the context for the ai
+      //prompt2 is the question
+      prompt1 = `We are in a ${randomTheme} story setting where I'm the main character`;
+      prompt2 = `What's the current situation and What do I see?`;
+      break;
+    case MODELTYPES[2]:
+      //prompt1 is the previous information provided to the ai
+      //prompt2 is the question, or the user input
+      //prompt3 is the generated responses of the ai
+      prompt1 = `We are in a ${randomTheme} story setting where I'm the main character`;
+      prompt2 = `What's the current situation and What do I see?`;
+      break;
+  }
+  //to give me options, . 
 
-  logInteraction('User', prompt);
+  logInteraction('User', prompt1 + prompt2);
 
-  const warning = checkPromptLength(prompt);
+  const warning = checkPromptLength(prompt1) || checkPromptLength(prompt2) || checkPromptLength(prompt3);
   if (warning) return warning;
 
-  const response = await hf.textGeneration(getModelConfig(prompt));
+  let response;
+  switch (MODELS[0].type) {
+    case MODELTYPES[0]:
+      response = await hf.textGeneration(getModelConfig(prompt1));
+      break;
+    case MODELTYPES[1]:
+      response = await hf.questionAnswer(getModelConfig(prompt1, prompt2));
+      break;
+    case MODELTYPES[2]:
+      response = await hf.conversational(getModelConfig(prompt1, prompt2, prompt3));
+  };
 
   const fullText = response.generated_text.trim();
   const story = fullText.replace(prompt, '').trim();
@@ -118,15 +208,48 @@ exports.getConversationHistory = () => {
 
 exports.processAction = async (gameState, action) => {
   const actionWithoutNumber = action.replace(/^\d+\.\s*/, '').trim();
-  const prompt = `What happens next? Following the ${gameState.theme} story, I ${actionWithoutNumber}. What follows?`;
+
+  let prompt1;
+  let prompt2 = '';
+  let prompt3 = '';
+  switch (MODELS[0].type) {
+    case MODELTYPES[0]:
+      //prompt1 is the base text for the ai to continue
+      prompt1 = `What happens next? Following the ${gameState.theme} story, I ${actionWithoutNumber}. What follows?`;
+      break;
+    case MODELTYPES[1]:
+      //prompt1 is the context for the ai
+      //prompt2 is the question
+      prompt1 = `Following the ${gameState.theme} story, I ${actionWithoutNumber}`;
+      prompt2 = `What happens next? What follows?`;
+      break;
+    case MODELTYPES[2]:
+      //prompt1 is the previous information provided to the ai
+      //prompt2 is the question, or the user input
+      //prompt3 is the generated responses of the ai
+      prompt1 = `In a ${gameState.theme} story, I ${actionWithoutNumber}`;
+      prompt2 = `What happens next? What follows?`;
+      prompt3 =  gameState.lastScene;
+      break;
+  }
 
   logInteraction('System', gameState.lastScene);
-  logInteraction('User', prompt);
+  logInteraction('User', prompt1 + prompt2);
 
-  const warning = checkPromptLength(prompt);
+  const warning = checkPromptLength(prompt1) || checkPromptLength(prompt2) || checkPromptLength(prompt3);
   if (warning) return warning;
 
-  const response = await hf.textGeneration(getModelConfig(prompt));
+  let response;
+  switch (MODELS[0].type) {
+    case MODELTYPES[0]:
+      response = await hf.textGeneration(getModelConfig(prompt1));
+      break;
+    case MODELTYPES[1]:
+      response = await hf.questionAnswer(getModelConfig(prompt1, prompt2));
+      break;
+    case MODELTYPES[2]:
+      response = await hf.conversational(getModelConfig(prompt1, prompt2, prompt3));
+  };
 
   const fullText = response.generated_text.trim();
   const story = fullText.replace(prompt, '').trim();

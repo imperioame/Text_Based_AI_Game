@@ -27,7 +27,7 @@ function Game() {
   return (
     <div className="flex">
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} onNewGame={() => dispatch(startNewGame())} />
-      <div className="flex-1 p-4">
+      <div className="flex-1 justify-center">
         <button
           className="mb-4 px-4 py-2 bg-green-700 text-white rounded"
           onClick={() => setSidebarOpen(true)}
