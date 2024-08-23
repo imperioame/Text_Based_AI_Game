@@ -1490,3 +1490,53 @@ She asked me how
 [2024-08-22T09:59:14.506Z] User: We are in a jungle survival story setting where I'm the main characterWhat's the current situation and What do I see?
 [2024-08-22T10:21:29.844Z] User: We are in a post-apocalyptic wasteland story setting where I'm the main characterWhat's the current situation and What do I see?
 [2024-08-22T10:23:35.696Z] User: We are in a underwater civilization story setting where I'm the main characterWhat's the current situation and What do I see?
+[2024-08-23T05:42:07.564Z] User: We are in a medieval fantasy story setting where I'm the main characterWhat's the current situation and What do I see?
+[2024-08-23T05:53:56.164Z] User: We are in a arctic expedition story setting where I'm the main characterWhat's the current situation and What do I see?
+[2024-08-23T06:05:05.982Z] User: In 20 words, tell me a arctic expedition story where I'm the main character. Only answer back with the story
+[2024-08-23T07:49:07.066Z] User: We are in a wild west frontier story setting where I'm the main characterWhat's the current situation and What do I see?
+[2024-08-23T07:58:08.220Z] User: []Let's start a wild west frontier story where I'm the main character. What's the current situation and what do I see?[]
+[2024-08-23T08:01:25.589Z] User: []Let's start a post-apocalyptic wasteland story where I'm the main character. What's the current situation and what do I see?[]
+[2024-08-23T08:50:05.631Z] User: Model: DialoGPT-medium, Prompt: Let's start a underwater civilization story where I'm the main character. What's the current situation and what do I see? undefined undefined
+[2024-08-23T08:50:05.636Z] Debug: API Request: {"model":"microsoft/DialoGPT-medium","inputs":"Let's start a underwater civilization story where I'm the main character. What's the current situation and what do I see?","parameters":{"max_new_tokens":100,"max_time":20,"repetition_penalty":50,"temperature":0.7,"top_p":0.9,"do_sample":true}}
+[2024-08-23T08:51:36.245Z] Debug: API Response: {"generated_text":"Let's start a underwater civilization story where I'm the main character. What's the current situation and what do I see?"}
+[2024-08-23T08:51:36.256Z] AI: Let's start a underwater civilization story where I'm the main character. What's the current situation and what do I see?
+[2024-08-23T08:51:36.267Z] System: Let's start a underwater civilization story where I'm the main character. What's the current situation and what do I see?
+[2024-08-23T08:51:36.292Z] System: 1. Rest and plan your next move,2. Check your surroundings,3. Try to find a way out
+[2024-08-23T08:51:36.320Z] System: Let's start a underwater civilization story where I'm the main character. What's the current situation and what do I see?
+[2024-08-23T08:58:34.613Z] User: Model: DialoGPT-medium, Prompt: Tell me a arctic expedition story where I'm the main character undefined undefined
+[2024-08-23T08:58:34.621Z] Debug: API Request: {"model":"microsoft/DialoGPT-medium","inputs":"Tell me a arctic expedition story where I'm the main character","parameters":{"max_new_tokens":100,"max_time":20,"repetition_penalty":50,"temperature":0.7,"top_p":0.9,"do_sample":true}}
+[2024-08-23T08:58:35.902Z] Debug: API Response: {"generated_text":"Tell me a arctic expedition story where I'm the main character."}
+[2024-08-23T08:58:35.907Z] AI: Tell me a arctic expedition story where I'm the main character.
+[2024-08-23T08:58:35.912Z] System: Tell me a arctic expedition story where I'm the main character.
+[2024-08-23T08:58:35.917Z] System: 1. Call for help,2. Rest and plan your next move,3. Investigate further
+[2024-08-23T08:58:35.922Z] System: Tell me a arctic expedition story where I'm the main character.
+[2024-08-23T08:58:50.654Z] User: Model: DialoGPT-medium, Prompt: In this arctic expedition story, I Call for help. What happens next? undefined undefined
+[2024-08-23T08:58:50.659Z] Debug: API Request: {"model":"microsoft/DialoGPT-medium","inputs":"In this arctic expedition story, I Call for help. What happens next?","parameters":{"max_new_tokens":100,"max_time":20,"repetition_penalty":50,"temperature":0.7,"top_p":0.9,"do_sample":true}}
+[2024-08-23T08:58:51.477Z] Debug: API Response: {"generated_text":"In this arctic expedition story, I Call for help. What happens next?"}
+[2024-08-23T08:58:51.482Z] AI: In this arctic expedition story, I Call for help. What happens next?
+[2024-08-23T08:58:51.487Z] System: In this arctic expedition story, I Call for help. What happens next?
+[2024-08-23T08:58:51.491Z] System: 1. Set up camp or find shelter,2. Search for clues,3. Attempt to use a skill or ability
+[2024-08-23T08:58:51.496Z] System: In this arctic expedition story, I Call for help. What happens next?
+[2024-08-23T08:58:56.079Z] User: Model: DialoGPT-medium, Prompt: In this arctic expedition story, I Search for clues. What happens next? undefined undefined
+[2024-08-23T08:58:56.085Z] Debug: API Request: {"model":"microsoft/DialoGPT-medium","inputs":"In this arctic expedition story, I Search for clues. What happens next?","parameters":{"max_new_tokens":100,"max_time":20,"repetition_penalty":50,"temperature":0.7,"top_p":0.9,"do_sample":true}}
+[2024-08-23T08:58:57.020Z] Debug: API Response: {"generated_text":"In this arctic expedition story, I Search for clues. What happens next?"}
+[2024-08-23T08:58:57.025Z] AI: In this arctic expedition story, I Search for clues. What happens next?
+[2024-08-23T08:58:57.038Z] System: In this arctic expedition story, I Search for clues. What happens next?
+[2024-08-23T08:58:57.045Z] System: 1. Talk to someone nearby,2. Rest and plan your next move,3. Rest and plan your next move
+[2024-08-23T08:58:57.050Z] System: In this arctic expedition story, I Search for clues. What happens next?
+[2024-08-23T09:29:33.805Z] User: Model: BlenderBot, Prompt: [] Let's start a wild west frontier story where I'm the main character. What's the current situation and what do I see? []
+[2024-08-23T09:29:43.653Z] Error: Generate Story Error:  `args[0]`: {'past_user_inputs': [], 'generated_responses': [], 'text': "Let's start a wild west frontier story where I'm the main character. What's the current situation and what do I see?"} have the wrong format. The should be either of type `str` or type `list`
+[2024-08-23T09:37:41.015Z] User: Model: BlenderBot, Prompt: [] Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? []
+[2024-08-23T09:37:41.755Z] Error: Generate Story Error:  `args[0]`: {'past_user_inputs': ['[]'], 'generated_responses': ['[]'], 'text': "Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?"} have the wrong format. The should be either of type `str` or type `list`
+[2024-08-23T09:49:49.431Z] User: Model: BlenderBot, Prompt: [] Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see? []
+[2024-08-23T09:49:50.129Z] Error: Generate Story Error:  `args[0]`: {'past_user_inputs': '[]', 'generated_responses': '[]', 'text': "Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see?"} have the wrong format. The should be either of type `str` or type `list`
+[2024-08-23T09:59:47.606Z] User: Model: BlenderBot, Prompt:  Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-23T09:59:56.999Z] Error: Generate Story Error:  `args[0]`: {'past_user_inputs': [], 'generated_responses': [], 'text': "Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?"} have the wrong format. The should be either of type `str` or type `list`
+[2024-08-23T10:04:39.622Z] User: Model: BlenderBot, Prompt:  Let's start a wild west frontier story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-23T10:04:40.451Z] Error: Generate Story Error:  `args[0]`: {'past_user_inputs': '', 'generated_responses': '', 'text': "Let's start a wild west frontier story where I'm the main character. What's the current situation and what do I see?"} have the wrong format. The should be either of type `str` or type `list`
+[2024-08-23T10:06:06.062Z] User: Model: BlenderBot, Prompt: no Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-23T10:06:06.987Z] Error: Generate Story Error:  `args[0]`: {'past_user_inputs': 'no', 'generated_responses': '', 'text': "Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?"} have the wrong format. The should be either of type `str` or type `list`
+[2024-08-23T10:07:15.516Z] User: Model: BlenderBot, Prompt: no no no
+[2024-08-23T10:07:16.414Z] Error: Generate Story Error:  `args[0]`: {'past_user_inputs': 'no', 'generated_responses': 'no', 'text': 'no'} have the wrong format. The should be either of type `str` or type `list`
+[2024-08-23T10:10:30.661Z] User: Model: BlenderBot, Prompt: no no no
+[2024-08-23T10:10:37.554Z] Error: Generate Story Error: Cannot read property 'generated_responses' of undefined

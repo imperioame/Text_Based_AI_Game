@@ -15,7 +15,7 @@
   },
   "scripts": {
     "tailwind-bkp": "tailwind build ./src/tailwind_base.css -o ./src/tailwind.css",
-    "tailwind": "npx tailwindcss -i './src/tailwind_base.css' -o './src/tailwind.css'",
+    "tailwind": "npx tailwindcss -i ./src/tailwind_base.css -o ./src/tailwind.css",
     "start": "react-scripts start",
     "tailwind-and-start": "npm run tailwind && npm start",
     "build": "react-scripts build",
