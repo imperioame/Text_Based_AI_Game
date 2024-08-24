@@ -10,14 +10,14 @@ const hf = new HfInference(process.env.HUGGINGFACE_API_KEY);
  * 
  * Model selection 
  * 
-*******************/
-let currentModelIndex = 1;
+ *******************/
+let currentModelIndex = 0;
 
 /*******************
  * 
  * Model types
  * 
-*******************/
+ *******************/
 
 const MODELTYPES = [
   'textgen',
@@ -29,12 +29,31 @@ const MODELTYPES = [
  * 
  * Model definitions
  * 
-*******************/
+ *******************/
 
-const MODELS = [{
+const MODELS = [
+  {
+    name: 'flan-t5-base',
+    repo: 'google/flan-t5-base',
+    comments: '!!!! EUREKAA',
+    type: MODELTYPES[2]
+  },
+  {
+    name: 'gpt2-large-conversational-retrain',
+    repo: 'Locutusque/gpt2-large-conversational-retrain',
+    comments: 'slow load',
+    type: MODELTYPES[2]
+  },
+  {
+    name: 'gpt2-large',
+    repo: 'openai-community/gpt2-large',
+    comments: '',
+    type: MODELTYPES[0]
+  },
+  {
     name: 'DialoGPT-medium',
     repo: 'microsoft/DialoGPT-medium',
-    comments: '',
+    comments: 'slow load + doesnt answer',
     type: MODELTYPES[2]
   },
   {
@@ -109,53 +128,37 @@ async function checkModelStatus(modelName) {
 
 function getModelConfig(prompt1, prompt2 = '', prompt3 = '') {
   const currentModel = MODELS[currentModelIndex];
+  let inputs = '';
+  let parameters = {
+    max_new_tokens: 150,
+    max_time: 20,
+    repetition_penalty: 50,
+    temperature: 0.7,
+    top_k: 50,
+    top_p: 0.95,
+    do_sample: true,
+    no_repeat_ngram_size: 2,
+  };
+
   switch (currentModel.type) {
     case MODELTYPES[0]:
-      return {
-        model: currentModel.repo,
-          inputs: prompt1,
-          parameters: {
-            max_new_tokens: 150,
-            max_time: 20,
-            repetition_penalty: 50,
-            temperature: 0.9,
-            top_p: 0.95,
-            do_sample: true,
-            no_repeat_ngram_size: 2,
-          },
-      };
+      inputs = prompt1;
+      break;
     case MODELTYPES[1]:
-      return {
-        model: currentModel.repo,
-          inputs: {
-            question: prompt2,
-            context: prompt1
-          },
-          /*
-                    parameters: {
-                      max_new_tokens: 100,
-                      max_time: 20,
-                      repetition_penalty: 50,
-                      temperature: 0.7,
-                      top_p: 0.9,
-                    },*/
-      };
+      inputs = `Context: ${prompt1}\nQuestion: ${prompt2}`;
+      break;
     case MODELTYPES[2]:
-      return {
-        model: currentModel.repo,
-        inputs: {
-            past_user_inputs: prompt1 ? [prompt1] : [],
-            generated_responses: prompt3 ? [prompt3] : [],
-            text: prompt2 ? [prompt2] : [],
-          },/*
-          
-                    parameters: {
-                      max_length: 1000,
-                      temperature: 0.7,
-                      top_p: 0.9,
-                    },*/
-      };
+      const pastInputs = Array.isArray(prompt1) ? prompt1.join('\n') : prompt1;
+      const pastResponses = Array.isArray(prompt3) ? prompt3.join('\n') : prompt3;
+      inputs = `${pastInputs}\n${pastResponses}\n ${prompt2}`;
+      break;
   }
+
+  return {
+    model: currentModel.repo,
+    inputs: inputs,
+    parameters: parameters,
+  };
 }
 
 const conversationHistory = {
@@ -197,52 +200,38 @@ exports.generateStory = async () => {
 
   switch (currentModel.type) {
     case MODELTYPES[0]:
-      prompt1 = `In a ${randomTheme} story where I'm the main character, happens `;
-      //prompt1 = `Tell me a ${randomTheme} story where I'm the main character`;;
+      prompt1 = `In a ${randomTheme} story where I'm the main character, the following happens: `;
       break;
     case MODELTYPES[1]:
-      prompt1 = `We are in a ${randomTheme} story setting where I'm the main character`;
-      prompt2 = `What's the current situation and What do I see?`;
+      prompt1 = `We are in a ${randomTheme} story setting where I'm the main character.`;
+      prompt2 = `What's the current situation and what do I see?`;
       break;
     case MODELTYPES[2]:
-      //prompt1 = conversationHistory.pastUserInputs ?? '';
-      prompt1 = "no";
-      prompt2 = "no";
-      //prompt2 = `Let's start a ${randomTheme} story where I'm the main character. What's the current situation and what do I see?`;
-      prompt3 =  "no";
-      //prompt3 = conversationHistory.generatedResponses ?? '';
+      prompt1 = conversationHistory.pastUserInputs.join('\n');
+      prompt2 = `Let's start a ${randomTheme} story where I'm the main character. What's the current situation and what do I see?`;
+      prompt3 = conversationHistory.generatedResponses.join('\n');
       break;
   }
 
   logInteraction('User', `Model: ${MODELS[currentModelIndex].name}, Prompt: ${prompt1} ${prompt2} ${prompt3}`);
 
   try {
-    let response;
-    switch (currentModel.type) {
-      case MODELTYPES[0]:
-        response = await hf.textGeneration(getModelConfig(prompt1));
-        break;
-      case MODELTYPES[1]:
-        response = await hf.questionAnswering(getModelConfig(prompt1, prompt2));
-        break;
-      case MODELTYPES[2]:
-        response = await hf.conversational(getModelConfig(prompt1, prompt2, prompt3));
-        break;
-    }
+    const config = getModelConfig(prompt1, prompt2, prompt3);
+    const response = await hf.textGeneration(config);
+
 
     logInteraction('Debug', `API Response: ${JSON.stringify(response)}`);
     if (!response || !response.generated_text) {
       throw new Error('Invalid response from API');
-    }
+    };
 
-    let story;
+    let story = response.generated_text;
+    conversationHistory.generatedResponses.push(story);
     if (currentModel.type === MODELTYPES[2]) {
-      story = response.generated_text;
       conversationHistory.pastUserInputs.push(prompt2);
-      conversationHistory.generatedResponses.push(story);
-    } else {
-      story = response.answer || response.generated_text;
-    }
+    }else{
+      conversationHistory.pastUserInputs.push(`${prompt1} ${prompt2}`);
+    };
 
     logInteraction('AI', story);
 
@@ -264,6 +253,9 @@ exports.generateStory = async () => {
   } catch (error) {
     console.error('Error in generateStory:', error);
     logInteraction('Error', `Generate Story Error: ${error.message}`);
+    if (error.response) {
+      logInteraction('Error', `API Error Response: ${JSON.stringify(error.response)}`);
+    };
     throw error;
   }
 };
@@ -278,7 +270,7 @@ exports.processAction = async (gameState, action) => {
   const actionWithoutNumber = action.replace(/^\d+\.\s*/, '').trim();
   let prompt1, prompt2, prompt3;
 
-  switch (MODELS[currentModelIndex].type) {
+  switch (currentModel.type) {
     case MODELTYPES[0]:
       prompt1 = `In this ${gameState.theme} story, I ${actionWithoutNumber}. Then `;
       break;
@@ -287,27 +279,19 @@ exports.processAction = async (gameState, action) => {
       prompt2 = `What happens next? What follows?`;
       break;
     case MODELTYPES[2]:
-      prompt1 = conversationHistory.pastUserInputs;
-      prompt2 = `In this ${gameState.theme} story, I ${actionWithoutNumber}. What happens next?`;
-      prompt3 = conversationHistory.generatedResponses;
+      prompt1 = conversationHistory.pastUserInputs.join('\n');
+      prompt2 = `I ${actionWithoutNumber}. What happens next?`;
+      //doesnt seem to be needed, since i'm providing the story
+      //prompt2 = `In this ${gameState.theme} story, I ${actionWithoutNumber}. What happens next?`;
+      prompt3 = conversationHistory.generatedResponses.join('\n');
       break;
   }
 
   logInteraction('User', `Model: ${MODELS[currentModelIndex].name}, Prompt: ${prompt1} ${prompt2} ${prompt3}`);
 
   try {
-    let response;
-    switch (currentModel.type) {
-      case MODELTYPES[0]:
-        response = await hf.textGeneration(getModelConfig(prompt1));
-        break;
-      case MODELTYPES[1]:
-        response = await hf.questionAnswering(getModelConfig(prompt1, prompt2));
-        break;
-      case MODELTYPES[2]:
-        response = await hf.conversational(getModelConfig(prompt1, prompt2, prompt3));
-        break;
-    }
+    const config = getModelConfig(prompt1, prompt2, prompt3);
+    const response = await hf.textGeneration(config);
 
     logInteraction('Debug', `API Response: ${JSON.stringify(response)}`);
 
@@ -315,14 +299,13 @@ exports.processAction = async (gameState, action) => {
       throw new Error('Invalid response from API');
     }
 
-    let story;
+    let story = response.generated_text;
+    conversationHistory.generatedResponses.push(story);
     if (currentModel.type === MODELTYPES[2]) {
-      story = response.generated_text;
       conversationHistory.pastUserInputs.push(prompt2);
-      conversationHistory.generatedResponses.push(story);
-    } else {
-      story = response.answer || response.generated_text;
-    }
+    }else{
+      conversationHistory.pastUserInputs.push(`${prompt1} ${prompt2}`);
+    };
 
     logInteraction('AI', story);
 

@@ -1540,3 +1540,166 @@ She asked me how
 [2024-08-23T10:07:16.414Z] Error: Generate Story Error:  `args[0]`: {'past_user_inputs': 'no', 'generated_responses': 'no', 'text': 'no'} have the wrong format. The should be either of type `str` or type `list`
 [2024-08-23T10:10:30.661Z] User: Model: BlenderBot, Prompt: no no no
 [2024-08-23T10:10:37.554Z] Error: Generate Story Error: Cannot read property 'generated_responses' of undefined
+[2024-08-23T22:16:02.057Z] User: Model: BlenderBot, Prompt: no no no
+[2024-08-23T22:16:10.742Z] Error: Generate Story Error:  `args[0]`: {'past_user_inputs': ['no'], 'generated_responses': ['no'], 'text': ['no']} have the wrong format. The should be either of type `str` or type `list`
+[2024-08-23T22:37:04.498Z] User: Model: BlenderBot, Prompt:  Let's start a medieval fantasy story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-23T22:37:13.020Z] Error: Generate Story Error:  `args[0]`: {'past_user_inputs': [], 'generated_responses': [], 'text': "Let's start a medieval fantasy story where I'm the main character. What's the current situation and what do I see?"} have the wrong format. The should be either of type `str` or type `list`
+[2024-08-23T22:38:26.093Z] User: Model: DialoGPT-medium, Prompt:  Let's start a space exploration story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-23T22:38:49.887Z] Error: Generate Story Error: invalid json response body at https://api-inference.huggingface.co/models/microsoft/DialoGPT-medium reason: Unexpected token F in JSON at position 0
+[2024-08-23T23:04:09.636Z] User: Model: DialoGPT-medium, Prompt:  Let's start a wild west frontier story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-23T23:04:33.572Z] Error: Generate Story Error: Cannot read property 'generated_responses' of undefined
+[2024-08-23T23:09:19.351Z] User: Model: BlenderBot, Prompt:  Let's start a post-apocalyptic wasteland story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-23T23:09:19.367Z] Error: Generate Story Error: hf.conversational is not a function
+[2024-08-24T00:24:20.811Z] User: Model: BlenderBot, Prompt:  Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-24T00:24:30.478Z] Error: Generate Story Error:  `args[0]`: {'past_user_inputs': [], 'generated_responses': [], 'text': "Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see?"} have the wrong format. The should be either of type `str` or type `list`
+[2024-08-24T00:25:52.135Z] User: Model: BlenderBot, Prompt:  Let's start a space exploration story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-24T00:25:52.793Z] Error: Generate Story Error:  `args[0]`: {'past_user_inputs': [], 'generated_responses': [], 'text': "Let's start a space exploration story where I'm the main character. What's the current situation and what do I see?"} have the wrong format. The should be either of type `str` or type `list`
+[2024-08-24T00:36:38.992Z] User: Model: BlenderBot, Prompt:  Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-24T00:36:51.198Z] Debug: API Response: {"generated_text":" Steampunk is such a cool genre of literature. Do you like it?"}
+[2024-08-24T00:36:51.203Z] AI:  Steampunk is such a cool genre of literature. Do you like it?
+[2024-08-24T00:36:51.208Z] System: Steampunk is such a cool genre of literature. Do you like it?
+[2024-08-24T00:36:51.213Z] System: 1. Talk to someone nearby,2. Rest and plan your next move,3. Try to find a way out
+[2024-08-24T00:36:51.222Z] System: Steampunk is such a cool genre of literature. Do you like it?
+[2024-08-24T00:39:44.992Z] User: Model: DialoGPT-medium, Prompt:  Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-24T00:40:12.010Z] Debug: API Response: {"generated_text":"\n\nHuman: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?\nAI:"}
+[2024-08-24T00:40:12.014Z] AI: 
+
+Human: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+AI:
+[2024-08-24T00:40:12.020Z] System: Human: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+AI:
+[2024-08-24T00:40:12.024Z] System: 1. Attempt to use a skill or ability,2. Try to find a way out,3. Attempt to use a skill or ability
+[2024-08-24T00:40:12.028Z] System: Human: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+AI:
+[2024-08-24T00:40:42.123Z] User: Model: DialoGPT-medium, Prompt: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see? In this steampunk adventure story, I Attempt to use a skill or ability. What happens next? 
+
+Human: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+AI:
+[2024-08-24T00:40:43.633Z] Debug: API Response: {"generated_text":"Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?\n\n\nHuman: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?\nAI:\nHuman: In this steampunk adventure story, I Attempt to use a skill or ability. What happens next?\nAI: automagically suggestions you."}
+[2024-08-24T00:40:43.637Z] AI: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+
+Human: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+AI:
+Human: In this steampunk adventure story, I Attempt to use a skill or ability. What happens next?
+AI: automagically suggestions you.
+[2024-08-24T00:40:43.641Z] System: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+
+Human: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+AI:
+Human: In this steampunk adventure story, I Attempt to use a skill or ability. What happens next?
+AI: automagically suggestions you.
+[2024-08-24T00:40:43.645Z] System: 1. Rest and plan your next move,2. Check your surroundings,3. Try to find a way out
+[2024-08-24T00:40:43.650Z] System: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+
+Human: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+AI:
+Human: In this steampunk adventure story, I Attempt to use a skill or ability. What happens next?
+AI: automagically suggestions you.
+[2024-08-24T00:41:03.270Z] User: Model: DialoGPT-medium, Prompt: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+In this steampunk adventure story, I Attempt to use a skill or ability. What happens next? In this steampunk adventure story, I Check your surroundings. What happens next? 
+
+Human: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+AI:
+Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+
+Human: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+AI:
+Human: In this steampunk adventure story, I Attempt to use a skill or ability. What happens next?
+AI: automagically suggestions you.
+[2024-08-24T00:41:04.396Z] Debug: API Response: {"generated_text":"Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?\nIn this steampunk adventure story, I Attempt to use a skill or ability. What happens next?\n\n\nHuman: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?\nAI:\nLet's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?\n\n\nHuman: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?\nAI:\nHuman: In this steampunk adventure story, I Attempt to use a skill or ability. What happens next?\nAI: automagically suggestions you.\nHuman: In this steampunk adventure story, I Check your surroundings. What happens next?\nAI:"}
+[2024-08-24T00:41:04.398Z] AI: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+In this steampunk adventure story, I Attempt to use a skill or ability. What happens next?
+
+
+Human: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+AI:
+Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+
+Human: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+AI:
+Human: In this steampunk adventure story, I Attempt to use a skill or ability. What happens next?
+AI: automagically suggestions you.
+Human: In this steampunk adventure story, I Check your surroundings. What happens next?
+AI:
+[2024-08-24T00:41:04.401Z] System: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+In this steampunk adventure story, I Attempt to use a skill or ability. What happens next?
+
+
+Human: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+AI:
+Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+
+Human: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+AI:
+Human: In this steampunk adventure story, I Attempt to use a skill or ability. What happens next?
+AI: automagically suggestions you.
+Human: In this steampunk adventure story, I Check your surroundings. What happens next?
+AI:
+[2024-08-24T00:41:04.404Z] System: 1. Use an item from your inventory,2. Call for help,3. Attempt to use a skill or ability
+[2024-08-24T00:41:04.407Z] System: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+In this steampunk adventure story, I Attempt to use a skill or ability. What happens next?
+
+
+Human: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+AI:
+Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+
+Human: Let's start a steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+AI:
+Human: In this steampunk adventure story, I Attempt to use a skill or ability. What happens next?
+AI: automagically suggestions you.
+Human: In this steampunk adventure story, I Check your surroundings. What happens next?
+AI:
+[2024-08-24T00:46:24.047Z] User: Model: DialoGPT-medium, Prompt:  Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-24T00:46:25.374Z] Debug: API Response: {"generated_text":"\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n."}
+[2024-08-24T00:46:25.379Z] AI: 
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+.
+[2024-08-24T00:46:25.383Z] System: Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+.
+[2024-08-24T00:46:25.387Z] System: 1. Search for clues,2. Try to find a way out,3. Use an item from your inventory
+[2024-08-24T00:46:25.390Z] System: Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+.
+[2024-08-24T00:56:53.756Z] User: Model: DialoGPT-medium, Prompt:  Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-24T00:56:54.466Z] Error: Generate Story Error: An error occurred while fetching the blob
+[2024-08-24T00:59:57.755Z] User: Model: DialoGPT-medium, Prompt:  Let's start a post-apocalyptic wasteland story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-24T01:00:22.002Z] Error: Generate Story Error: An error occurred while fetching the blob
+[2024-08-24T01:05:57.987Z] User: Model: DialoGPT-medium, Prompt:  Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-24T01:05:58.904Z] Debug: API Response: {"generated_text":"\n\n Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see?"}
+[2024-08-24T01:05:58.909Z] AI: 
+
+ Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see?
+[2024-08-24T01:05:58.914Z] System: Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see?
+[2024-08-24T01:05:58.917Z] System: 1. Investigate further,2. Check your surroundings,3. Check your surroundings
+[2024-08-24T01:05:58.921Z] System: Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see?
+[2024-08-24T01:09:32.652Z] User: Model: gpt2-large-conversational-retrain, Prompt:  Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-24T01:10:17.731Z] Debug: API Response: {"generated_text":"\n\n Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see?  Alright, let me explain this to you like it was yesterday:\nThe Ancient Egyptians were an amazing group of people who lived in one place for thousands or maybe even millions years before we knew about writing! They had lots more secrets than just how they did things because so many different cultures have discovered their hidden stories through time that make us wonder if there really is something beyond our ordinary understanding when talking with them...or perhaps some kind entity has been sending messages all these days from another dimension!! So imagine two little brothers playing hide-and -seek together on top steps while trying not bump into each other at any point during those long nights watching over every step as well :). This could be quite exciting indeed!!! Now back onto today (yes"}
+[2024-08-24T01:10:17.736Z] AI: 
+
+ Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see?  Alright, let me explain this to you like it was yesterday:
+The Ancient Egyptians were an amazing group of people who lived in one place for thousands or maybe even millions years before we knew about writing! They had lots more secrets than just how they did things because so many different cultures have discovered their hidden stories through time that make us wonder if there really is something beyond our ordinary understanding when talking with them...or perhaps some kind entity has been sending messages all these days from another dimension!! So imagine two little brothers playing hide-and -seek together on top steps while trying not bump into each other at any point during those long nights watching over every step as well :). This could be quite exciting indeed!!! Now back onto today (yes
+[2024-08-24T01:10:17.742Z] System: Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see?  Alright, let me explain this to you like it was yesterday:
+The Ancient Egyptians were an amazing group of people who lived in one place for thousands or maybe even millions years before we knew about writing! They had lots more secrets than just how they did things because so many different cultures have discovered their hidden stories through time that make us wonder if there really is something beyond our ordinary understanding when talking with them...or perhaps some kind entity has been sending messages all these days from another dimension!! So imagine two little brothers playing hide-and -seek together on top steps while trying not bump into each other at any point during those long nights watching over every step as well :). This could be quite exciting indeed!!! Now back onto today (yes
+[2024-08-24T01:10:17.748Z] System: 1. Call for help,2. Check your surroundings,3. Talk to someone nearby
+[2024-08-24T01:10:17.761Z] System: Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see?  Alright, let me explain this to you like it was yesterday:
+The Ancient Egyptians were an amazing group of people who lived in one place for thousands or maybe even millions years before we knew about writing! They had lots more secrets than just how they did things because so many different cultures have discovered their hidden stories through time that make us wonder if there really is something beyond our ordinary understanding when talking with them...or perhaps some kind entity has been sending messages all these days from another dimension!! So imagine two little brothers playing hide-and -seek together on top steps while trying not bump into each other at any point during those long nights watching over every step as well :). This could be quite exciting indeed!!! Now back onto today (yes
+[2024-08-24T01:14:08.126Z] User: Model: flan-t5-xxl, Prompt:  Let's start a space exploration story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-24T01:14:54.863Z] Error: Generate Story Error: Model google/flan-t5-xxl time out
+[2024-08-24T01:17:53.238Z] User: Model: flan-t5-base, Prompt:  Let's start a wild west frontier story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-24T01:18:04.365Z] Debug: API Response: {"generated_text":"The main character is a man who is working on his first wild west frontier adventure. He's got henchmen in town and armed men in the jungle waiting for him. The two women are very excited about their prospect of joining the antelope pack. They have already beaten the deer down but it seems they've been killed by wolves."}
+[2024-08-24T01:18:04.369Z] AI: The main character is a man who is working on his first wild west frontier adventure. He's got henchmen in town and armed men in the jungle waiting for him. The two women are very excited about their prospect of joining the antelope pack. They have already beaten the deer down but it seems they've been killed by wolves.
+[2024-08-24T01:18:04.377Z] System: The main character is a man who is working on his first wild west frontier adventure. He's got henchmen in town and armed men in the jungle waiting for him. The two women are very excited about their prospect of joining the antelope pack. They have already beaten the deer down but it seems they've been killed by wolves.
+[2024-08-24T01:18:04.379Z] System: 1. Try to find a way out,2. Search for clues,3. Call for help
+[2024-08-24T01:18:04.382Z] System: The main character is a man who is working on his first wild west frontier adventure. He's got henchmen in town and armed men in the jungle waiting for him. The two women are very excited about their prospect of joining the antelope pack. They have already beaten the deer down but it seems they've been killed by wolves.
+[2024-08-24T03:10:45.495Z] User: Model: flan-t5-base, Prompt: Let's start a wild west frontier story where I'm the main character. What's the current situation and what do I see? I Try to find a way out. What happens next? The main character is a man who is working on his first wild west frontier adventure. He's got henchmen in town and armed men in the jungle waiting for him. The two women are very excited about their prospect of joining the antelope pack. They have already beaten the deer down but it seems they've been killed by wolves.
+[2024-08-24T03:11:01.191Z] Error: Process Action Error: Service Unavailable
+[2024-08-24T03:11:27.896Z] User: Model: flan-t5-base, Prompt: Let's start a wild west frontier story where I'm the main character. What's the current situation and what do I see? I Search for clues. What happens next? The main character is a man who is working on his first wild west frontier adventure. He's got henchmen in town and armed men in the jungle waiting for him. The two women are very excited about their prospect of joining the antelope pack. They have already beaten the deer down but it seems they've been killed by wolves.
+[2024-08-24T03:11:42.478Z] Error: Process Action Error: Service Unavailable
