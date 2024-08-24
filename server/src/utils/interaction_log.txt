@@ -1703,3 +1703,1355 @@ The Ancient Egyptians were an amazing group of people who lived in one place for
 [2024-08-24T03:11:01.191Z] Error: Process Action Error: Service Unavailable
 [2024-08-24T03:11:27.896Z] User: Model: flan-t5-base, Prompt: Let's start a wild west frontier story where I'm the main character. What's the current situation and what do I see? I Search for clues. What happens next? The main character is a man who is working on his first wild west frontier adventure. He's got henchmen in town and armed men in the jungle waiting for him. The two women are very excited about their prospect of joining the antelope pack. They have already beaten the deer down but it seems they've been killed by wolves.
 [2024-08-24T03:11:42.478Z] Error: Process Action Error: Service Unavailable
+[2024-08-24T04:32:31.530Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a jungle survival story where I'm the main character. What's the current situation and what do I see? undefined
+[2024-08-24T04:32:45.326Z] Error: Generate Story Error:  `args[0]`: {'model': 'ystemsrx/Qwen2-Boundless', 'inputs': '', 'parameters': {'max_new_tokens': 150, 'max_time': 20, 'repetition_penalty': 50, 'temperature': 0.7, 'top_k': 50, 'top_p': 0.95, 'do_sample': True, 'no_repeat_ngram_size': 2}} have the wrong format. The should be either of type `str` or type `list`
+[2024-08-24T04:41:33.839Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a space exploration story where I'm the main character. What's the current situation and what do I see? 
+[2024-08-24T04:41:36.225Z] Error: Generate Story Error:  `args[0]`: {'model': 'ystemsrx/Qwen2-Boundless', 'inputs': '', 'parameters': {'max_new_tokens': 150, 'max_time': 20, 'repetition_penalty': 50, 'temperature': 0.7, 'top_k': 50, 'top_p': 0.95, 'do_sample': True, 'no_repeat_ngram_size': 2}} have the wrong format. The should be either of type `str` or type `list`
+[2024-08-24T04:44:19.217Z] User: Model: flan-t5-base, Prompt:  Let's start a random topic story where I'm the main character. What's the current situation and what do I see? undefined
+[2024-08-24T04:44:29.356Z] Error: Generate Story Error:  `args[0]`: {'model': 'google/flan-t5-base', 'inputs': '', 'parameters': {'max_new_tokens': 150, 'max_time': 20, 'repetition_penalty': 50, 'temperature': 0.7, 'top_k': 50, 'top_p': 0.95, 'do_sample': True, 'no_repeat_ngram_size': 2}} have the wrong format. The should be either of type `str` or type `list`
+[2024-08-24T08:41:03.656Z] User: Model: flan-t5-base, Prompt:  Let's start a post-apocalyptic wasteland story where I'm the main character. What's the current situation and what do I see? undefined
+[2024-08-24T08:41:06.095Z] Debug: API Response: {"generated_text":"The main character is a small town in the East End of New York City. He is living in slums and has no home. His family, friends, and coworkers are all dying from hunger or starvation. Their children are sick with disease due to hunger which has destroyed their homes. The new town is now known as Shrew'S Corner."}
+[2024-08-24T08:41:06.109Z] AI: The main character is a small town in the East End of New York City. He is living in slums and has no home. His family, friends, and coworkers are all dying from hunger or starvation. Their children are sick with disease due to hunger which has destroyed their homes. The new town is now known as Shrew'S Corner.
+[2024-08-24T08:41:06.127Z] System: The main character is a small town in the East End of New York City. He is living in slums and has no home. His family, friends, and coworkers are all dying from hunger or starvation. Their children are sick with disease due to hunger which has destroyed their homes. The new town is now known as Shrew'S Corner.
+[2024-08-24T08:41:06.155Z] System: 1. Investigate further,2. Rest and plan your next move,3. Set up camp or find shelter
+[2024-08-24T08:41:06.163Z] System: The main character is a small town in the East End of New York City. He is living in slums and has no home. His family, friends, and coworkers are all dying from hunger or starvation. Their children are sick with disease due to hunger which has destroyed their homes. The new town is now known as Shrew'S Corner.
+[2024-08-24T08:50:55.542Z] User: Model: flan-t5-base, Prompt:  Let's start a post-apocalyptic wasteland story where I'm the main character. What's the current situation and what do I see?
+The main character is a small town in the East End of New York City. He is living in slums and has no home. His family, friends, and coworkers are all dying from hunger or starvation. Their children are sick with disease due to hunger which has destroyed their homes. The new town is now known as Shrew'S Corner. I Investigate further. What happens next? undefined
+[2024-08-24T08:51:06.247Z] Debug: API Response: {"generated_text":"He finds that all of his family, friends, and coworkers are now dead."}
+[2024-08-24T08:51:06.252Z] AI: He finds that all of his family, friends, and coworkers are now dead.
+[2024-08-24T08:51:06.256Z] System: He finds that all of his family, friends, and coworkers are now dead.
+[2024-08-24T08:51:06.260Z] System: 1. Rest and plan your next move,2. Rest and plan your next move,3. Use an item from your inventory
+[2024-08-24T08:51:06.264Z] System: He finds that all of his family, friends, and coworkers are now dead.
+[2024-08-24T09:03:28.203Z] User: Model: flan-t5-base, Prompt:  Let's start a post-apocalyptic wasteland story where I'm the main character. What's the current situation and what do I see?
+The main character is a small town in the East End of New York City. He is living in slums and has no home. His family, friends, and coworkers are all dying from hunger or starvation. Their children are sick with disease due to hunger which has destroyed their homes. The new town is now known as Shrew'S Corner. I Use an item from your inventory. What happens next? undefined
+[2024-08-24T09:03:29.330Z] Debug: API Response: {"generated_text":"I am an aspiring artist."}
+[2024-08-24T09:03:29.335Z] AI: I am an aspiring artist.
+[2024-08-24T09:03:29.341Z] System: I am an aspiring artist.
+[2024-08-24T09:03:29.347Z] System: 1. Try to find a way out,2. Search for clues,3. Use an item from your inventory
+[2024-08-24T09:03:29.354Z] System: I am an aspiring artist.
+[2024-08-24T09:03:40.866Z] User: Model: flan-t5-base, Prompt:  Let's start a post-apocalyptic wasteland story where I'm the main character. What's the current situation and what do I see?
+The main character is a small town in the East End of New York City. He is living in slums and has no home. His family, friends, and coworkers are all dying from hunger or starvation. Their children are sick with disease due to hunger which has destroyed their homes. The new town is now known as Shrew'S Corner. I take that aspirin. What happens next? undefined
+[2024-08-24T09:03:42.231Z] Debug: API Response: {"generated_text":"They have been drinking beer and a glass of wine, they are having fun."}
+[2024-08-24T09:03:42.238Z] AI: They have been drinking beer and a glass of wine, they are having fun.
+[2024-08-24T09:03:42.243Z] System: They have been drinking beer and a glass of wine, they are having fun.
+[2024-08-24T09:03:42.248Z] System: 1. Investigate further,2. Try to find a way out,3. Attempt to use a skill or ability
+[2024-08-24T09:03:42.257Z] System: They have been drinking beer and a glass of wine, they are having fun.
+[2024-08-24T09:03:55.474Z] User: Model: flan-t5-base, Prompt:  Let's start a post-apocalyptic wasteland story where I'm the main character. What's the current situation and what do I see?
+The main character is a small town in the East End of New York City. He is living in slums and has no home. His family, friends, and coworkers are all dying from hunger or starvation. Their children are sick with disease due to hunger which has destroyed their homes. The new town is now known as Shrew'S Corner. I Attempt to use a skill or ability. What happens next? undefined
+[2024-08-24T09:03:56.776Z] Debug: API Response: {"generated_text":"I try to use a skill."}
+[2024-08-24T09:03:56.782Z] AI: I try to use a skill.
+[2024-08-24T09:03:56.789Z] System: I try to use a skill.
+[2024-08-24T09:03:56.798Z] System: 1. Use an item from your inventory,2. Try to find a way out,3. Set up camp or find shelter
+[2024-08-24T09:03:56.807Z] System: I try to use a skill.
+[2024-08-24T09:08:18.303Z] User: Model: flan-t5-base, Prompt:  Let's start a post-apocalyptic wasteland story where I'm the main character. What's the current situation and what do I see?
+The main character is a small town in the East End of New York City. He is living in slums and has no home. His family, friends, and coworkers are all dying from hunger or starvation. Their children are sick with disease due to hunger which has destroyed their homes. The new town is now known as Shrew'S Corner. I what happens next?. What happens next? undefined
+[2024-08-24T09:08:24.347Z] Debug: API Response: {"generated_text":"I believe in the future, this is the end of the world."}
+[2024-08-24T09:08:24.351Z] AI: I believe in the future, this is the end of the world.
+[2024-08-24T09:08:24.356Z] System: I believe in the future, this is the end of the world.
+[2024-08-24T09:08:24.361Z] System: 1. Set up camp or find shelter,2. Rest and plan your next move,3. Investigate further
+[2024-08-24T09:08:24.367Z] System: I believe in the future, this is the end of the world.
+[2024-08-24T09:14:31.792Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+[2024-08-24T09:15:04.303Z] Debug: API Response: {"generated_text":"\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n"}
+[2024-08-24T09:15:04.312Z] AI: 
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+[2024-08-24T09:15:04.316Z] System: Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+[2024-08-24T09:15:04.319Z] System: 1. Check your surroundings,2. Use an item from your inventory,3. Try to find a way out
+[2024-08-24T09:15:04.322Z] System: Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+[2024-08-24T09:19:55.640Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+[2024-08-24T09:19:57.605Z] Debug: API Response: {"generated_text":" Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n\n I not sure what can i do. What happens next?"}
+[2024-08-24T09:19:57.610Z] AI:  Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+[2024-08-24T09:19:57.615Z] System: Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+[2024-08-24T09:19:57.618Z] System: 1. Rest and plan your next move,2. Search for clues,3. Rest and plan your next move
+[2024-08-24T09:19:57.622Z] System: Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+[2024-08-24T09:21:02.835Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next? I Search for clues. What happens next?
+[2024-08-24T09:21:23.495Z] Debug: API Response: {"generated_text":" Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n I not sure what can i do. What happens next?\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n\n I not sure what can i do. What happens next?\n I Search for clues. What happens next? Can anyone help solve who could be behind such attacks?\n\n\nAssistant:\nWhat else have YOU done since then?! You were busy planning your attack against those bastards from hell!\" My men tell him he needs rest after his latest mission...\"Well if someone doesn’t step up soon…”\n“Don’ worry boss,” one says.”We’ll find them!” And off onto more patrol duty goes Jack.\n\nEnd transcript\n\nNext steps:\n\n* As part AI language model here ,i suggest following actions based purely upon information gathered thus far :  \n1) continue searching thoroughly . Keep digging"}
+[2024-08-24T09:21:23.500Z] AI:  Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ I Search for clues. What happens next? Can anyone help solve who could be behind such attacks?
+
+
+Assistant:
+What else have YOU done since then?! You were busy planning your attack against those bastards from hell!" My men tell him he needs rest after his latest mission..."Well if someone doesn’t step up soon…”
+“Don’ worry boss,” one says.”We’ll find them!” And off onto more patrol duty goes Jack.
+
+End transcript
+
+Next steps:
+
+* As part AI language model here ,i suggest following actions based purely upon information gathered thus far :  
+1) continue searching thoroughly . Keep digging
+[2024-08-24T09:21:23.506Z] System: Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ I Search for clues. What happens next? Can anyone help solve who could be behind such attacks?
+
+
+Assistant:
+What else have YOU done since then?! You were busy planning your attack against those bastards from hell!" My men tell him he needs rest after his latest mission..."Well if someone doesn’t step up soon…”
+“Don’ worry boss,” one says.”We’ll find them!” And off onto more patrol duty goes Jack.
+
+End transcript
+
+Next steps:
+
+* As part AI language model here ,i suggest following actions based purely upon information gathered thus far :  
+1) continue searching thoroughly . Keep digging
+[2024-08-24T09:21:23.512Z] System: 1. Check your surroundings,2. Call for help,3. Check your surroundings
+[2024-08-24T09:21:23.518Z] System: Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ I Search for clues. What happens next? Can anyone help solve who could be behind such attacks?
+
+
+Assistant:
+What else have YOU done since then?! You were busy planning your attack against those bastards from hell!" My men tell him he needs rest after his latest mission..."Well if someone doesn’t step up soon…”
+“Don’ worry boss,” one says.”We’ll find them!” And off onto more patrol duty goes Jack.
+
+End transcript
+
+Next steps:
+
+* As part AI language model here ,i suggest following actions based purely upon information gathered thus far :  
+1) continue searching thoroughly . Keep digging
+[2024-08-24T09:22:21.642Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next? I Search for clues. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ I Search for clues. What happens next? Can anyone help solve who could be behind such attacks?
+
+
+Assistant:
+What else have YOU done since then?! You were busy planning your attack against those bastards from hell!" My men tell him he needs rest after his latest mission..."Well if someone doesn’t step up soon…”
+“Don’ worry boss,” one says.”We’ll find them!” And off onto more patrol duty goes Jack.
+
+End transcript
+
+Next steps:
+
+* As part AI language model here ,i suggest following actions based purely upon information gathered thus far :  
+1) continue searching thoroughly . Keep digging I Call for help. What happens next?
+[2024-08-24T09:22:40.865Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next? I Search for clues. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ I Search for clues. What happens next? Can anyone help solve who could be behind such attacks?
+
+
+Assistant:
+What else have YOU done since then?! You were busy planning your attack against those bastards from hell!" My men tell him he needs rest after his latest mission..."Well if someone doesn’t step up soon…”
+“Don’ worry boss,” one says.”We’ll find them!” And off onto more patrol duty goes Jack.
+
+End transcript
+
+Next steps:
+
+* As part AI language model here ,i suggest following actions based purely upon information gathered thus far :  
+1) continue searching thoroughly . Keep digging I Call for help. What happens next?
+[2024-08-24T09:22:42.395Z] Debug: API Response: {"generated_text":" Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n I not sure what can i do. What happens next?\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n\n I not sure what can i do. What happens next?\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n I not sure what can i do. What happens next?\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n\n I not sure what can i do. What happens next? I Search for clues. What happens next?\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n I not sure what can i do. What happens next?\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n\n I not sure what can i do. What happens next?\n I Search for clues. What happens next? Can anyone help solve who could be behind such attacks?\n\n\nAssistant:\nWhat else have YOU done since then?! You were busy planning your attack against those bastards from hell!\" My men tell him he needs rest after his latest mission...\"Well if someone doesn’t step up soon…”\n“Don’ worry boss,” one says.”We’ll find them!” And off onto more patrol duty goes Jack.\n\nEnd transcript\n\nNext steps:\n\n* As part AI language model here ,i suggest following actions based purely upon information gathered thus far :  \n1) continue searching thoroughly . Keep digging\n I Call for help. What happens next? \n\n2 ) Gather intel using every means possible (emails,passwords etc.) Look deep inside any suspect’s life .\n Once everything becomes clear cut ...  \n\nLet Me think before acting ! Who would want so much"}
+[2024-08-24T09:22:42.398Z] AI:  Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next? I Search for clues. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ I Search for clues. What happens next? Can anyone help solve who could be behind such attacks?
+
+
+Assistant:
+What else have YOU done since then?! You were busy planning your attack against those bastards from hell!" My men tell him he needs rest after his latest mission..."Well if someone doesn’t step up soon…”
+“Don’ worry boss,” one says.”We’ll find them!” And off onto more patrol duty goes Jack.
+
+End transcript
+
+Next steps:
+
+* As part AI language model here ,i suggest following actions based purely upon information gathered thus far :  
+1) continue searching thoroughly . Keep digging
+ I Call for help. What happens next? 
+
+2 ) Gather intel using every means possible (emails,passwords etc.) Look deep inside any suspect’s life .
+ Once everything becomes clear cut ...  
+
+Let Me think before acting ! Who would want so much
+[2024-08-24T09:22:42.401Z] System: Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next? I Search for clues. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ I Search for clues. What happens next? Can anyone help solve who could be behind such attacks?
+
+
+Assistant:
+What else have YOU done since then?! You were busy planning your attack against those bastards from hell!" My men tell him he needs rest after his latest mission..."Well if someone doesn’t step up soon…”
+“Don’ worry boss,” one says.”We’ll find them!” And off onto more patrol duty goes Jack.
+
+End transcript
+
+Next steps:
+
+* As part AI language model here ,i suggest following actions based purely upon information gathered thus far :  
+1) continue searching thoroughly . Keep digging
+ I Call for help. What happens next? 
+
+2 ) Gather intel using every means possible (emails,passwords etc.) Look deep inside any suspect’s life .
+ Once everything becomes clear cut ...  
+
+Let Me think before acting ! Who would want so much
+[2024-08-24T09:22:42.405Z] System: 1. Check your surroundings,2. Use an item from your inventory,3. Rest and plan your next move
+[2024-08-24T09:22:42.409Z] System: Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next? I Search for clues. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ I Search for clues. What happens next? Can anyone help solve who could be behind such attacks?
+
+
+Assistant:
+What else have YOU done since then?! You were busy planning your attack against those bastards from hell!" My men tell him he needs rest after his latest mission..."Well if someone doesn’t step up soon…”
+“Don’ worry boss,” one says.”We’ll find them!” And off onto more patrol duty goes Jack.
+
+End transcript
+
+Next steps:
+
+* As part AI language model here ,i suggest following actions based purely upon information gathered thus far :  
+1) continue searching thoroughly . Keep digging
+ I Call for help. What happens next? 
+
+2 ) Gather intel using every means possible (emails,passwords etc.) Look deep inside any suspect’s life .
+ Once everything becomes clear cut ...  
+
+Let Me think before acting ! Who would want so much
+[2024-08-24T09:23:01.838Z] Debug: API Response: {"generated_text":" Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n I not sure what can i do. What happens next?\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n\n I not sure what can i do. What happens next?\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n I not sure what can i do. What happens next?\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n\n I not sure what can i do. What happens next? I Search for clues. What happens next?\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n I not sure what can i do. What happens next?\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n\n I not sure what can i do. What happens next?\n I Search for clues. What happens next? Can anyone help solve who could be behind such attacks?\n\n\nAssistant:\nWhat else have YOU done since then?! You were busy planning your attack against those bastards from hell!\" My men tell him he needs rest after his latest mission...\"Well if someone doesn’t step up soon…”\n“Don’ worry boss,” one says.”We’ll find them!” And off onto more patrol duty goes Jack.\n\nEnd transcript\n\nNext steps:\n\n* As part AI language model here ,i suggest following actions based purely upon information gathered thus far :  \n1) continue searching thoroughly . Keep digging\n I Call for help. What happens next? Who might come forth assisting ?\n2 ) reach-out via contacts already established (if any exist), perhaps asking within cybertech circles specifically regarding intel wanted by authorities .\n If none active/functional search online"}
+[2024-08-24T09:23:01.846Z] AI:  Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next? I Search for clues. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ I Search for clues. What happens next? Can anyone help solve who could be behind such attacks?
+
+
+Assistant:
+What else have YOU done since then?! You were busy planning your attack against those bastards from hell!" My men tell him he needs rest after his latest mission..."Well if someone doesn’t step up soon…”
+“Don’ worry boss,” one says.”We’ll find them!” And off onto more patrol duty goes Jack.
+
+End transcript
+
+Next steps:
+
+* As part AI language model here ,i suggest following actions based purely upon information gathered thus far :  
+1) continue searching thoroughly . Keep digging
+ I Call for help. What happens next? Who might come forth assisting ?
+2 ) reach-out via contacts already established (if any exist), perhaps asking within cybertech circles specifically regarding intel wanted by authorities .
+ If none active/functional search online
+[2024-08-24T09:23:01.850Z] System: Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next? I Search for clues. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ I Search for clues. What happens next? Can anyone help solve who could be behind such attacks?
+
+
+Assistant:
+What else have YOU done since then?! You were busy planning your attack against those bastards from hell!" My men tell him he needs rest after his latest mission..."Well if someone doesn’t step up soon…”
+“Don’ worry boss,” one says.”We’ll find them!” And off onto more patrol duty goes Jack.
+
+End transcript
+
+Next steps:
+
+* As part AI language model here ,i suggest following actions based purely upon information gathered thus far :  
+1) continue searching thoroughly . Keep digging
+ I Call for help. What happens next? Who might come forth assisting ?
+2 ) reach-out via contacts already established (if any exist), perhaps asking within cybertech circles specifically regarding intel wanted by authorities .
+ If none active/functional search online
+[2024-08-24T09:23:01.853Z] System: 1. Attempt to use a skill or ability,2. Attempt to use a skill or ability,3. Try to find a way out
+[2024-08-24T09:23:01.857Z] System: Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next? I Search for clues. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+ I not sure what can i do. What happens next?
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+ I not sure what can i do. What happens next?
+ I Search for clues. What happens next? Can anyone help solve who could be behind such attacks?
+
+
+Assistant:
+What else have YOU done since then?! You were busy planning your attack against those bastards from hell!" My men tell him he needs rest after his latest mission..."Well if someone doesn’t step up soon…”
+“Don’ worry boss,” one says.”We’ll find them!” And off onto more patrol duty goes Jack.
+
+End transcript
+
+Next steps:
+
+* As part AI language model here ,i suggest following actions based purely upon information gathered thus far :  
+1) continue searching thoroughly . Keep digging
+ I Call for help. What happens next? Who might come forth assisting ?
+2 ) reach-out via contacts already established (if any exist), perhaps asking within cybertech circles specifically regarding intel wanted by authorities .
+ If none active/functional search online
+[2024-08-24T09:40:02.574Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see?
+[2024-08-24T09:40:03.219Z] Debug: API Response: {"generated_text":"\n Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? \nIn this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.\nAs you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...\nI've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!\nMy assistant comes over looking worried \"Boss! The Enforcer Task Force got into another fight tonight they're injured!\"\nThe news starts spreading quickly through out our city now- an enforcers task force gets involved again?\n"}
+[2024-08-24T09:40:03.221Z] AI: 
+ Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+
+[2024-08-24T09:40:03.224Z] System: Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+[2024-08-24T09:40:03.226Z] System: 1. Investigate further,2. Check your surroundings,3. Attempt to use a skill or ability
+[2024-08-24T09:40:03.229Z] System: Let's start a cyberpunk dystopia story where I'm the main character. What's the current situation and what do I see? 
+In this world, technology is advanced past anything we can imagine or even understand yet it has created some of its own problems - especially when dealing with power dynamics.
+As you look around me in my office at 8:30 AM on January first amidst all these strange machines that are just doing their thing while people go about there business as usual...this isn't exactly how i expected to spend New Years day...
+I've been working hard lately trying create something big for us but nothing seems fast enough everyone keeps getting hurt!
+My assistant comes over looking worried "Boss! The Enforcer Task Force got into another fight tonight they're injured!"
+The news starts spreading quickly through out our city now- an enforcers task force gets involved again?
+[2024-08-24T10:33:48.237Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see?
+[2024-08-24T10:34:23.069Z] Debug: API Response: {"generated_text":"\n Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see? A white expanse stretches out before me, with snow-covered mountains in stark relief against an azure sky.\nI look around at my fellow explorers - there are six of us total: four men (me among them) dressed for cold climates; two women who must be from warm countries like Australia or New Zealand;\nand one man wearing flip-flops! He seems to have arrived on his vacation without realizing it was Arctic weather he had stumbled upon!\nWe're all set up camp near some frozen lakes that glitter under layers \n"}
+[2024-08-24T10:34:23.072Z] AI: 
+ Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see? A white expanse stretches out before me, with snow-covered mountains in stark relief against an azure sky.
+I look around at my fellow explorers - there are six of us total: four men (me among them) dressed for cold climates; two women who must be from warm countries like Australia or New Zealand;
+and one man wearing flip-flops! He seems to have arrived on his vacation without realizing it was Arctic weather he had stumbled upon!
+We're all set up camp near some frozen lakes that glitter under layers 
+
+[2024-08-24T10:34:23.076Z] System: Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see? A white expanse stretches out before me, with snow-covered mountains in stark relief against an azure sky.
+I look around at my fellow explorers - there are six of us total: four men (me among them) dressed for cold climates; two women who must be from warm countries like Australia or New Zealand;
+and one man wearing flip-flops! He seems to have arrived on his vacation without realizing it was Arctic weather he had stumbled upon!
+We're all set up camp near some frozen lakes that glitter under layers
+[2024-08-24T10:34:23.079Z] System: 1. Search for clues,2. Use an item from your inventory,3. Talk to someone nearby
+[2024-08-24T10:34:23.084Z] System: Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see? A white expanse stretches out before me, with snow-covered mountains in stark relief against an azure sky.
+I look around at my fellow explorers - there are six of us total: four men (me among them) dressed for cold climates; two women who must be from warm countries like Australia or New Zealand;
+and one man wearing flip-flops! He seems to have arrived on his vacation without realizing it was Arctic weather he had stumbled upon!
+We're all set up camp near some frozen lakes that glitter under layers
+[2024-08-24T10:35:11.190Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see? A white expanse stretches out before me, with snow-covered mountains in stark relief against an azure sky.
+I look around at my fellow explorers - there are six of us total: four men (me among them) dressed for cold climates; two women who must be from warm countries like Australia or New Zealand;
+and one man wearing flip-flops! He seems to have arrived on his vacation without realizing it was Arctic weather he had stumbled upon!
+We're all set up camp near some frozen lakes that glitter under layers 
+ I Talk to someone nearby. What happens next?
+[2024-08-24T10:35:31.987Z] Debug: API Response: {"generated_text":" Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see? A white expanse stretches out before me, with snow-covered mountains in stark relief against an azure sky.\nI look around at my fellow explorers - there are six of us total: four men (me among them) dressed for cold climates; two women who must be from warm countries like Australia or New Zealand;\nand one man wearing flip-flops! He seems to have arrived on his vacation without realizing it was Arctic weather he had stumbled upon!\nWe're all set up camp near some frozen lakes that glitter under layers \n\n I Talk to someone nearby. What happens next? \nA person named Jack is standing by our tents talking about how excited everyone else sounds when they hear him talk\nHe tells stories so funny you'll probably forget your worries just listening\n\n The other people become very interested as well After hearing this joke jack says \"well... let’s get going then!\" And we leave after taking care not break any ice while walking away  \nThe group leaves quietly behind their sleeping bags To continue laughing over more jokes By following along can YOU keep track Of each new adventure That these characters embark On?\nOf course!!! Keep adding details based off user input.\n\nJack suddenly stops mid-joke When something catches sight In front From across lake At first i"}
+[2024-08-24T10:35:31.990Z] AI:  Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see? A white expanse stretches out before me, with snow-covered mountains in stark relief against an azure sky.
+I look around at my fellow explorers - there are six of us total: four men (me among them) dressed for cold climates; two women who must be from warm countries like Australia or New Zealand;
+and one man wearing flip-flops! He seems to have arrived on his vacation without realizing it was Arctic weather he had stumbled upon!
+We're all set up camp near some frozen lakes that glitter under layers 
+
+ I Talk to someone nearby. What happens next? 
+A person named Jack is standing by our tents talking about how excited everyone else sounds when they hear him talk
+He tells stories so funny you'll probably forget your worries just listening
+
+ The other people become very interested as well After hearing this joke jack says "well... let’s get going then!" And we leave after taking care not break any ice while walking away  
+The group leaves quietly behind their sleeping bags To continue laughing over more jokes By following along can YOU keep track Of each new adventure That these characters embark On?
+Of course!!! Keep adding details based off user input.
+
+Jack suddenly stops mid-joke When something catches sight In front From across lake At first i
+[2024-08-24T10:35:31.993Z] System: Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see? A white expanse stretches out before me, with snow-covered mountains in stark relief against an azure sky.
+I look around at my fellow explorers - there are six of us total: four men (me among them) dressed for cold climates; two women who must be from warm countries like Australia or New Zealand;
+and one man wearing flip-flops! He seems to have arrived on his vacation without realizing it was Arctic weather he had stumbled upon!
+We're all set up camp near some frozen lakes that glitter under layers 
+
+ I Talk to someone nearby. What happens next? 
+A person named Jack is standing by our tents talking about how excited everyone else sounds when they hear him talk
+He tells stories so funny you'll probably forget your worries just listening
+
+ The other people become very interested as well After hearing this joke jack says "well... let’s get going then!" And we leave after taking care not break any ice while walking away  
+The group leaves quietly behind their sleeping bags To continue laughing over more jokes By following along can YOU keep track Of each new adventure That these characters embark On?
+Of course!!! Keep adding details based off user input.
+
+Jack suddenly stops mid-joke When something catches sight In front From across lake At first i
+[2024-08-24T10:35:31.996Z] System: 1. Try to find a way out,2. Search for clues,3. Set up camp or find shelter
+[2024-08-24T10:35:31.999Z] System: Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see? A white expanse stretches out before me, with snow-covered mountains in stark relief against an azure sky.
+I look around at my fellow explorers - there are six of us total: four men (me among them) dressed for cold climates; two women who must be from warm countries like Australia or New Zealand;
+and one man wearing flip-flops! He seems to have arrived on his vacation without realizing it was Arctic weather he had stumbled upon!
+We're all set up camp near some frozen lakes that glitter under layers 
+
+ I Talk to someone nearby. What happens next? 
+A person named Jack is standing by our tents talking about how excited everyone else sounds when they hear him talk
+He tells stories so funny you'll probably forget your worries just listening
+
+ The other people become very interested as well After hearing this joke jack says "well... let’s get going then!" And we leave after taking care not break any ice while walking away  
+The group leaves quietly behind their sleeping bags To continue laughing over more jokes By following along can YOU keep track Of each new adventure That these characters embark On?
+Of course!!! Keep adding details based off user input.
+
+Jack suddenly stops mid-joke When something catches sight In front From across lake At first i
+[2024-08-24T11:12:50.851Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+[2024-08-24T11:13:25.755Z] Debug: API Response: {"generated_text":"\n Let's start a random topic story where I'm the main character. What's the current situation and what do I see? \n\nAssistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or"}
+[2024-08-24T11:13:25.759Z] AI: 
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or
+[2024-08-24T11:13:25.764Z] System: Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or
+[2024-08-24T11:13:25.768Z] System: 1. Try to find a way out,2. Rest and plan your next move,3. Try to find a way out
+[2024-08-24T11:13:25.773Z] System: Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or
+[2024-08-24T11:16:45.967Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or I Try to find a way out. What happens next?
+[2024-08-24T11:17:06.855Z] Debug: API Response: {"generated_text":" Let's start a random topic story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a random topic story where I'm the main character. What's the current situation and what do I see? \n\nAssistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or\n I Try to find a way out. What happens next? \nA) I try to open the window but it won't budge.\nB) I wait for someone to notice me and rescue me.\n\nI turn my attention back to the scene before me. No one has noticed me yet...yet. My heart begins to race as I realize that if"}
+[2024-08-24T11:17:06.862Z] AI:  Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or
+ I Try to find a way out. What happens next? 
+A) I try to open the window but it won't budge.
+B) I wait for someone to notice me and rescue me.
+
+I turn my attention back to the scene before me. No one has noticed me yet...yet. My heart begins to race as I realize that if
+[2024-08-24T11:17:06.867Z] System: Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or
+ I Try to find a way out. What happens next? 
+A) I try to open the window but it won't budge.
+B) I wait for someone to notice me and rescue me.
+
+I turn my attention back to the scene before me. No one has noticed me yet...yet. My heart begins to race as I realize that if
+[2024-08-24T11:17:06.873Z] System: 1. Talk to someone nearby,2. Attempt to use a skill or ability,3. Try to find a way out
+[2024-08-24T11:17:06.879Z] System: Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or
+ I Try to find a way out. What happens next? 
+A) I try to open the window but it won't budge.
+B) I wait for someone to notice me and rescue me.
+
+I turn my attention back to the scene before me. No one has noticed me yet...yet. My heart begins to race as I realize that if
+[2024-08-24T11:23:33.938Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or I Try to find a way out. What happens next?
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or
+ I Try to find a way out. What happens next? 
+A) I try to open the window but it won't budge.
+B) I wait for someone to notice me and rescue me.
+
+I turn my attention back to the scene before me. No one has noticed me yet...yet. My heart begins to race as I realize that if I Attempt to use a skill or ability. What happens next?
+[2024-08-24T11:23:54.930Z] Debug: API Response: {"generated_text":" Let's start a random topic story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a random topic story where I'm the main character. What's the current situation and what do I see? \n\nAssistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or\n Let's start a random topic story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a random topic story where I'm the main character. What's the current situation and what do I see? \n\nAssistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or I Try to find a way out. What happens next?\n Let's start a random topic story where I'm the main character. What's the current situation and what do I see?\n\n Let's start a random topic story where I'm the main character. What's the current situation and what do I see? \n\nAssistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or\n I Try to find a way out. What happens next? \nA) I try to open the window but it won't budge.\nB) I wait for someone to notice me and rescue me.\n\nI turn my attention back to the scene before me. No one has noticed me yet...yet. My heart begins to race as I realize that if\n I Attempt to use a skill or ability. What happens next?  \nYou spend some time trying to figure out how to make the window move without"}
+[2024-08-24T11:23:54.935Z] AI:  Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or I Try to find a way out. What happens next?
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or
+ I Try to find a way out. What happens next? 
+A) I try to open the window but it won't budge.
+B) I wait for someone to notice me and rescue me.
+
+I turn my attention back to the scene before me. No one has noticed me yet...yet. My heart begins to race as I realize that if
+ I Attempt to use a skill or ability. What happens next?  
+You spend some time trying to figure out how to make the window move without
+[2024-08-24T11:23:54.938Z] System: Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or I Try to find a way out. What happens next?
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or
+ I Try to find a way out. What happens next? 
+A) I try to open the window but it won't budge.
+B) I wait for someone to notice me and rescue me.
+
+I turn my attention back to the scene before me. No one has noticed me yet...yet. My heart begins to race as I realize that if
+ I Attempt to use a skill or ability. What happens next?  
+You spend some time trying to figure out how to make the window move without
+[2024-08-24T11:23:54.943Z] System: 1. Call for help,2. Set up camp or find shelter,3. Call for help
+[2024-08-24T11:23:54.947Z] System: Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or I Try to find a way out. What happens next?
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Let's start a random topic story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You take a deep breath and look around you. The room is dimly lit, with only a few lamps casting flickering shadows on the walls. There are no windows in this part of the facility, so it's dark most of the time. A small window at the far end of the room does not seem to be covered up or
+ I Try to find a way out. What happens next? 
+A) I try to open the window but it won't budge.
+B) I wait for someone to notice me and rescue me.
+
+I turn my attention back to the scene before me. No one has noticed me yet...yet. My heart begins to race as I realize that if
+ I Attempt to use a skill or ability. What happens next?  
+You spend some time trying to figure out how to make the window move without
+[2024-08-24T12:06:06.845Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see?
+[2024-08-24T12:06:44.115Z] Debug: API Response: {"generated_text":"\n Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see? The sun is just beginning to rise, painting the sky with hues of pink and orange. A gentle breeze carries the sweet scent of blooming flowers, which fills my senses and makes me feel alive.\nI lay in bed for a moment longer, savouring the peace and quiet. But as soon as I open my eyes, I realize something is wrong. My parents are still asleep, but their silence tells me they're not going to wake up anytime soon. In fact, there's no sign of them"}
+[2024-08-24T12:06:44.120Z] AI: 
+ Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see? The sun is just beginning to rise, painting the sky with hues of pink and orange. A gentle breeze carries the sweet scent of blooming flowers, which fills my senses and makes me feel alive.
+I lay in bed for a moment longer, savouring the peace and quiet. But as soon as I open my eyes, I realize something is wrong. My parents are still asleep, but their silence tells me they're not going to wake up anytime soon. In fact, there's no sign of them
+[2024-08-24T12:06:44.126Z] System: Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see? The sun is just beginning to rise, painting the sky with hues of pink and orange. A gentle breeze carries the sweet scent of blooming flowers, which fills my senses and makes me feel alive.
+I lay in bed for a moment longer, savouring the peace and quiet. But as soon as I open my eyes, I realize something is wrong. My parents are still asleep, but their silence tells me they're not going to wake up anytime soon. In fact, there's no sign of them
+[2024-08-24T12:06:44.134Z] System: 1. Try to find a way out,2. Set up camp or find shelter,3. Check your surroundings
+[2024-08-24T12:06:44.138Z] System: Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see? The sun is just beginning to rise, painting the sky with hues of pink and orange. A gentle breeze carries the sweet scent of blooming flowers, which fills my senses and makes me feel alive.
+I lay in bed for a moment longer, savouring the peace and quiet. But as soon as I open my eyes, I realize something is wrong. My parents are still asleep, but their silence tells me they're not going to wake up anytime soon. In fact, there's no sign of them
+[2024-08-24T12:27:37.862Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a underwater civilization story where I'm the main character. What's the current situation and what do I see?
+[2024-08-24T12:28:16.235Z] Debug: API Response: {"generated_text":"\n Let's start a underwater civilization story where I'm the main character. What's the current situation and what do I see? The sea floor around me is covered in coral reefs, each one more beautiful than the last. It's hard not to feel overwhelmed by the majesty of it all.\nI take a deep breath and look up at the sky. Clouds drift lazily across the ocean, giving way to patches of blue that stretch as far as the eye can see. A gentle breeze blows, carrying with it the scent of saltwater and exotic plants growing along the edges of the islands scattered throughout the"}
+[2024-08-24T12:28:16.255Z] AI: 
+ Let's start a underwater civilization story where I'm the main character. What's the current situation and what do I see? The sea floor around me is covered in coral reefs, each one more beautiful than the last. It's hard not to feel overwhelmed by the majesty of it all.
+I take a deep breath and look up at the sky. Clouds drift lazily across the ocean, giving way to patches of blue that stretch as far as the eye can see. A gentle breeze blows, carrying with it the scent of saltwater and exotic plants growing along the edges of the islands scattered throughout the
+[2024-08-24T12:28:16.263Z] System: Let's start a underwater civilization story where I'm the main character. What's the current situation and what do I see? The sea floor around me is covered in coral reefs, each one more beautiful than the last. It's hard not to feel overwhelmed by the majesty of it all.
+I take a deep breath and look up at the sky. Clouds drift lazily across the ocean, giving way to patches of blue that stretch as far as the eye can see. A gentle breeze blows, carrying with it the scent of saltwater and exotic plants growing along the edges of the islands scattered throughout the
+[2024-08-24T12:28:16.268Z] System: 1. Talk to someone nearby,2. Use an item from your inventory,3. Set up camp or find shelter
+[2024-08-24T12:28:16.276Z] System: Let's start a underwater civilization story where I'm the main character. What's the current situation and what do I see? The sea floor around me is covered in coral reefs, each one more beautiful than the last. It's hard not to feel overwhelmed by the majesty of it all.
+I take a deep breath and look up at the sky. Clouds drift lazily across the ocean, giving way to patches of blue that stretch as far as the eye can see. A gentle breeze blows, carrying with it the scent of saltwater and exotic plants growing along the edges of the islands scattered throughout the
+[2024-08-24T12:31:29.575Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see?
+[2024-08-24T12:31:30.210Z] Debug: API Response: {"generated_text":"\n Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see? The sun is just beginning to rise, painting the sky with hues of pink and orange. A gentle breeze carries the sweet scent of blooming flowers, which fills my senses and makes me feel alive.\nI lay in bed for a moment longer, savouring the peace and quiet. But as soon as I open my eyes, I realize something is wrong. My parents are still asleep, but their silence tells me they're not going to wake up anytime soon. In fact, there's no sign of them"}
+[2024-08-24T12:31:30.214Z] AI: 
+ Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see? The sun is just beginning to rise, painting the sky with hues of pink and orange. A gentle breeze carries the sweet scent of blooming flowers, which fills my senses and makes me feel alive.
+I lay in bed for a moment longer, savouring the peace and quiet. But as soon as I open my eyes, I realize something is wrong. My parents are still asleep, but their silence tells me they're not going to wake up anytime soon. In fact, there's no sign of them
+[2024-08-24T12:31:30.220Z] System: Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see? The sun is just beginning to rise, painting the sky with hues of pink and orange. A gentle breeze carries the sweet scent of blooming flowers, which fills my senses and makes me feel alive.
+I lay in bed for a moment longer, savouring the peace and quiet. But as soon as I open my eyes, I realize something is wrong. My parents are still asleep, but their silence tells me they're not going to wake up anytime soon. In fact, there's no sign of them
+[2024-08-24T12:31:30.226Z] System: 1. Set up camp or find shelter,2. Check your surroundings,3. Check your surroundings
+[2024-08-24T12:31:30.231Z] System: Let's start a ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see? The sun is just beginning to rise, painting the sky with hues of pink and orange. A gentle breeze carries the sweet scent of blooming flowers, which fills my senses and makes me feel alive.
+I lay in bed for a moment longer, savouring the peace and quiet. But as soon as I open my eyes, I realize something is wrong. My parents are still asleep, but their silence tells me they're not going to wake up anytime soon. In fact, there's no sign of them
+[2024-08-24T12:37:04.613Z] User: Model: Qwen2-Boundless, Prompt:  Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see?
+[2024-08-24T12:37:30.298Z] Debug: API Response: {"generated_text":"\n Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see? \n\nAssistant: You're standing at the prow of your ship, looking out over the vast expanse of ice that stretches as far as the eye can see. The sky is a deep shade of blue, dotted with white clouds that look more like cotton candy than anything else. A few flakes of snow fall to the ground in soft drifts, adding to the beauty of the scene before you.\nYou take a deep"}
+[2024-08-24T12:37:30.302Z] AI: 
+ Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You're standing at the prow of your ship, looking out over the vast expanse of ice that stretches as far as the eye can see. The sky is a deep shade of blue, dotted with white clouds that look more like cotton candy than anything else. A few flakes of snow fall to the ground in soft drifts, adding to the beauty of the scene before you.
+You take a deep
+[2024-08-24T12:37:30.309Z] System: Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You're standing at the prow of your ship, looking out over the vast expanse of ice that stretches as far as the eye can see. The sky is a deep shade of blue, dotted with white clouds that look more like cotton candy than anything else. A few flakes of snow fall to the ground in soft drifts, adding to the beauty of the scene before you.
+You take a deep
+[2024-08-24T12:37:30.317Z] System: 1. Rest and plan your next move,2. Set up camp or find shelter,3. Try to find a way out
+[2024-08-24T12:37:30.334Z] System: Let's start a arctic expedition story where I'm the main character. What's the current situation and what do I see? 
+
+Assistant: You're standing at the prow of your ship, looking out over the vast expanse of ice that stretches as far as the eye can see. The sky is a deep shade of blue, dotted with white clouds that look more like cotton candy than anything else. A few flakes of snow fall to the ground in soft drifts, adding to the beauty of the scene before you.
+You take a deep

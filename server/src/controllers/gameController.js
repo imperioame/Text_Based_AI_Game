@@ -5,9 +5,11 @@ exports.startNewGame = async (req, res) => {
   try {
     const initialStory = await generateStory();
     const newGame = await Game.create({
-      story: initialStory.story,
+      fullStory: initialStory.fullStory,
+      lastChunk: initialStory.newChunk,
       options: initialStory.options,
       gameState: initialStory.gameState,
+      conversationHistory: [{ type: 'ai', content: initialStory.newChunk }]
     });
     res.status(201).json(newGame);
   } catch (error) {
@@ -36,12 +38,25 @@ exports.submitAction = async (req, res) => {
       return res.status(404).json({ message: 'Game not found' });
     }
     const { action } = req.body;
-    const nextSegment = await processAction(game.gameState, action);
-    game.story += '\n\n' + nextSegment.story;
+    const startTime = Date.now();
+    const nextSegment = await processAction(game.gameState, action, game.conversationHistory);
+    const endTime = Date.now();
+    const loadTime = endTime - startTime;
+
+    game.fullStory = nextSegment.fullStory;
+    game.lastChunk = nextSegment.newChunk;
     game.options = nextSegment.options;
     game.gameState = nextSegment.gameState;
+    game.conversationHistory.push(
+      { type: 'user', content: action },
+      { type: 'ai', content: nextSegment.newChunk }
+    );
     await game.save();
-    res.json(game);
+
+    res.json({
+      ...game.toJSON(),
+      loadTime
+    });
   } catch (error) {
     console.error('Error processing action:', error);
     res.status(500).json({ message: 'Error processing action', error });

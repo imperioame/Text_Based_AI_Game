@@ -4,11 +4,12 @@ html {
 
 body {
   font-family: "VT323", monospace;
+  font-size: larger;
   height: 100vh;
   margin: 0;
   overflow: hidden;
   color: white;
-  text-shadow: 0 0 5px #C8C8C8;
+  text-shadow: 0 0 8px greenyellow;
 }
 body::after {
   content: "";
@@ -43,6 +44,33 @@ body::after {
   border-radius: 6px;
 }
 
-/*#root div{ 
-  height: 100%;
-}*//*# sourceMappingURL=index.css.map */
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading-bar {
+  width: 0%;
+  animation: fillBar 2s linear infinite;
+}
+
+@keyframes fillBar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}/*# sourceMappingURL=index.css.map */

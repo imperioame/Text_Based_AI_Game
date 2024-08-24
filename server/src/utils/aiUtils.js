@@ -8,10 +8,19 @@ const hf = new HfInference(process.env.HUGGINGFACE_API_KEY);
 
 /*******************
  * 
+ * "Memory" provided to the model 
+ * 
+ *******************/
+
+const MAX_HISTORY_LENGTH = 10;
+
+
+/*******************
+ * 
  * Model selection 
  * 
  *******************/
-let currentModelIndex = 0;
+let currentModelIndex = 1;
 
 /*******************
  * 
@@ -22,7 +31,8 @@ let currentModelIndex = 0;
 const MODELTYPES = [
   'textgen',
   'qa',
-  'conversational'
+  'conversational',
+  'text2text',
 ];
 
 /*******************
@@ -31,17 +41,22 @@ const MODELTYPES = [
  * 
  *******************/
 
-const MODELS = [
-  {
+const MODELS = [{
     name: 'flan-t5-base',
     repo: 'google/flan-t5-base',
-    comments: '!!!! EUREKAA',
-    type: MODELTYPES[2]
+    comments: 'Works quite well, fairly slow to process',
+    type: MODELTYPES[3]
+  },
+  {
+    name: 'Qwen2-Boundless',
+    repo: 'ystemsrx/Qwen2-Boundless',
+    comments: 'Works well, quite creative',
+    type: MODELTYPES[3]
   },
   {
     name: 'gpt2-large-conversational-retrain',
     repo: 'Locutusque/gpt2-large-conversational-retrain',
-    comments: 'slow load',
+    comments: 'Slow load',
     type: MODELTYPES[2]
   },
   {
@@ -53,7 +68,7 @@ const MODELS = [
   {
     name: 'DialoGPT-medium',
     repo: 'microsoft/DialoGPT-medium',
-    comments: 'slow load + doesnt answer',
+    comments: 'Slow load - Doesnt answer',
     type: MODELTYPES[2]
   },
   {
@@ -77,17 +92,46 @@ const MODELS = [
   {
     name: 'OPT-2.7B',
     repo: 'facebook/opt-2.7b',
-    comments: 'a slow loading model',
+    comments: 'A slow loading model',
     type: MODELTYPES[0]
   },
   {
     name: 'OPT-1.3b',
     repo: 'facebook/opt-1.3b',
-    comments: 'a slow loading model',
+    comments: 'A slow loading model',
     type: MODELTYPES[0]
   }
 ];
 
+const conversationHistory = {
+  fullRecord: [],
+  pastUserInputs: [],
+  generatedResponses: []
+};
+
+exports.getConversationHistory = () => {
+  return {
+    fullRecord: conversationHistory.fullRecord,
+    userInputs: conversationHistory.pastUserInputs,
+    aiResponses: conversationHistory.generatedResponses
+  };
+};
+
+const logFilePath = path.join(__dirname, 'interaction_log.txt');
+
+const storyThemes = [
+  "space exploration",
+  "medieval fantasy",
+  "cyberpunk dystopia",
+  "underwater civilization",
+  "post-apocalyptic wasteland",
+  "steampunk adventure",
+  "ancient Egyptian mystery",
+  "wild west frontier",
+  "arctic expedition",
+  "jungle survival",
+  "random topic"
+];
 
 // Add a simple test function
 const testAPI = async () => {
@@ -126,18 +170,20 @@ async function checkModelStatus(modelName) {
 }
 
 
-function getModelConfig(prompt1, prompt2 = '', prompt3 = '') {
+function getModelConfig(prompt1, prompt2 = '') {
   const currentModel = MODELS[currentModelIndex];
   let inputs = '';
   let parameters = {
-    max_new_tokens: 150,
-    max_time: 20,
+    max_new_tokens: 200,
+    max_time: 25,
     repetition_penalty: 50,
     temperature: 0.7,
     top_k: 50,
-    top_p: 0.95,
+    top_p: 0.9,
     do_sample: true,
-    no_repeat_ngram_size: 2,
+    no_repeat_ngram_size: 3,
+    early_stopping: true,
+    num_beams: 4,
   };
 
   switch (currentModel.type) {
@@ -148,10 +194,18 @@ function getModelConfig(prompt1, prompt2 = '', prompt3 = '') {
       inputs = `Context: ${prompt1}\nQuestion: ${prompt2}`;
       break;
     case MODELTYPES[2]:
+    case MODELTYPES[3]:
+      /*
       const pastInputs = Array.isArray(prompt1) ? prompt1.join('\n') : prompt1;
       const pastResponses = Array.isArray(prompt3) ? prompt3.join('\n') : prompt3;
       inputs = `${pastInputs}\n${pastResponses}\n ${prompt2}`;
       break;
+      */
+
+      const fullRecord = Array.isArray(prompt1) ? prompt1.join('\n') : prompt1;
+      inputs = `${fullRecord}\n ${prompt2}`;
+      break;
+
   }
 
   return {
@@ -160,27 +214,6 @@ function getModelConfig(prompt1, prompt2 = '', prompt3 = '') {
     parameters: parameters,
   };
 }
-
-const conversationHistory = {
-  pastUserInputs: [],
-  generatedResponses: []
-};
-
-const logFilePath = path.join(__dirname, 'interaction_log.txt');
-
-const storyThemes = [
-  "space exploration",
-  "medieval fantasy",
-  "cyberpunk dystopia",
-  "underwater civilization",
-  "post-apocalyptic wasteland",
-  "steampunk adventure",
-  "ancient Egyptian mystery",
-  "wild west frontier",
-  "arctic expedition",
-  "jungle survival",
-  "random topic"
-];
 
 function logInteraction(type, message) {
   const logEntry = `[${new Date().toISOString()}] ${type}: ${message}\n`;
@@ -196,7 +229,7 @@ exports.generateStory = async () => {
   }
 
   const randomTheme = storyThemes[Math.floor(Math.random() * storyThemes.length)];
-  let prompt1, prompt2, prompt3;
+  let prompt1, prompt2;
 
   switch (currentModel.type) {
     case MODELTYPES[0]:
@@ -207,16 +240,23 @@ exports.generateStory = async () => {
       prompt2 = `What's the current situation and what do I see?`;
       break;
     case MODELTYPES[2]:
-      prompt1 = conversationHistory.pastUserInputs.join('\n');
+    case MODELTYPES[3]:
+      /*  
+        prompt1 = conversationHistory.pastUserInputs.join('\n');
+        prompt2 = `Let's start a ${randomTheme} story where I'm the main character. What's the current situation and what do I see?`;
+        prompt3 = conversationHistory.generatedResponses.join('\n');
+        break;
+        */
+
+      prompt1 = conversationHistory.fullRecord.join('\n');
       prompt2 = `Let's start a ${randomTheme} story where I'm the main character. What's the current situation and what do I see?`;
-      prompt3 = conversationHistory.generatedResponses.join('\n');
       break;
   }
 
-  logInteraction('User', `Model: ${MODELS[currentModelIndex].name}, Prompt: ${prompt1} ${prompt2} ${prompt3}`);
+  logInteraction('User', `Model: ${MODELS[currentModelIndex].name}, Prompt: ${prompt1} ${prompt2}`);
 
   try {
-    const config = getModelConfig(prompt1, prompt2, prompt3);
+    const config = getModelConfig(prompt1, prompt2);
     const response = await hf.textGeneration(config);
 
 
@@ -229,9 +269,10 @@ exports.generateStory = async () => {
     conversationHistory.generatedResponses.push(story);
     if (currentModel.type === MODELTYPES[2]) {
       conversationHistory.pastUserInputs.push(prompt2);
-    }else{
+    } else {
       conversationHistory.pastUserInputs.push(`${prompt1} ${prompt2}`);
     };
+    conversationHistory.fullRecord.push(conversationHistory.pastUserInputs[conversationHistory.pastUserInputs.length - 1], story);
 
     logInteraction('AI', story);
 
@@ -246,9 +287,11 @@ exports.generateStory = async () => {
     };
 
     return {
-      story: processedStory,
+      fullStory: story,
+      newChunk: story,
       options,
-      gameState
+      gameState,
+      conversationHistory: exports.getConversationHistory()
     };
   } catch (error) {
     console.error('Error in generateStory:', error);
@@ -260,15 +303,29 @@ exports.generateStory = async () => {
   }
 };
 
-exports.processAction = async (gameState, action) => {
+exports.processAction = async (gameState, action, history) => {
+  const startTime = Date.now();
+
   const currentModel = MODELS[currentModelIndex];
   const isModelReady = await checkModelStatus(currentModel.repo);
   if (!isModelReady) {
     throw new Error(`Model ${currentModel.name} is not ready or unavailable.`);
   }
 
+  // Limit history to last MAX_HISTORY_LENGTH entries
+  const limitedHistory = history.slice(-MAX_HISTORY_LENGTH);
+
+  // Combine limited history into a single string, avoiding repetition
+  const fullStory = limitedHistory.map(entry => {
+    if (entry.type === 'user') {
+      return `User: ${entry.content}`;
+    } else {
+      return entry.content;
+    }
+  }).join('\n\n');
+
   const actionWithoutNumber = action.replace(/^\d+\.\s*/, '').trim();
-  let prompt1, prompt2, prompt3;
+  let prompt1, prompt2;
 
   switch (currentModel.type) {
     case MODELTYPES[0]:
@@ -279,18 +336,19 @@ exports.processAction = async (gameState, action) => {
       prompt2 = `What happens next? What follows?`;
       break;
     case MODELTYPES[2]:
-      prompt1 = conversationHistory.pastUserInputs.join('\n');
+    case MODELTYPES[3]:
+      /*prompt1 = conversationHistory.pastUserInputs.join('\n');
       prompt2 = `I ${actionWithoutNumber}. What happens next?`;
-      //doesnt seem to be needed, since i'm providing the story
-      //prompt2 = `In this ${gameState.theme} story, I ${actionWithoutNumber}. What happens next?`;
-      prompt3 = conversationHistory.generatedResponses.join('\n');
+      prompt3 = conversationHistory.generatedResponses.join('\n');*/
+      prompt1 = fullStory;
+      prompt2 = `I ${actionWithoutNumber}. What happens next?`;
       break;
   }
 
-  logInteraction('User', `Model: ${MODELS[currentModelIndex].name}, Prompt: ${prompt1} ${prompt2} ${prompt3}`);
+  logInteraction('User', `Model: ${MODELS[currentModelIndex].name}, Prompt: ${prompt1} ${prompt2}`);
 
   try {
-    const config = getModelConfig(prompt1, prompt2, prompt3);
+    const config = getModelConfig(prompt1, prompt2);
     const response = await hf.textGeneration(config);
 
     logInteraction('Debug', `API Response: ${JSON.stringify(response)}`);
@@ -299,20 +357,26 @@ exports.processAction = async (gameState, action) => {
       throw new Error('Invalid response from API');
     }
 
-    let story = response.generated_text;
-    conversationHistory.generatedResponses.push(story);
+    const newChunk = response.generated_text;
+    const updatedFullStory = `${fullStory}\n\nUser: ${action}\n\nAI: ${newChunk}`;
+
+    const endTime = Date.now();
+    const loadTime = endTime - startTime;
+
+    conversationHistory.generatedResponses.push(newChunk);
     if (currentModel.type === MODELTYPES[2]) {
       conversationHistory.pastUserInputs.push(prompt2);
-    }else{
+    } else {
       conversationHistory.pastUserInputs.push(`${prompt1} ${prompt2}`);
     };
+    conversationHistory.fullRecord.push(conversationHistory.pastUserInputs[conversationHistory.pastUserInputs.length - 1], newChunk);
 
-    logInteraction('AI', story);
+    logInteraction('AI', newChunk);
 
     const {
       processedStory,
       options
-    } = extractStoryAndOptions(story);
+    } = extractStoryAndOptions(newChunk);
     const newGameState = {
       ...gameState,
       scene: 'continuation',
@@ -320,9 +384,12 @@ exports.processAction = async (gameState, action) => {
     };
 
     return {
-      story: processedStory,
+      fullStory: updatedFullStory,
+      newChunk: processedStory,
       options,
-      gameState: newGameState
+      gameState: newGameState,
+      conversationHistory: exports.getConversationHistory(),
+      loadTime
     };
   } catch (error) {
     console.error('Error in processAction:', error);

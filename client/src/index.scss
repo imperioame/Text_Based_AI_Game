@@ -8,7 +8,7 @@ body {
   margin: 0;
   overflow: hidden;
   color: white;
-  text-shadow: 0 0 5px greenyellow;
+  text-shadow: 0 0 8px greenyellow;
   &::after {
     content: "";
     position: absolute;
@@ -45,6 +45,78 @@ body {
   border-radius: 6px;
 }
 
-/*#root div{ 
-  height: 100%;
-}*/
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-bar {
+  width: 0%;
+  animation: fillBar 2s linear infinite;
+}
+
+@keyframes fillBar {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.vintage-spinner {
+  width: 20px;
+  height: 20px;
+  background: 
+    linear-gradient(#000 0 0) top/20% 2px,
+    linear-gradient(#000 0 0) right/2px 20%,
+    linear-gradient(#000 0 0) bottom/20% 2px,
+    linear-gradient(#000 0 0) left/2px 20%;
+  background-repeat: no-repeat;
+  animation: vintage-spin 1s linear infinite;
+}
+
+@keyframes vintage-spin {
+  to { transform: rotate(1turn) }
+}
+
+.vintage-loadbar {
+  height: 10px;
+  background: repeating-linear-gradient(
+    90deg,
+    #2c3e50,
+    #2c3e50 2px,
+    #34495e 2px,
+    #34495e 4px
+  );
+  transition: width 0.5s ease-in-out;
+}
+
+.vintage-cursor {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.vintage-ellipsis {
+  animation: ellipsis 1s steps(4) infinite;
+  display: inline-block;
+  width: 20px;
+  text-align: left;
+}
+
+@keyframes ellipsis {
+  to { width: 20px; }
+}
+
+.vintage-ellipsis::after {
+  content: '...';
+  position: absolute;
+}

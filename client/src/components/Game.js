@@ -7,22 +7,16 @@ import ActionInput from './ActionInput';
 
 function Game() {
   const dispatch = useDispatch();
-  const { currentStory, options, gameState } = useSelector((state) => state.game);
+  const { conversationHistory, options, gameState, loading, loadTime } = useSelector((state) => state.game);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     dispatch(startNewGame());
-    setLoading(false);
   }, [dispatch]);
 
   const handleActionSubmit = (action) => {
     dispatch(submitAction(action));
   };
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div className="flex">
@@ -34,8 +28,8 @@ function Game() {
         >
           Open Sidebar
         </button>
-        <StoryDisplay story={currentStory} />
-        <ActionInput options={options} onSubmit={handleActionSubmit} />
+        <StoryDisplay conversationHistory={conversationHistory} loading={loading} loadTime={loadTime} />
+        <ActionInput options={options} onSubmit={handleActionSubmit} disabled={loading} />
       </div>
     </div>
   );

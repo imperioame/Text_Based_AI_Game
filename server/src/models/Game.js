@@ -2,7 +2,11 @@ const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/database');
 
 const Game = sequelize.define('Game', {
-  story: {
+  fullStory: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  lastChunk: {
     type: DataTypes.TEXT,
     allowNull: false,
   },
@@ -13,6 +17,11 @@ const Game = sequelize.define('Game', {
   gameState: {
     type: DataTypes.JSON,
     allowNull: false,
+  },
+  conversationHistory: {
+    type: DataTypes.JSON,
+    allowNull: false,
+    defaultValue: [], // Initialize with an empty array
   },
 });
 
