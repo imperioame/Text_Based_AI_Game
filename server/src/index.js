@@ -14,11 +14,16 @@ app.use(express.json());
 app.use('/api/game', gameRoutes);
 
 const startServer = async () => {
-  await connectWithRetry();
-  await sequelize.sync();
-  app.listen(5000, () => {
-    console.log('Server running on port 5000');
-  });
+  try {
+    await connectWithRetry();
+    await sequelize.sync({ alter: true });
+    app.listen(5000, () => {
+      console.log('Server running on port 5000');
+      console.log('Database synced successfully');
+    });
+  } catch (error) {
+    console.error('Error starting server:', error);
+  }
 };
 
 startServer();

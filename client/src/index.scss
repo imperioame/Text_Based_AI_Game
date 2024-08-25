@@ -120,3 +120,49 @@ body {
   content: '...';
   position: absolute;
 }
+
+.vintage-spinner {
+  width: 20px;
+  height: 20px;
+  background: 
+    linear-gradient(#ffff00 0 0) top/20% 2px,
+    linear-gradient(#ffff00 0 0) right/2px 20%,
+    linear-gradient(#ffff00 0 0) bottom/20% 2px,
+    linear-gradient(#ffff00 0 0) left/2px 20%;
+  background-repeat: no-repeat;
+  animation: vintage-spin 1s linear infinite;
+  filter: drop-shadow(0 0 2px #ffff00);
+}
+
+@keyframes vintage-spin {
+  to { transform: rotate(1turn) }
+}
+
+.vintage-loadbar {
+  height: 10px;
+  width: 100px;
+  background: repeating-linear-gradient(
+    90deg,
+    #2c3e50,
+    #2c3e50 2px,
+    #34495e 2px,
+    #34495e 4px
+  );
+  transition: width 0.5s ease-in-out;
+}
+
+.vintage-ellipsis {
+  animation: ellipsis 1s steps(4) infinite;
+  display: inline-block;
+  width: 20px;
+  text-align: left;
+}
+
+@keyframes ellipsis {
+  to { width: 20px; }
+}
+
+.vintage-ellipsis::after {
+  content: '...';
+  position: absolute;
+}

@@ -3,18 +3,17 @@ import React, { useRef, useEffect, useState } from 'react';
 function StoryDisplay({ conversationHistory, loading, loadTime }) {
   const storyDisplayRef = useRef(null);
   const [animatedText, setAnimatedText] = useState('');
-  const [showCursor, setShowCursor] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setShowCursor(prev => !prev);
-    }, 500);
-    return () => clearInterval(interval);
-  }, []);
+    console.log('StoryDisplay received:', { conversationHistory, loading, loadTime });
+  }, [conversationHistory, loading, loadTime]);
 
   useEffect(() => {
-    if (!loading && conversationHistory.length > 0) {
+    if (conversationHistory.length > 0 && !isAnimating) {
       const lastEntry = conversationHistory[conversationHistory.length - 1];
+      setIsAnimating(true);
+      setAnimatedText('');
       let i = 0;
       const intervalId = setInterval(() => {
         if (i < lastEntry.content.length) {
@@ -22,17 +21,22 @@ function StoryDisplay({ conversationHistory, loading, loadTime }) {
           i++;
         } else {
           clearInterval(intervalId);
+          setIsAnimating(false);
         }
       }, 30);
       return () => clearInterval(intervalId);
     }
-  }, [loading, conversationHistory]);
+  }, [conversationHistory, isAnimating]);
 
   useEffect(() => {
     if (storyDisplayRef.current) {
       storyDisplayRef.current.scrollTop = storyDisplayRef.current.scrollHeight;
     }
   }, [animatedText]);
+
+  if (!conversationHistory || conversationHistory.length === 0) {
+    return <div>No story to display yet.</div>;
+  }
 
   return (
     <div className="relative">
@@ -45,22 +49,20 @@ function StoryDisplay({ conversationHistory, loading, loadTime }) {
         )}
       </div>
       <div ref={storyDisplayRef} className="bg-gray-800 p-4 rounded mb-4 h-64 overflow-y-auto font-mono">
-        {conversationHistory.slice(0, -1).map((entry, index) => (
+        {conversationHistory.map((entry, index) => (
           <p
             key={index}
             className={`mb-2 ${entry.type === 'ai' ? 'text-green-300' : 'text-blue-300'}`}
           >
-            {entry.type === 'user' ? entry.content.replace(/^\d+\.\s*/, '') : entry.content}
+            {entry.content}
+            {loading && index === conversationHistory.length - 1 && (
+              <span className="vintage-ellipsis"></span>
+            )}
           </p>
         ))}
-        <p className={`mb-2 ${loading ? 'text-yellow-300' : conversationHistory[conversationHistory.length - 1]?.type === 'ai' ? 'text-green-300' : 'text-blue-300'}`}>
-          {animatedText}
-          {showCursor && <span className="vintage-cursor">█</span>}
-          {loading && <span className="vintage-ellipsis">...</span>}
-        </p>
       </div>
     </div>
   );
 }
 
-export default StoryDisplay;
+export default React.memo(StoryDisplay);

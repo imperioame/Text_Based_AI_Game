@@ -33,4 +33,13 @@ const sequelize = new Sequelize(dbName, dbUser, dbPassword, {
   logging: false,
 });
 
-module.exports = { sequelize, connectWithRetry };
+const syncDatabase = async () => {
+  try {
+    await sequelize.sync({ alter: true });
+    console.log('Database synced successfully');
+  } catch (error) {
+    console.error('Error syncing database:', error);
+  }
+};
+
+module.exports = { sequelize, connectWithRetry, syncDatabase };

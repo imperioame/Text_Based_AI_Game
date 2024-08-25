@@ -52,6 +52,7 @@ There's also a .scss file in the client folder
 | Clean css and normalize as .scss | 💻 |  |
 | Incorporate tailwind in the scss and adjust npm script to build scss and tailwind | 💻 | normalize css |
 | Code review and optimization | 💻 | have a happily functional prototype |
+| Qwen2-Boundless tends to answer in an asian language that breaks the utf encoding when pushig to db. try to limit this | 💻 |  |
 
 💻: To be done
 

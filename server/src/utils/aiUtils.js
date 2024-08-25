@@ -291,7 +291,11 @@ exports.generateStory = async () => {
       newChunk: story,
       options,
       gameState,
-      conversationHistory: exports.getConversationHistory()
+      conversationHistory: [{
+        type: 'ai',
+        content: story
+      }]
+      //conversationHistory: exports.getConversationHistory()
     };
   } catch (error) {
     console.error('Error in generateStory:', error);
@@ -388,7 +392,15 @@ exports.processAction = async (gameState, action, history) => {
       newChunk: processedStory,
       options,
       gameState: newGameState,
-      conversationHistory: exports.getConversationHistory(),
+      conversationHistory: [{
+          type: 'user',
+          content: actionWithoutNumber
+        },
+        {
+          type: 'ai',
+          content: processedStory
+        }
+      ],
       loadTime
     };
   } catch (error) {
@@ -430,6 +442,11 @@ function extractStoryAndOptions(text) {
     }
 
   }
+  
+  options = options.map(option => {
+    const withoutNumber = option.replace(/^\d+\.\s*/, '').trim();
+    return withoutNumber;
+  });
 
   // Separate the last scene narrative from the options for optimization
   const narrative = processedStory.split("\n\nYour options are:")[0].trim();
