@@ -1,39 +1,28 @@
 const Game = require('../models/Game');
-const {
-  generateStory,
-  processAction
-} = require('../utils/aiUtils');
+const { generateStory, processAction, getAvailableModels } = require('../utils/aiUtils');
 
 exports.startNewGame = async (req, res) => {
   try {
-    const initialStory = await generateStory();
-    console.log('Initial story generated:', JSON.stringify(initialStory, null, 2));
-
+    const { aiModel } = req.body;
+    const userId = req.user ? req.user.id : null; // We'll implement authentication middleware later
+    
+    const initialStory = await generateStory(aiModel);
+    
     const newGame = await Game.create({
+      title: initialStory.title,
       fullStory: initialStory.fullStory,
       lastChunk: initialStory.newChunk,
       options: initialStory.options,
       gameState: initialStory.gameState,
-      conversationHistory: initialStory.conversationHistory
+      conversationHistory: initialStory.conversationHistory,
+      aiModel,
+      userId
     });
 
-    //console.log('New game created:', JSON.stringify(newGame.toJSON(), null, 2));
-
-    res.status(201).json({
-      id: newGame.id,
-      fullStory: newGame.fullStory,
-      lastChunk: newGame.lastChunk,
-      options: newGame.options,
-      gameState: newGame.gameState,
-      conversationHistory: newGame.conversationHistory
-    });
-    //res.status(201).json(newGame);
+    res.status(201).json(newGame);
   } catch (error) {
     console.error('Error starting new game:', error);
-    res.status(500).json({
-      message: 'Error starting new game',
-      error: error.toString()
-    });
+    res.status(500).json({ message: 'Error starting new game', error: error.toString() });
   }
 };
 
@@ -95,4 +84,24 @@ exports.submitAction = async (req, res) => {
       error
     });
   }
+};
+
+exports.getUserGames = async (req, res) => {
+  try {
+    const userId = req.user.id; // We'll implement authentication middleware later
+    const games = await Game.findAll({
+      where: { userId },
+      attributes: ['id', 'title', 'createdAt', 'aiModel'],
+      order: [['createdAt', 'DESC']]
+    });
+    res.json(games);
+  } catch (error) {
+    console.error('Error fetching user games:', error);
+    res.status(500).json({ message: 'Error fetching user games', error: error.toString() });
+  }
+};
+
+exports.getAvailableModels = (req, res) => {
+  const models = getAvailableModels();
+  res.json(models);
 };

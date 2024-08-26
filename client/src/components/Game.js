@@ -6,25 +6,36 @@ import StoryDisplay from './StoryDisplay';
 import ActionInput from './ActionInput';
 
 function Game() {
+  console.log('Game component rendering');
   const dispatch = useDispatch();
   const { conversationHistory, options, loading, loadTime, error } = useSelector((state) => state.game);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(startNewGame()).then(() => setIsLoading(false));
+    console.log('useEffect in Game component triggered');
+    dispatch(startNewGame())
+      .then(() => {
+        console.log('startNewGame action completed');
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error starting new game:', error);
+        setIsLoading(false);
+      });
   }, [dispatch]);
 
-  
   useEffect(() => {
     console.log('Game state updated:', { conversationHistory, options, loading, loadTime, error });
   }, [conversationHistory, options, loading, loadTime, error]);
 
   const handleActionSubmit = useCallback((action) => {
+    console.log('Action submitted:', action);
     dispatch(submitAction(action));
   }, [dispatch]);
 
   const handleNewGame = useCallback(() => {
+    console.log('New game requested');
     dispatch(startNewGame());
   }, [dispatch]);
 

@@ -28,7 +28,7 @@ body {
 }
 
 ::selection {
-  @apply bg-blue-600 text-shadow-none;
+  @apply bg-blue-600;
 }
 
 #storyDisplay {
@@ -36,7 +36,7 @@ body {
 }
 
 .option_button {
-  @apply bg-transparent border-2 border-white text-shadow;
+  @apply bg-transparent border-2 border-white;
 }
 
 #root{
@@ -69,34 +69,6 @@ body {
   100% { width: 100%; }
 }
 
-.vintage-spinner {
-  width: 20px;
-  height: 20px;
-  background: 
-    linear-gradient(#000 0 0) top/20% 2px,
-    linear-gradient(#000 0 0) right/2px 20%,
-    linear-gradient(#000 0 0) bottom/20% 2px,
-    linear-gradient(#000 0 0) left/2px 20%;
-  background-repeat: no-repeat;
-  animation: vintage-spin 1s linear infinite;
-}
-
-@keyframes vintage-spin {
-  to { transform: rotate(1turn) }
-}
-
-.vintage-loadbar {
-  height: 10px;
-  background: repeating-linear-gradient(
-    90deg,
-    #2c3e50,
-    #2c3e50 2px,
-    #34495e 2px,
-    #34495e 4px
-  );
-  transition: width 0.5s ease-in-out;
-}
-
 .vintage-cursor {
   animation: blink 1s steps(1) infinite;
 }
@@ -105,25 +77,9 @@ body {
   50% { opacity: 0; }
 }
 
-.vintage-ellipsis {
-  animation: ellipsis 1s steps(4) infinite;
-  display: inline-block;
-  width: 20px;
-  text-align: left;
-}
-
-@keyframes ellipsis {
-  to { width: 20px; }
-}
-
-.vintage-ellipsis::after {
-  content: '...';
-  position: absolute;
-}
-
 .vintage-spinner {
-  width: 20px;
-  height: 20px;
+  width: 60px;
+  height: 60px;
   background: 
     linear-gradient(#ffff00 0 0) top/20% 2px,
     linear-gradient(#ffff00 0 0) right/2px 20%,
@@ -139,8 +95,8 @@ body {
 }
 
 .vintage-loadbar {
-  height: 10px;
-  width: 100px;
+  height: 30px;
+  width: 300px;
   background: repeating-linear-gradient(
     90deg,
     #2c3e50,

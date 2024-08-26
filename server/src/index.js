@@ -4,6 +4,7 @@ global.fetch = fetch;
 const express = require('express');
 const { sequelize, connectWithRetry } = require('./config/database');
 const gameRoutes = require('./routes/gameRoutes');
+const userRoutes = require('./routes/userRoutes');
 const cors = require('cors');
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/game', gameRoutes);
+app.use('/api/user', userRoutes);
 
 const startServer = async () => {
   try {

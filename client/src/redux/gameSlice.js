@@ -2,22 +2,35 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const API_URL = process.env.REACT_APP_API_URL;
+console.log('API_URL:', API_URL);
 
-export const startNewGame = createAsyncThunk('game/startNew', async () => {
-  const response = await axios.post(`${API_URL}/game/new`);
-  console.log('API response for new game:', response.data);
-  return response.data;
+export const startNewGame = createAsyncThunk('game/startNew', async (_, { rejectWithValue }) => {
+  try {
+    console.log('Starting new game...');
+    const response = await axios.post(`${API_URL}/game/new`);
+    console.log('API response for new game:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error starting new game:', error);
+    return rejectWithValue(error.response ? error.response.data : error.message);
+  }
 });
 
-export const submitAction = createAsyncThunk('game/submitAction', async (action, { getState }) => {
-  const { gameState, gameId, conversationHistory } = getState().game;
-  const response = await axios.post(`${API_URL}/game/${gameId}/action`, { 
-    gameState,
-    action,
-    history: conversationHistory
-  });
-  console.log('API response for action:', response.data);
-  return response.data;
+export const submitAction = createAsyncThunk('game/submitAction', async (action, { getState, rejectWithValue }) => {
+  try {
+    const { gameState, gameId, conversationHistory } = getState().game;
+    console.log('Submitting action:', action, 'for game:', gameId);
+    const response = await axios.post(`${API_URL}/game/${gameId}/action`, { 
+      gameState,
+      action,
+      history: conversationHistory
+    });
+    console.log('API response for action:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error submitting action:', error);
+    return rejectWithValue(error.response ? error.response.data : error.message);
+  }
 });
 
 const gameSlice = createSlice({
@@ -36,10 +49,12 @@ const gameSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(startNewGame.pending, (state) => {
+        console.log('startNewGame.pending');
         state.loading = true;
         state.error = null;
       })
       .addCase(startNewGame.fulfilled, (state, action) => {
+        console.log('startNewGame.fulfilled:', action.payload);
         state.fullStory = action.payload.fullStory;
         state.conversationHistory = action.payload.conversationHistory || [{ type: 'ai', content: action.payload.lastChunk }];
         state.options = action.payload.options;
@@ -49,6 +64,7 @@ const gameSlice = createSlice({
         console.log('State after new game:', state);
       })
       .addCase(startNewGame.rejected, (state, action) => {
+        console.log('startNewGame.rejected:', action.error);
         state.loading = false;
         state.error = action.error.message;
       })

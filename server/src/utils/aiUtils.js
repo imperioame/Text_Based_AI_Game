@@ -1,3 +1,5 @@
+const { generateWithLanguageCheck } = require('./languageUtils');
+
 const {
   HfInference
 } = require('@huggingface/inference');
@@ -50,7 +52,7 @@ const MODELS = [{
   {
     name: 'Qwen2-Boundless',
     repo: 'ystemsrx/Qwen2-Boundless',
-    comments: 'Works well, quite creative',
+    comments: 'Works well, quite creative, tends to mix with non-latin languages (non supported)',
     type: MODELTYPES[3]
   },
   {
@@ -102,6 +104,14 @@ const MODELS = [{
     type: MODELTYPES[0]
   }
 ];
+
+
+// Add this new function to get the list of available models
+exports.getAvailableModels = () => {
+  return MODELS.map(model => ({ name: model.name, type: model.type, comments: model.comments }));
+};
+
+
 
 const conversationHistory = {
   fullRecord: [],
@@ -175,15 +185,17 @@ function getModelConfig(prompt1, prompt2 = '') {
   let inputs = '';
   let parameters = {
     max_new_tokens: 200,
-    max_time: 25,
-    repetition_penalty: 50,
+    //max_time: 25,
+    repetition_penalty: 1.5,
+    //repetition_penalty: 50,
     temperature: 0.7,
     top_k: 50,
     top_p: 0.9,
     do_sample: true,
+    //do_sample: false,
     no_repeat_ngram_size: 3,
     early_stopping: true,
-    num_beams: 4,
+    //num_beams: 4,
   };
 
   switch (currentModel.type) {
@@ -221,7 +233,22 @@ function logInteraction(type, message) {
   console.log(logEntry);
 }
 
-exports.generateStory = async () => {
+async function generateTitle(story) {
+  const prompt = `Generate a brief title (5-6 words max) for the following story:\n\n${story}\n\nTitle:`;
+  
+  const config = getModelConfig(prompt);
+  const response = await hf.textGeneration(config);
+  
+  return response.generated_text.trim().slice(0, 100); // Limit to 100 characters
+}
+
+exports.generateStory = async (modelName) => {
+  const modelIndex = MODELS.findIndex(model => model.name === modelName);
+  if (modelIndex === -1) {
+    throw new Error('Invalid model name');
+  }
+  currentModelIndex = modelIndex;
+
   const currentModel = MODELS[currentModelIndex];
   const isModelReady = await checkModelStatus(currentModel.repo);
   if (!isModelReady) {
@@ -241,26 +268,23 @@ exports.generateStory = async () => {
       break;
     case MODELTYPES[2]:
     case MODELTYPES[3]:
-      /*  
-        prompt1 = conversationHistory.pastUserInputs.join('\n');
-        prompt2 = `Let's start a ${randomTheme} story where I'm the main character. What's the current situation and what do I see?`;
-        prompt3 = conversationHistory.generatedResponses.join('\n');
-        break;
-        */
 
       prompt1 = conversationHistory.fullRecord.join('\n');
-      prompt2 = `Let's start a ${randomTheme} story where I'm the main character. What's the current situation and what do I see?`;
+      prompt2 = `Tell me a brief ${randomTheme} story where I'm the main character. What's the current situation and what do I see?`;
+      //prompt2 = `Let's start a ${randomTheme} story where I'm the main character. What's the current situation and what do I see?`;
       break;
   }
 
   logInteraction('User', `Model: ${MODELS[currentModelIndex].name}, Prompt: ${prompt1} ${prompt2}`);
 
   try {
+    const result = await generateWithLanguageCheck(async () => {
+
     const config = getModelConfig(prompt1, prompt2);
     const response = await hf.textGeneration(config);
 
 
-    logInteraction('Debug', `API Response: ${JSON.stringify(response)}`);
+    //log-Interaction('Debug', `API Response: ${JSON.stringify(response)}`);
     if (!response || !response.generated_text) {
       throw new Error('Invalid response from API');
     };
@@ -286,7 +310,10 @@ exports.generateStory = async () => {
       lastScene: processedStory
     };
 
+    const title = await generateTitle(story);
+
     return {
+      title,
       fullStory: story,
       newChunk: story,
       options,
@@ -294,9 +321,13 @@ exports.generateStory = async () => {
       conversationHistory: [{
         type: 'ai',
         content: story
-      }]
+      }],
+      aiModel: modelName
       //conversationHistory: exports.getConversationHistory()
-    };
+    }});
+
+    return result;
+
   } catch (error) {
     console.error('Error in generateStory:', error);
     logInteraction('Error', `Generate Story Error: ${error.message}`);
@@ -352,10 +383,12 @@ exports.processAction = async (gameState, action, history) => {
   logInteraction('User', `Model: ${MODELS[currentModelIndex].name}, Prompt: ${prompt1} ${prompt2}`);
 
   try {
+    const result = await generateWithLanguageCheck(async () => {
+
     const config = getModelConfig(prompt1, prompt2);
     const response = await hf.textGeneration(config);
 
-    logInteraction('Debug', `API Response: ${JSON.stringify(response)}`);
+    //logInteraction('Debug', `API Response: ${JSON.stringify(response)}`);
 
     if (!response || !response.generated_text) {
       throw new Error('Invalid response from API');
@@ -402,7 +435,10 @@ exports.processAction = async (gameState, action, history) => {
         }
       ],
       loadTime
-    };
+    }});
+    
+    return result;
+
   } catch (error) {
     console.error('Error in processAction:', error);
     logInteraction('Error', `Process Action Error: ${error.message}`);
