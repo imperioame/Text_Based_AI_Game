@@ -2,6 +2,12 @@ const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/database');
 
 const Game = sequelize.define('Game', {
+  publicId: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+    allowNull: false,
+    unique: true
+  },
   title: {
     type: DataTypes.STRING(100),
     allowNull: false
@@ -28,7 +34,7 @@ const Game = sequelize.define('Game', {
   },
   aiModel: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: true
   },
   userId: {
     type: DataTypes.INTEGER,

@@ -4,10 +4,13 @@ const authMiddleware = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-router.post('/new', authMiddleware, startNewGame);
-router.get('/:id', authMiddleware, continueGame);
-router.post('/:id/action', authMiddleware, submitAction);
-router.get('/user/games', authMiddleware, getUserGames);
+// Public routes
+router.post('/new', startNewGame);
+router.get('/:id', continueGame);
+router.post('/:id/action', submitAction);
 router.get('/models', getAvailableModels);
+
+// Route that requires authentication
+router.get('/user/games', authMiddleware, getUserGames);
 
 module.exports = router;

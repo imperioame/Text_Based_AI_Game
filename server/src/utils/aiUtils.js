@@ -243,11 +243,10 @@ async function generateTitle(story) {
 }
 
 exports.generateStory = async (modelName) => {
-  const modelIndex = MODELS.findIndex(model => model.name === modelName);
-  if (modelIndex === -1) {
-    throw new Error('Invalid model name');
+  let modelIndex = MODELS.findIndex(model => model.name === modelName);
+  if (modelIndex != -1) {
+    currentModelIndex = modelIndex;
   }
-  currentModelIndex = modelIndex;
 
   const currentModel = MODELS[currentModelIndex];
   const isModelReady = await checkModelStatus(currentModel.repo);
@@ -322,7 +321,7 @@ exports.generateStory = async (modelName) => {
         type: 'ai',
         content: story
       }],
-      aiModel: modelName
+      aiModel: MODELS[currentModelIndex].name
       //conversationHistory: exports.getConversationHistory()
     }});
 

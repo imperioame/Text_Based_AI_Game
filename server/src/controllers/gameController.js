@@ -1,10 +1,12 @@
 const Game = require('../models/Game');
 const { generateStory, processAction, getAvailableModels } = require('../utils/aiUtils');
+const { v4: uuidv4 } = require('uuid');
 
 exports.startNewGame = async (req, res) => {
   try {
     const { aiModel } = req.body;
-    const userId = req.user ? req.user.id : null; // We'll implement authentication middleware later
+    const userId = req.user ? req.user.id : null;
+    const publicId = uuidv4(); // Generate a unique public ID for the game
     
     const initialStory = await generateStory(aiModel);
     
@@ -16,10 +18,16 @@ exports.startNewGame = async (req, res) => {
       gameState: initialStory.gameState,
       conversationHistory: initialStory.conversationHistory,
       aiModel,
-      userId
+      userId,
+      publicId
     });
 
-    res.status(201).json(newGame);
+    res.status(201).json({
+      id: newGame.publicId,
+      title: newGame.title,
+      lastChunk: newGame.lastChunk,
+      options: newGame.options
+    });
   } catch (error) {
     console.error('Error starting new game:', error);
     res.status(500).json({ message: 'Error starting new game', error: error.toString() });
@@ -28,70 +36,67 @@ exports.startNewGame = async (req, res) => {
 
 exports.continueGame = async (req, res) => {
   try {
-    const game = await Game.findByPk(req.params.id);
+    const game = await Game.findOne({ where: { publicId: req.params.id } });
     if (!game) {
-      return res.status(404).json({
-        message: 'Game not found'
-      });
+      return res.status(404).json({ message: 'Game not found' });
     }
-    res.json(game);
+    
+    // If the game belongs to a user, ensure the correct user is accessing it
+    if (game.userId && (!req.user || game.userId !== req.user.id)) {
+      return res.status(403).json({ message: 'Access denied' });
+    }
+    
+    res.json({
+      id: game.publicId,
+      title: game.title,
+      lastChunk: game.lastChunk,
+      options: game.options
+    });
   } catch (error) {
     console.error('Error continuing game:', error);
-    res.status(500).json({
-      message: 'Error continuing game',
-      error
-    });
+    res.status(500).json({ message: 'Error continuing game', error: error.toString() });
   }
 };
 
 exports.submitAction = async (req, res) => {
   try {
-    const game = await Game.findByPk(req.params.id);
+    const game = await Game.findOne({ where: { publicId: req.params.id } });
     if (!game) {
-      return res.status(404).json({
-        message: 'Game not found'
-      });
+      return res.status(404).json({ message: 'Game not found' });
     }
-    const {
-      action
-    } = req.body;
-    const startTime = Date.now();
+    
+    // If the game belongs to a user, ensure the correct user is accessing it
+    if (game.userId && (!req.user || game.userId !== req.user.id)) {
+      return res.status(403).json({ message: 'Access denied' });
+    }
+    
+    const { action } = req.body;
     const nextSegment = await processAction(game.gameState, action, game.conversationHistory);
-    const endTime = Date.now();
-    const loadTime = endTime - startTime;
 
     game.fullStory = nextSegment.fullStory;
     game.lastChunk = nextSegment.newChunk;
     game.options = nextSegment.options;
     game.gameState = nextSegment.gameState;
-    game.conversationHistory.push({
-      type: 'user',
-      content: action
-    }, {
-      type: 'ai',
-      content: nextSegment.newChunk
-    });
+    game.conversationHistory = nextSegment.conversationHistory;
     await game.save();
 
     res.json({
-      ...game.toJSON(),
-      loadTime
+      id: game.publicId,
+      title: game.title,
+      lastChunk: game.lastChunk,
+      options: game.options
     });
   } catch (error) {
     console.error('Error processing action:', error);
-    res.status(500).json({
-      message: 'Error processing action',
-      error
-    });
+    res.status(500).json({ message: 'Error processing action', error: error.toString() });
   }
 };
 
 exports.getUserGames = async (req, res) => {
   try {
-    const userId = req.user.id; // We'll implement authentication middleware later
     const games = await Game.findAll({
-      where: { userId },
-      attributes: ['id', 'title', 'createdAt', 'aiModel'],
+      where: { userId: req.user.id },
+      attributes: ['publicId', 'title', 'createdAt', 'aiModel'],
       order: [['createdAt', 'DESC']]
     });
     res.json(games);
