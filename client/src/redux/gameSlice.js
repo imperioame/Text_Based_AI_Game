@@ -33,6 +33,15 @@ export const submitAction = createAsyncThunk('game/submitAction', async (action,
   }
 });
 
+export const getAvailableModels = createAsyncThunk('game/getAvailableModels', async (_, { rejectWithValue }) => {
+  try {
+    const response = await axios.get(`${API_URL}/game/models`);
+    return response.data;
+  } catch (error) {
+    return rejectWithValue(error.response ? error.response.data : error.message);
+  }
+});
+
 const gameSlice = createSlice({
   name: 'game',
   initialState: {
@@ -43,7 +52,9 @@ const gameSlice = createSlice({
     loading: false,
     loadTime: 0,
     gameId: null,
-    error: null
+    error: null,
+    availableModels: [],
+    userGames: []
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -87,7 +98,10 @@ const gameSlice = createSlice({
       .addCase(submitAction.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
-      });
+      })
+      .addCase(getAvailableModels.fulfilled, (state, action) => {
+        state.availableModels = action.payload;
+      })
   },
 });
 

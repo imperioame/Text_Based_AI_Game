@@ -13,7 +13,8 @@ function containsNonLatinCharacters(text) {
 }
 
 function replaceNonLatinWithScribbles(text) {
-  return text.replace(/[^\u0000-\u007F\u00A0-\u00FF\s.,!?;:'"()-]/g, '-');
+  const randomCharacters = '*/-+!@#$%^&*()_+[]{}|;:,.<>?';
+  return text.replace(/[^\u0000-\u007F\u00A0-\u00FF\s.,!?;:'"()-]/g, randomCharacters[Math.floor(Math.random() * randomCharacters.length)]);
 }
 
 function createCreativeError(text) {

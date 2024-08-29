@@ -26,7 +26,8 @@ exports.startNewGame = async (req, res) => {
       id: newGame.publicId,
       title: newGame.title,
       lastChunk: newGame.lastChunk,
-      options: newGame.options
+      options: newGame.options,
+      conversationHistory: newGame.conversationHistory
     });
   } catch (error) {
     console.error('Error starting new game:', error);
@@ -50,7 +51,8 @@ exports.continueGame = async (req, res) => {
       id: game.publicId,
       title: game.title,
       lastChunk: game.lastChunk,
-      options: game.options
+      options: game.options,
+      conversationHistory: game.conversationHistory
     });
   } catch (error) {
     console.error('Error continuing game:', error);
@@ -77,14 +79,15 @@ exports.submitAction = async (req, res) => {
     game.lastChunk = nextSegment.newChunk;
     game.options = nextSegment.options;
     game.gameState = nextSegment.gameState;
-    game.conversationHistory = nextSegment.conversationHistory;
+    game.conversationHistory = game.conversationHistory.concat(nextSegment.conversationHistory);
     await game.save();
 
     res.json({
       id: game.publicId,
       title: game.title,
       lastChunk: game.lastChunk,
-      options: game.options
+      options: game.options,
+      conversationHistory: game.conversationHistory
     });
   } catch (error) {
     console.error('Error processing action:', error);

@@ -28,24 +28,24 @@ There's also a .scss file in the client folder
 | Task          | Status        | Dependencies / Notes        |
 | ------------- | ------------- | ------------------- |
 | Safeguard for long promts, cap at certain length | 🕯️ |  |
-| Login for user | 🔨 | I have a backend untested, need to do front |
-| Sidebar games history | 💻 | Login for user |
-| UI story view scroll to last entry | 💻 | Review front-back interaction - Need Daniel |
+| Login for user | 🔨 | Check authMiddleware, not sure what is doing right now |
+| Sidebar games history | 🔨 | requires Login for user to work well |
+| The API /:id is not authenticated, needs to be crossed with user info | 💻 | Login for user |
+| UI story view scroll to last entry | ✅️ |  |
 | Declare new text2text generation in modeltypes | ✅️ |  |
-| Search text2text generation add new models | 🔨 | Have declared t2tgen |
-| Try for the AI to provide options for the user | 💻 | Should implement another query to do this |
-| Validate that the pre-made user options are not repeated | 💻 |  |
-| Loader animation when initializing a AI model | 🔨 | UI review |
-| Error messages in the UI | 💻 | Review front-back interaction - UI review - Need Daniel |
-| AI model switch | 🔨 | I have a backend untested, need to do front |
+| Search text2text generation add new models | ✅️ |  |
+| Try for the AI to provide options for the user | 🔨 | The extractStoryAndOptions in aiutils tryes to catch options fron the ai story and provides presets if unable  |
+| Validate that the pre-made user options are not repeated | 🔨 | Seems like the extractStoryAndOptions is always returning the same 3 options |
+| Loader animation when initializing a AI model | 🔨 | Needs alignment |
+| Error messages in the UI | 🔨 |  |
+| AI model switch | 🔨 | Pending to implement a tooltip to show ai model comment and type, or some UI structure for it |
 | Document how to build for prod (Without docker) | 💻 | Need Daniel |
-| Text writing animation on the UI | 🔨 | Check if tailwind has something |
-| Sidebar with glass transparency effect | 🔨 | Check if tailwind has something |
+| Text writing animation on the UI | 🔨 | Don't know why it breaks so much. Seems to be working now. |
+| Sidebar with glass transparency effect | 💻 | Check if tailwind has something |
 | Check responsive | 💻 | 
-| Sidebar opening animation | 💻 |
 | UI Action feedback - animation + loader | 💻 | Check if tailwind has something |
 | CRT monitor sound effect | 💻 | Investigate sonorization options |
-| Get a title for each adventure | 🔨 | I have a backend untested, need to do front |
+| Get a title for each adventure | 🔨 | The current function is calling hf api. I dont think that's efficient. Let's at least call a fast loading model. |
 | Add a help button with basic info of the game | 💻 |  |
 | Add a footer with my info | 💻 |  |
 | Also print user inputs | 🔨 | Back should provide both user action and story |
@@ -55,6 +55,12 @@ There's also a .scss file in the client folder
 | Qwen2-Boundless tends to answer in an asian language that breaks the utf encoding when pushig to db. try to limit this | ✅️ |  |
 | in aiUtils check if the response has the original prompt, and trim it | 💻 |  |
 | The frontend is not keeping the linebreaks sent by the api | 💻 |  |
+| The Ai model or my languageUtils are generating special unicode blocks (https://en.wikipedia.org/wiki/Specials_%28Unicode_block%29) as \xEF\xBC\ or such. DB is breaking at this point | 💻 |  |
+| When opening the site, it's making to requests for a new game | 💻 |  |
+| If sidebar is pinned, push content right | 💻 |  |
+| If a user registers while playing a game, implement a separate endpoint to associate the game with the newly registered user | 💻 |  take the game's publicId and the user's ID, then updates the game's userId field. This endpoint should be called after successful user registration if there's an active game. |
+
+
 
 💻: To be done
 
