@@ -1,22 +1,26 @@
 const Game = require('../models/Game');
 const { generateStory, processAction, getAvailableModels } = require('../utils/aiUtils');
 const { v4: uuidv4 } = require('uuid');
+const { sanitizeText } = require('../utils/languageUtils');
 
 exports.startNewGame = async (req, res) => {
   try {
     const { aiModel } = req.body;
     const userId = req.user ? req.user.id : null;
-    const publicId = uuidv4(); // Generate a unique public ID for the game
+    const publicId = uuidv4();
     
     const initialStory = await generateStory(aiModel);
     
     const newGame = await Game.create({
-      title: initialStory.title,
-      fullStory: initialStory.fullStory,
-      lastChunk: initialStory.newChunk,
+      title: sanitizeText(initialStory.title),
+      fullStory: sanitizeText(initialStory.fullStory),
+      lastChunk: sanitizeText(initialStory.newChunk),
       options: initialStory.options,
       gameState: initialStory.gameState,
-      conversationHistory: initialStory.conversationHistory,
+      conversationHistory: initialStory.conversationHistory.map(entry => ({
+        ...entry,
+        content: sanitizeText(entry.content)
+      })),
       aiModel,
       userId,
       publicId
@@ -27,7 +31,9 @@ exports.startNewGame = async (req, res) => {
       title: newGame.title,
       lastChunk: newGame.lastChunk,
       options: newGame.options,
-      conversationHistory: newGame.conversationHistory
+      conversationHistory: newGame.conversationHistory,
+      gameState: newGame.gameState,
+      aiModel: newGame.aiModel
     });
   } catch (error) {
     console.error('Error starting new game:', error);
@@ -52,7 +58,9 @@ exports.continueGame = async (req, res) => {
       title: game.title,
       lastChunk: game.lastChunk,
       options: game.options,
-      conversationHistory: game.conversationHistory
+      conversationHistory: game.conversationHistory,
+      gameState: game.gameState,
+      aiModel: game.aiModel
     });
   } catch (error) {
     console.error('Error continuing game:', error);
@@ -75,11 +83,16 @@ exports.submitAction = async (req, res) => {
     const { action } = req.body;
     const nextSegment = await processAction(game.gameState, action, game.conversationHistory);
 
-    game.fullStory = nextSegment.fullStory;
-    game.lastChunk = nextSegment.newChunk;
+    game.fullStory = sanitizeText(nextSegment.fullStory);
+    game.lastChunk = sanitizeText(nextSegment.newChunk);
     game.options = nextSegment.options;
     game.gameState = nextSegment.gameState;
-    game.conversationHistory = game.conversationHistory.concat(nextSegment.conversationHistory);
+    game.conversationHistory = game.conversationHistory.concat(
+      nextSegment.conversationHistory.map(entry => ({
+        ...entry,
+        content: sanitizeText(entry.content)
+      }))
+    );
     await game.save();
 
     res.json({

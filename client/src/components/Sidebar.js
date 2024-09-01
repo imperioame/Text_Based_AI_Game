@@ -1,20 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logoutUser } from '../redux/userSlice';
 import LoginRegister from './LoginRegister';
-import { getUserGames } from '../redux/userSlice'; // Assuming you've added this action to gameSlice
 
-function Sidebar({ isOpen, onClose, onNewGame, isPinned, onPin }) {
+function Sidebar({ isOpen, onClose, onNewGame, isPinned, onPin, userGames }) {
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
-  const { userGames } = useSelector((state) => state.game);
   const [showUserMenu, setShowUserMenu] = useState(false);
-
-  useEffect(() => {
-    if (currentUser) {
-      dispatch(getUserGames());
-    }
-  }, [currentUser, dispatch]);
 
   const handleLogout = () => {
     dispatch(logoutUser());
@@ -55,7 +47,6 @@ function Sidebar({ isOpen, onClose, onNewGame, isPinned, onPin }) {
               >
                 Logout
               </button>
-              {/* Add more user options here */}
             </div>
           )}
         </div>

@@ -248,13 +248,33 @@ function logInteraction(type, message) {
   console.log(logEntry);
 }
 
-async function generateTitle(story) {
-  const prompt = `Generate a brief title (5-6 words max) for the following story:\n\n${story}\n\nTitle:`;
+async function generateTitle(story, storyTheme) {
+  const model = "facebook/bart-large-cnn";
+  const maxLength = 10; // Adjust this value to get shorter or longer titles
 
-  const config = getModelConfig(prompt);
-  const response = await hf.textGeneration(config);
+  try {
+    const response = await hf.summarization({
+      model: model,
+      inputs: story,
+      parameters: {
+        max_length: maxLength,
+        min_length: 1,
+        do_sample: false
+      }
+    });
 
-  return response.generated_text.trim().slice(0, 100); // Limit to 100 characters
+    if (response && response.summary_text) {
+      return response.summary_text.trim();
+    } else {
+      console.warn('Unexpected response format from summarization API:', response);
+      throw new Error('Invalid response format');
+    }
+  } catch (error) {
+    console.error('Error generating title:', error);
+    // Fallback title generation
+    const words = story.split(/\s+/).slice(0, 5).join(' ');
+    return `${words}... - A ${storyTheme} Adventure`;
+  }
 }
 
 exports.generateStory = async (modelName) => {
@@ -323,9 +343,14 @@ exports.generateStory = async (modelName) => {
       };
       conversationHistory.fullRecord.push(conversationHistory.pastUserInputs[conversationHistory.pastUserInputs.length - 1], story);
 
-      //const title = await generateTitle(story);
-      const title = "Your Crazy story";
-
+      let title;
+      try {
+        title = await generateTitle(story, randomTheme);
+      } catch (titleError) {
+        console.error('Error generating title:', titleError);
+        title = `A ${randomTheme} Adventure`; // Fallback title
+      }
+      
       return {
         title,
         fullStory: story,
@@ -337,7 +362,6 @@ exports.generateStory = async (modelName) => {
           content: story
         }],
         aiModel: MODELS[currentModelIndex].name
-        //conversationHistory: exports.getConversationHistory()
       }
     });
 
@@ -407,7 +431,7 @@ exports.processAction = async (gameState, action, history) => {
       const {
         processedStory,
         options
-      } = extractStoryAndOptions(response.generated_text, fullStory,actionWithoutNumber);
+      } = extractStoryAndOptions(response.generated_text, fullStory, actionWithoutNumber);
       const newChunk = processedStory;
       const updatedFullStory = `${fullStory}\n\nUser: ${action}\n\nAI: ${newChunk}`;
 
@@ -487,22 +511,30 @@ function extractStoryAndOptions(text, previousStory = '', userAction = '') {
 
   const genericOptions = [
     "Investigate further",
-    "Talk to someone nearby",
-    "Check your surroundings",
-    "Use an item from your inventory",
-    "Rest and plan your next move",
+    "Talk this out",
+    "Check the surroundings",
+    "Use an item from the inventory",
+    "Rest and plan the next move",
     "Try to find a way out",
     "Search for clues",
     "Attempt to use a skill or ability",
     "Call for help",
-    "Set up camp or find shelter"
+    "Set up camp or find shelter",
+    "Explore a new area",
+    "Interact with the environment",
+    "Gather resources",
+    "Craft item",
+    "Negotiate",
+    "Hide and observe",
+    "Try to solve this riddle"
   ];
 
   // If we don't have exactly 3 options, use generic options
   if (options.length !== 3) {
+    const shuffledGenericOptions = genericOptions.sort(() => 0.5 - Math.random());
     const usedOptions = new Set(options);
     while (options.length < 3) {
-      const newOption = genericOptions.find(option => !usedOptions.has(option));
+      const newOption = shuffledGenericOptions.find(option => !usedOptions.has(option));
       if (newOption) {
         options.push(newOption);
         usedOptions.add(newOption);

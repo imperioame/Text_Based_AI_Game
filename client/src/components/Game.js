@@ -1,13 +1,15 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { startNewGame, submitAction, getAvailableModels } from '../redux/gameSlice';
+import { startNewGame, submitAction, getAvailableModels, getUserGames } from '../redux/gameSlice';
+import { checkAuth } from '../redux/userSlice';
 import Sidebar from './Sidebar';
 import StoryDisplay from './StoryDisplay';
 import ActionInput from './ActionInput';
 
 function Game() {
   const dispatch = useDispatch();
-  const { conversationHistory, options, loading, error, availableModels } = useSelector((state) => state.game);
+  const { title, conversationHistory, options, loading, error, availableModels, userGames } = useSelector((state) => state.game);
+  const { currentUser, token } = useSelector((state) => state.user);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarPinned, setSidebarPinned] = useState(false);
   const [selectedModel, setSelectedModel] = useState('');
@@ -18,16 +20,21 @@ function Game() {
   useEffect(() => {
     const initializeGame = async () => {
       try {
+        // Check for saved login
+        await dispatch(checkAuth()).unwrap();
+        
         const modelsResult = await dispatch(getAvailableModels()).unwrap();
         if (modelsResult.length > 0) {
           setSelectedModel(modelsResult[0].name);
           await dispatch(startNewGame(modelsResult[0].name)).unwrap();
-        } else {
-          setSelectedModel('');
-          addBackendMessage('No models available', true);
+        }
+        
+        // If user is logged in, fetch their games
+        if (token) {
+          await dispatch(getUserGames()).unwrap();
         }
       } catch (error) {
-        addBackendMessage(error.message, true);
+        console.error('Error initializing game:', error);
       } finally {
         setIsInitializing(false);
       }
@@ -41,13 +48,16 @@ function Game() {
 
   const handleNewGame = useCallback(() => {
     dispatch(startNewGame(selectedModel));
-  }, [dispatch, selectedModel]);
+    if (token) {
+      dispatch(getUserGames());
+    }
+  }, [dispatch, selectedModel, token]);
 
   const handleModelChange = (e) => {
     setSelectedModel(e.target.value);
   };
 
-  const addBackendMessage = (message, isError = false) => {
+  const addBackendMessage = useCallback((message, isError = false) => {
     const newMessage = {
       id: Date.now(),
       text: message,
@@ -62,13 +72,13 @@ function Game() {
     messageTimeoutRef.current = setTimeout(() => {
       setBackendMessages((prevMessages) => prevMessages.filter((msg) => msg.id !== newMessage.id));
     }, 5000);
-  };
+  }, []);
 
   useEffect(() => {
     if (error) {
       addBackendMessage(error, true);
     }
-  }, [error]);
+  }, [error, addBackendMessage]);
 
   return (
     <div className="flex h-full">
@@ -78,6 +88,7 @@ function Game() {
         onNewGame={handleNewGame}
         isPinned={sidebarPinned}
         onPin={() => setSidebarPinned(!sidebarPinned)}
+        userGames={userGames}
       />
       <div className="flex-1 flex flex-col p-4">
         <div className="flex justify-between items-center mb-4">
@@ -88,7 +99,7 @@ function Game() {
             Open Sidebar
           </button>
           <h1 className="text-2xl font-bold text-green-300">
-            {conversationHistory[0]?.content.split('\n')[0] || 'Your Adventure'}
+            {title || 'New Adventure'}
           </h1>
           <select
             value={selectedModel}
@@ -109,6 +120,7 @@ function Game() {
           </div>
         ) : (
           <StoryDisplay 
+            title={title}
             conversationHistory={conversationHistory} 
             loading={loading} 
           />

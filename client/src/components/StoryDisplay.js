@@ -1,74 +1,39 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect } from 'react';
+import useAnimationState from './useAnimationState';
 
 function StoryDisplay({ conversationHistory, loading }) {
   const storyDisplayRef = useRef(null);
-  const [animatedHistory, setAnimatedHistory] = useState([]);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [skipAnimation, setSkipAnimation] = useState(false);
-
-  const animateText = useCallback((text, index) => {
-    return new Promise((resolve) => {
-      if (skipAnimation) {
-        setAnimatedHistory(prev => {
-          const newHistory = [...prev];
-          newHistory[index] = { type: 'ai', content: text };
-          return newHistory;
-        });
-        resolve();
-        return;
-      }
-
-      let i = 0;
-      const intervalId = setInterval(() => {
-        if (i < text.length) {
-          setAnimatedHistory(prev => {
-            const newHistory = [...prev];
-            if (!newHistory[index]) {
-              newHistory[index] = { type: 'ai', content: '' };
-            }
-            newHistory[index].content = text.substring(0, i + 1);
-            return newHistory;
-          });
-          i++;
-        } else {
-          clearInterval(intervalId);
-          resolve();
-        }
-      }, 30);
-    });
-  }, [skipAnimation]);
+  const {
+    animatedHistory,
+    isAnimating,
+    queueAnimation,
+    skipAnimation,
+    setAnimatedHistory
+  } = useAnimationState([]);
 
   useEffect(() => {
     const animateNewEntries = async () => {
-      if (!isAnimating && conversationHistory.length > animatedHistory.length) {
-        setIsAnimating(true);
-        for (let i = animatedHistory.length; i < conversationHistory.length; i++) {
-          const entry = conversationHistory[i];
-          if (entry.type === 'ai') {
-            await animateText(entry.content, i);
-          } else {
-            setAnimatedHistory(prev => [...prev, entry]);
-          }
+      for (let i = animatedHistory.length; i < conversationHistory.length; i++) {
+        const entry = conversationHistory[i];
+        setAnimatedHistory(prev => [...prev, { ...entry, content: '' }]);
+        if (entry.type === 'ai') {
+          await queueAnimation(entry, i);
+        } else {
+          setAnimatedHistory(prev => prev.map((e, j) => 
+            j === i ? { ...e, content: entry.content } : e
+          ));
         }
-        setIsAnimating(false);
-        setSkipAnimation(false);
       }
     };
 
     animateNewEntries();
-  }, [conversationHistory, animatedHistory, isAnimating, animateText]);
+  }, [conversationHistory, animatedHistory, queueAnimation, setAnimatedHistory]);
 
   useEffect(() => {
     if (storyDisplayRef.current) {
       storyDisplayRef.current.scrollTop = storyDisplayRef.current.scrollHeight;
     }
   }, [animatedHistory]);
-
-  const handleSkipAnimation = () => {
-    setSkipAnimation(true);
-    setAnimatedHistory(conversationHistory);
-    setIsAnimating(false);
-  };
 
   return (
     <div className="flex-1 overflow-hidden relative">
@@ -94,7 +59,7 @@ function StoryDisplay({ conversationHistory, loading }) {
       </div>
       {isAnimating && (
         <button
-          onClick={handleSkipAnimation}
+          onClick={skipAnimation}
           className="absolute bottom-4 right-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Skip Animation
@@ -104,4 +69,4 @@ function StoryDisplay({ conversationHistory, loading }) {
   );
 }
 
-export default React.memo(StoryDisplay);
+export default React.memo(StoryDisplay);  
