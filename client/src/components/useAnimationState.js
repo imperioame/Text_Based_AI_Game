@@ -45,7 +45,7 @@ function useAnimationState(initialHistory) {
       resolve();
       processNextAnimation();
     };
-  }, []);
+  }, [animationQueue]);
 
   const skipAnimation = useCallback(() => {
     cancelAnimation.current();

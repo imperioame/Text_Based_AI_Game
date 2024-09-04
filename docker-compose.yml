@@ -24,7 +24,7 @@ services:
     volumes:
       - ./client:/usr/src/app
       - /usr/src/app/node_modules
-    command: npm run build && npm run start
+    command: npm run start
 
   db:
     image: mysql:5.7

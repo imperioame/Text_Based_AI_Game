@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { registerUser, loginUser } from '../redux/userSlice';
+import { associateGameWithUser } from '../redux/gameSlice';
 
 function LoginRegister() {
   const dispatch = useDispatch();
+  const { gameId } = useSelector((state) => state.game);
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     username: '',
@@ -23,9 +25,15 @@ function LoginRegister() {
     setError('');
     try {
       if (isLogin) {
-        await dispatch(loginUser(formData)).unwrap();
+        const result = await dispatch(loginUser(formData)).unwrap();
+        if (gameId) {
+          await dispatch(associateGameWithUser({ gameId, userId: result.user.id })).unwrap();
+        }
       } else {
-        await dispatch(registerUser(formData)).unwrap();
+        const result = await dispatch(registerUser(formData)).unwrap();
+        if (gameId) {
+          await dispatch(associateGameWithUser({ gameId, userId: result.id })).unwrap();
+        }
       }
     } catch (err) {
       setError(err.message || 'An error occurred');
@@ -33,10 +41,10 @@ function LoginRegister() {
   };
 
   return (
-    <div>
-      <h2>{isLogin ? 'Login' : 'Register'}</h2>
-      {error && <p className="text-red-500">{error}</p>}
-      <form onSubmit={handleSubmit}>
+    <div className="p-4 bg-gray-700 rounded-lg">
+      <h2 className="text-xl font-bold text-green-300 mb-4">{isLogin ? 'Login' : 'Register'}</h2>
+      {error && <p className="text-red-500 mb-4">{error}</p>}
+      <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
           name="username"
@@ -44,6 +52,7 @@ function LoginRegister() {
           value={formData.username}
           onChange={handleChange}
           required
+          className="w-full px-3 py-2 bg-gray-800 text-green-300 rounded"
         />
         <input
           type="password"
@@ -52,6 +61,7 @@ function LoginRegister() {
           value={formData.password}
           onChange={handleChange}
           required
+          className="w-full px-3 py-2 bg-gray-800 text-green-300 rounded"
         />
         {!isLogin && (
           <>
@@ -62,6 +72,7 @@ function LoginRegister() {
               value={formData.firstName}
               onChange={handleChange}
               required
+              className="w-full px-3 py-2 bg-gray-800 text-green-300 rounded"
             />
             <input
               type="text"
@@ -70,6 +81,7 @@ function LoginRegister() {
               value={formData.lastName}
               onChange={handleChange}
               required
+              className="w-full px-3 py-2 bg-gray-800 text-green-300 rounded"
             />
             <input
               type="email"
@@ -78,12 +90,18 @@ function LoginRegister() {
               value={formData.email}
               onChange={handleChange}
               required
+              className="w-full px-3 py-2 bg-gray-800 text-green-300 rounded"
             />
           </>
         )}
-        <button type="submit">{isLogin ? 'Login' : 'Register'}</button>
+        <button type="submit" className="w-full px-4 py-2 bg-green-700 text-white rounded hover:bg-green-600 transition-colors duration-200">
+          {isLogin ? 'Login' : 'Register'}
+        </button>
       </form>
-      <button onClick={() => setIsLogin(!isLogin)}>
+      <button 
+        onClick={() => setIsLogin(!isLogin)}
+        className="mt-4 text-green-300 hover:text-green-200"
+      >
         {isLogin ? 'Need to register?' : 'Already have an account?'}
       </button>
     </div>

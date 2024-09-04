@@ -92,11 +92,8 @@ exports.loginUser = async (req, res) => {
     const token = jwt.sign(
       { user: { id: user.id } },
       process.env.JWT_SECRET,
-      { expiresIn: '1d' } // Increased token expiration to 1 day
+      { expiresIn: '1d' }
     );
-    
-    // Update existing games with user ID
-    await exports.updateGamesWithUserId(user.id);
     
     res.json({
       token,

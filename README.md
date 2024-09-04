@@ -30,7 +30,7 @@ There's also a .scss file in the client folder
 | Safeguard for long promts, cap at certain length | back/aiutils | 🕯️ |  |
 | Login for user | front | 🕯️ | It's working but I would like to keep on testing it |
 | Call for /api/user/games when starting a new game | front | 🕯️ | It's working but I would like to keep on testing it |
-| Dont call /api/user/games if the user is not logged | front | 💻 |  |
+| Dont call /api/user/games if the user is not logged | front | 🕯️ |  |
 | keep the user logged in | front | 🔨 |  |
 | Sidebar games history | front | 🔨 | answering empty |
 | The API /:id is not authenticated, needs to be crossed with user info | back | 💻 | Login for user |
@@ -58,16 +58,18 @@ There's also a .scss file in the client folder
 | Qwen2-Boundless tends to answer in an asian language that breaks the utf encoding when pushig to db. try to limit this | back | ✅️ |  |
 | in aiUtils check if the response has the original prompt, and trim it | back | ✅️ |  |
 | The frontend is not keeping the linebreaks sent by the api | front | ✅️ |  |
-| The Ai model or my languageUtils are generating special unicode blocks (https://en.wikipedia.org/wiki/Specials_%28Unicode_block%29) as \xEF\xBC\ or such. DB is breaking at this point | back/aiutils | 💻 |  |
-| The Ais sometimes provide emojis, the backend provides this in conversationHistory but not in lastChunk, I would like to keep this | back/aiutils | 💻 |  |
+| The Ai model or my languageUtils are generating special unicode blocks (https://en.wikipedia.org/wiki/Specials_%28Unicode_block%29) as \xEF\xBC\ or such. DB is breaking at this point | back/aiutils | 🕯️ |  |
+| The Ais sometimes provide emojis, the backend provides this in conversationHistory but not in lastChunk, I would like to keep this | back/aiutils | 🕯️ |  |
 | When opening the site, it's making to requests for a new game | front | 🕯️ |  |
 | If sidebar is pinned, push content right | front | 💻 |  |
 | Normalize use and style of spinner | front | 💻 |  |
-| If a user registers while playing a game, implement a separate endpoint to associate the game with the newly registered user | front+back | 💻 |  take the game's publicId and the user's ID, then updates the game's userId field. This endpoint should be called after successful user registration if there's an active game. |
+| If a user registers while playing a game, implement a separate endpoint to associate the game with the newly registered user | front+back | 🕯️ |  take the game's publicId and the user's ID, then updates the game's userId field. This endpoint should be called after successful user registration if there's an active game. |
 | Make sure errors dont halt server in prod | front + back | 💻 |  |
 | Add the username or a user icon somewhere to aknowledge the logged user | front | 💻 |  |
 | Add a big error X and message if the game cant start | front | 💻 |  |
 | If the user starts a new game it should completely refresh storyDisplay | front | 💻 |  |
+| Only allow one query to "new game" and "submit action", lock the action buttons until query processed | front | 🔨 |  |
+| Add "Error processing action" - "SyntaxError: Invalid regular expression" when the backend detects an option in the AI story | backend | 💻 |  |
 
 
 💻: To be done

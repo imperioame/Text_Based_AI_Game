@@ -126,3 +126,27 @@ exports.getAvailableModels = (req, res) => {
   const models = getAvailableModels();
   res.json(models);
 };
+
+exports.associateGameWithUser = async (req, res) => {
+  try {
+    const { gameId } = req.params;
+    const userId = req.user.id;
+
+    const game = await Game.findOne({ where: { publicId: gameId } });
+    if (!game) {
+      return res.status(404).json({ message: 'Game not found' });
+    }
+
+    if (game.userId) {
+      return res.status(400).json({ message: 'Game is already associated with a user' });
+    }
+
+    game.userId = userId;
+    await game.save();
+
+    res.json({ message: 'Game successfully associated with user' });
+  } catch (error) {
+    console.error('Error associating game with user:', error);
+    res.status(500).json({ message: 'Error associating game with user', error: error.toString() });
+  }
+};

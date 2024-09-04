@@ -36,7 +36,7 @@ function StoryDisplay({ conversationHistory, loading }) {
   }, [animatedHistory]);
 
   return (
-    <div className="flex-1 overflow-hidden relative">
+    <div className="h-full overflow-hidden relative">
       <div ref={storyDisplayRef} className="h-full overflow-y-auto font-mono p-4">
         {animatedHistory.map((entry, index) => (
           <p
@@ -69,4 +69,4 @@ function StoryDisplay({ conversationHistory, loading }) {
   );
 }
 
-export default React.memo(StoryDisplay);  
+export default React.memo(StoryDisplay);
