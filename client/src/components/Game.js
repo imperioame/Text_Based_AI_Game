@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   startNewGame,
@@ -6,6 +6,7 @@ import {
   getAvailableModels,
   getUserGames,
   clearGameState,
+  associateGameWithUser,
 } from '../redux/gameSlice';
 import { checkAuth } from '../redux/userSlice';
 import Sidebar from './Sidebar';
@@ -35,39 +36,86 @@ function Game() {
   const [sidebarPinned, setSidebarPinned] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState('');
 
-  const messageTimeoutRef = React.useRef();
-  const lastRequestRef = React.useRef(null);
-  const initializeGameRef = React.useRef(null);
+  const messageTimeoutRef = useRef();
+  const lastRequestRef = useRef(null);
+  const initializationAttemptedRef = useRef(false);
 
+  const addBackendMessage = useCallback((message, isError = false) => {
+    const newMessage = { id: Date.now(), text: message, isError };
+    setBackendMessages((prevMessages) => [...prevMessages, newMessage]);
+    if (messageTimeoutRef.current) clearTimeout(messageTimeoutRef.current);
+    messageTimeoutRef.current = setTimeout(() => {
+      setBackendMessages((prevMessages) => prevMessages.filter((msg) => msg.id !== newMessage.id));
+    }, 5000);
+  }, []);
+
+  const startNewGameHandler = useCallback(async (model) => {
+    if (isStartingNewGame) return;
+    setLoadingMessage('Starting a new game...');
+    try {
+      const result = await dispatch(startNewGame(model)).unwrap();
+      console.log('Start new game result:', result);  // Add this line for debugging
+      if (result && result.data && result.data.id) {
+        if (token && currentUser) {
+          await dispatch(associateGameWithUser({ gameId: result.data.id, userId: currentUser.id })).unwrap();
+          await dispatch(getUserGames()).unwrap();
+        }
+      } else {
+        throw new Error('Invalid response from startNewGame');
+      }
+    } catch (error) {
+      console.error('Failed to start new game:', error);
+      addBackendMessage(`Failed to start a new game: ${error.message}`, true);
+    } finally {
+      setLoadingMessage('');
+    }
+  }, [dispatch, isStartingNewGame, token, currentUser, addBackendMessage]);
 
   useEffect(() => {
     const initializeGame = async () => {
-      if (initializeGameRef.current) return;
-      initializeGameRef.current = true;
+      if (initializationAttemptedRef.current) return;
+      initializationAttemptedRef.current = true;
 
+      setIsInitializing(true);
+      setLoadingMessage('Initializing game...');
       try {
-        await dispatch(checkAuth()).unwrap();
-        const modelsResult = await dispatch(getAvailableModels()).unwrap();
-        if (modelsResult.length > 0) {
-          setSelectedModel(modelsResult[0].name);
-          // Automatically start a new game with the first available model
-          await startNewGameHandler(modelsResult[0].name);
+        try {
+          await dispatch(checkAuth()).unwrap();
+          console.log('Auth checked - User is logged in');
+        } catch (authError) {
+          console.log('Auth check failed - Proceeding as guest user', authError);
         }
 
-        if (token) {
+        if (availableModels.length === 0) {
+          const modelsResult = await dispatch(getAvailableModels()).unwrap();
+          console.log('Available models:', modelsResult);
+
+          if (modelsResult.length > 0) {
+            setSelectedModel(modelsResult[0].name);
+            console.log('Selected model:', modelsResult[0].name);
+
+            await startNewGameHandler(modelsResult[0].name);
+            console.log('New game started');
+          } else {
+            throw new Error('No AI models available');
+          }
+        }
+
+        if (token && userGames.length === 0) {
           await dispatch(getUserGames()).unwrap();
+          console.log('User games fetched');
         }
       } catch (error) {
         console.error('Error initializing game:', error);
-        addBackendMessage('Failed to initialize game. Please try again.', true);
+        addBackendMessage(`Failed to initialize game: ${error.message}`, true);
       } finally {
         setIsInitializing(false);
-        initializeGameRef.current = false;
+        setLoadingMessage('');
       }
     };
 
     initializeGame();
-  }, [dispatch, token, startNewGameHandler]);
+  }, [dispatch, token, startNewGameHandler, availableModels, userGames, addBackendMessage]);
 
   const handleActionSubmit = useCallback((action) => {
     if (!isSubmittingAction) {
@@ -78,23 +126,8 @@ function Game() {
         lastRequestRef.current = null;
         setLoadingMessage('');
       });
-  }}, [dispatch]);
-
-  const startNewGameHandler = useCallback(async (model) => {
-    if (isStartingNewGame) return;
-    setLoadingMessage('Starting a new game...');
-    try {
-      await dispatch(startNewGame(model)).unwrap();
-      if (token) {
-        await dispatch(getUserGames()).unwrap();
-      }
-    } catch (error) {
-      console.error('Failed to start new game:', error);
-      addBackendMessage('Failed to start a new game. Please try again.', true);
-    } finally {
-      setLoadingMessage('');
     }
-  }, [dispatch, isStartingNewGame, token]);
+  }, [dispatch, isSubmittingAction]);
 
   const handleNewGame = useCallback(() => {
     if (selectedModel) {
@@ -106,15 +139,6 @@ function Game() {
   const handleModelChange = (e) => {
     setSelectedModel(e.target.value);
   };
-
-  const addBackendMessage = useCallback((message, isError = false) => {
-    const newMessage = { id: Date.now(), text: message, isError };
-    setBackendMessages((prevMessages) => [...prevMessages, newMessage]);
-    if (messageTimeoutRef.current) clearTimeout(messageTimeoutRef.current);
-    messageTimeoutRef.current = setTimeout(() => {
-      setBackendMessages((prevMessages) => prevMessages.filter((msg) => msg.id !== newMessage.id));
-    }, 5000);
-  }, []);
 
   useEffect(() => {
     if (error) addBackendMessage(error, true);
@@ -153,7 +177,7 @@ function Game() {
         </select>
       </div>
       <div className="flex-grow overflow-hidden">
-      {isInitializing ? (
+        {isInitializing ? (
           <div className="h-full flex items-center justify-center">
             <div className="text-center">
               <div className="vintage-spinner mb-4"></div>

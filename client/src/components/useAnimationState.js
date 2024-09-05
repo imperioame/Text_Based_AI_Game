@@ -6,16 +6,7 @@ function useAnimationState(initialHistory) {
   const animationQueue = useRef([]);
   const cancelAnimation = useRef(() => {});
 
-  const queueAnimation = useCallback((entry, index) => {
-    return new Promise((resolve) => {
-      animationQueue.current.push({ entry, index, resolve });
-      if (!isAnimating) {
-        processNextAnimation();
-      }
-    });
-  }, [isAnimating]);
-
-  const processNextAnimation = useCallback(() => {
+  const processNextAnimation = () => {
     if (animationQueue.current.length === 0) {
       setIsAnimating(false);
       return;
@@ -45,7 +36,16 @@ function useAnimationState(initialHistory) {
       resolve();
       processNextAnimation();
     };
-  }, [animationQueue]);
+  };
+
+  const queueAnimation = useCallback((entry, index) => {
+    return new Promise((resolve) => {
+      animationQueue.current.push({ entry, index, resolve });
+      if (!isAnimating) {
+        processNextAnimation();
+      }
+    });
+  }, [isAnimating]);
 
   const skipAnimation = useCallback(() => {
     cancelAnimation.current();
