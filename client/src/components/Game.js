@@ -41,7 +41,11 @@ function Game() {
   const initializationAttemptedRef = useRef(false);
 
   const addBackendMessage = useCallback((message, isError = false) => {
-    const newMessage = { id: Date.now(), text: message, isError };
+    const newMessage = { 
+      id: Date.now(), 
+      text: typeof message === 'string' ? message : JSON.stringify(message),
+      isError 
+    };
     setBackendMessages((prevMessages) => [...prevMessages, newMessage]);
     if (messageTimeoutRef.current) clearTimeout(messageTimeoutRef.current);
     messageTimeoutRef.current = setTimeout(() => {
@@ -49,23 +53,28 @@ function Game() {
     }, 5000);
   }, []);
 
+
   const startNewGameHandler = useCallback(async (model) => {
     if (isStartingNewGame) return;
     setLoadingMessage('Starting a new game...');
     try {
-      const result = await dispatch(startNewGame(model)).unwrap();
-      console.log('Start new game result:', result);  // Add this line for debugging
-      if (result && result.data && result.data.id) {
+      const action = await dispatch(startNewGame(model));
+      if (action.error) {
+        throw new Error(action.error.message || 'Failed to start new game');
+      }
+      const result = action.payload;
+      console.log('Start new game result:', result);
+      if (result && result.id) {
         if (token && currentUser) {
-          await dispatch(associateGameWithUser({ gameId: result.data.id, userId: currentUser.id })).unwrap();
-          await dispatch(getUserGames()).unwrap();
+          await dispatch(associateGameWithUser({ gameId: result.id, userId: currentUser.id }));
+          await dispatch(getUserGames());
         }
       } else {
         throw new Error('Invalid response from startNewGame');
       }
     } catch (error) {
       console.error('Failed to start new game:', error);
-      addBackendMessage(`Failed to start a new game: ${error.message}`, true);
+      addBackendMessage(error.message || 'An unexpected error occurred', true);
     } finally {
       setLoadingMessage('');
     }
@@ -79,15 +88,15 @@ function Game() {
       setIsInitializing(true);
       setLoadingMessage('Initializing game...');
       try {
-        try {
-          await dispatch(checkAuth()).unwrap();
-          console.log('Auth checked - User is logged in');
-        } catch (authError) {
-          console.log('Auth check failed - Proceeding as guest user', authError);
-        }
+        await dispatch(checkAuth());
+        console.log('Auth checked');
 
         if (availableModels.length === 0) {
-          const modelsResult = await dispatch(getAvailableModels()).unwrap();
+          const modelsAction = await dispatch(getAvailableModels());
+          if (modelsAction.error) {
+            throw new Error(modelsAction.error.message || 'Failed to get available models');
+          }
+          const modelsResult = modelsAction.payload;
           console.log('Available models:', modelsResult);
 
           if (modelsResult.length > 0) {
@@ -102,7 +111,7 @@ function Game() {
         }
 
         if (token && userGames.length === 0) {
-          await dispatch(getUserGames()).unwrap();
+          await dispatch(getUserGames());
           console.log('User games fetched');
         }
       } catch (error) {

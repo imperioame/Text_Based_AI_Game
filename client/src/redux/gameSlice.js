@@ -9,16 +9,25 @@ const debouncedPost = debounce((url, data, config) => axios.post(url, data, conf
 
 export const startNewGame = createAsyncThunk(
   'game/startNew',
-  async (model, { getState, rejectWithValue }) => {
+  async (model, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${API_URL}/game/new`, { aiModel: model });
+      return response.data;
+    } catch (error) {
+      console.error('Error in startNewGame:', error);
+      return rejectWithValue(error.response?.data || { message: error.message });
+    }
+  }
+  /*async (model, { getState, rejectWithValue }) => {
     try {
       const { user } = getState();
       const headers = user.token ? { Authorization: `Bearer ${user.token}` } : {};
       const response = await debouncedPost(`${API_URL}/game/new`, { aiModel: model }, { headers });
-      return response.data;
+      return response.data; // Assuming the server sends the data directly
     } catch (error) {
       return rejectWithValue(error.response ? error.response.data : error.message);
     }
-  }
+  }*/
 );
 
 export const submitAction = createAsyncThunk(
@@ -108,6 +117,9 @@ const gameSlice = createSlice({
       state.isStartingNewGame = false;
       state.isSubmittingAction = false;
       state.error = null;
+    },
+    clearError: (state) => {
+      state.error = null;
     }
   },
   extraReducers: (builder) => {
@@ -118,18 +130,14 @@ const gameSlice = createSlice({
         state.error = null;
       })
       .addCase(startNewGame.fulfilled, (state, action) => {
-        state.title = action.payload.title;
-        state.conversationHistory = action.payload.conversationHistory || [{ type: 'ai', content: action.payload.lastChunk }];
-        state.options = action.payload.options;
-        state.gameState = action.payload.gameState;
-        state.gameId = action.payload.id;
         state.loading = false;
         state.isStartingNewGame = false;
+        state.error = null;
       })
       .addCase(startNewGame.rejected, (state, action) => {
         state.isStartingNewGame = false;
         state.loading = false;
-        state.error = action.payload;
+        state.error = action.payload?.message || 'An unexpected error occurred';
       })
       .addCase(submitAction.pending, (state) => {
         state.isSubmittingAction = true;
@@ -146,7 +154,7 @@ const gameSlice = createSlice({
       .addCase(submitAction.rejected, (state, action) => {
         state.isSubmittingAction = false;
         state.loading = false;
-        state.error = action.payload;
+        state.error = action.payload?.message || 'An unexpected error occurred';
       })
       .addCase(getAvailableModels.pending, (state) => {
         state.loading = true;
@@ -158,7 +166,7 @@ const gameSlice = createSlice({
       })
       .addCase(getAvailableModels.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload;
+        state.error = action.payload?.message || 'An unexpected error occurred';
       })
       .addCase(getUserGames.fulfilled, (state, action) => {
         state.userGames = action.payload;

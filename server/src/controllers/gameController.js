@@ -27,17 +27,22 @@ exports.startNewGame = async (req, res) => {
     });
 
     res.status(201).json({
-      id: newGame.publicId,
-      title: newGame.title,
-      lastChunk: newGame.lastChunk,
-      options: newGame.options,
-      conversationHistory: newGame.conversationHistory,
-      gameState: newGame.gameState,
-      aiModel: newGame.aiModel
+      data: {
+        id: newGame.publicId,
+        title: newGame.title,
+        lastChunk: newGame.lastChunk,
+        options: newGame.options,
+        conversationHistory: newGame.conversationHistory,
+        gameState: newGame.gameState,
+        aiModel: newGame.aiModel
+      }
     });
   } catch (error) {
     console.error('Error starting new game:', error);
-    res.status(500).json({ message: 'Error starting new game', error: error.toString() });
+    res.status(500).json({ 
+      message: 'Error starting new game', 
+      error: error.message || 'An unexpected error occurred'
+    });
   }
 };
 

@@ -40,11 +40,11 @@ function StoryDisplay({ conversationHistory, loading }) {
       <div ref={storyDisplayRef} className="h-full overflow-y-auto font-mono p-4">
         {animatedHistory.map((entry, index) => (
           <p
-            key={`${entry.type}-${entry.id || ''}-${index}`}
+            key={`${entry.type}-${index}`}
             className={`mb-2 ${entry.type === 'ai' ? 'text-green-300' : 'text-blue-300'}`}
           >
             {entry.content.split('\n').map((line, i) => (
-              <React.Fragment key={`${entry.type}-${entry.id || ''}-${index}-${i}`}>
+              <React.Fragment key={`${entry.type}-${index}-${i}`}>
                 {line}
                 {i < entry.content.split('\n').length - 1 && <br />}
               </React.Fragment>
