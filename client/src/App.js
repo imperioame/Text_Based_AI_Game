@@ -9,9 +9,9 @@ function App() {
   return (
     <ErrorBoundary>
       <Router>
-        <div className="crt-screen">
-          <div className="flex flex-col h-screen bg-gray-900">
-            <div className="flex-grow overflow-auto">
+        <div className="crt-screen h-full">
+          <div className="flex flex-col h-full bg-gray-900">
+            <div className="flex-grow overflow-auto h-full">
               <Routes>
                 <Route path="/" element={<Game />} />
               </Routes>

@@ -62,7 +62,7 @@ function Game() {
       if (action.error) {
         throw new Error(action.error.message || 'Failed to start new game');
       }
-      const result = action.payload;
+      const result = action.payload.data;
       console.log('Start new game result:', result);
       if (result && result.id) {
         if (token && currentUser) {
@@ -154,7 +154,7 @@ function Game() {
   }, [error, addBackendMessage]);
 
   return (
-    <div className={`flex flex-col h-screen ${sidebarPinned ? 'ml-64' : ''}`}>
+    <div className={`flex flex-col h-full ${sidebarPinned ? 'ml-64' : ''}`}>
       <Sidebar 
         isOpen={sidebarOpen} 
         onClose={() => setSidebarOpen(false)} 
@@ -186,19 +186,10 @@ function Game() {
         </select>
       </div>
       <div className="flex-grow overflow-hidden">
-        {isInitializing ? (
-          <div className="h-full flex items-center justify-center">
-            <div className="text-center">
-              <div className="vintage-spinner mb-4"></div>
-              <p className="text-green-300">Loading your adventure...</p>
-            </div>
-          </div>
-        ) : (
-          <StoryDisplay 
-            conversationHistory={conversationHistory} 
-            loading={loading} 
-          />
-        )}
+        <StoryDisplay 
+          conversationHistory={conversationHistory} 
+          loading={loading} 
+        />
       </div>
       <div className="p-4 bg-gray-800">
         <ActionInput 
