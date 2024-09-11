@@ -57,18 +57,6 @@ const MODELS = [{
     type: MODELTYPES[3]
   },
   {
-    name: 'Rut5-base-multitask',
-    repo: 'cointegrated/rut5-base-multitask',
-    comments: 'Untested',
-    type: MODELTYPES[3]
-  },
-  {
-    name: 'Aya-101',
-    repo: 'CohereForAI/aya-101',
-    comments: 'Untested',
-    type: MODELTYPES[3]
-  },
-  {
     name: 'Gpt2-large-conversational-retrain',
     repo: 'Locutusque/gpt2-large-conversational-retrain',
     comments: 'Slow load',
@@ -123,6 +111,7 @@ exports.getAvailableModels = () => {
   return MODELS.map(model => ({
     name: model.name,
     type: model.type,
+    repo: model.repo,
     comments: model.comments
   }));
 };
@@ -200,7 +189,7 @@ function getModelConfig(prompt1, prompt2 = '') {
   let inputs = '';
   let parameters = {
     max_new_tokens: 200,
-    //max_time: 25,
+    max_time: 20,
     repetition_penalty: 1.5,
     //repetition_penalty: 50,
     temperature: 0.7,

@@ -37,13 +37,13 @@ There's also a .scss file in the client folder
 | UI story view scroll to last entry | front | ✅️ |  |
 | Declare new text2text generation in modeltypes | back | ✅️ |  |
 | Search text2text generation add new models |  | ✅️ |  |
-| Try for the AI to provide options for the user | back/aiUtils | 🔨 | The extractStoryAndOptions in aiutils tryes to catch options fron the ai story and provides presets if unable  |
+| Try for the AI to provide options for the user | back/aiUtils | 💻 | The extractStoryAndOptions in aiutils tryes to catch options fron the ai story and provides presets if unable. It barely works and would be good to expand it with different empirically tested ways that the AIs define options |
 | Validate that the pre-made user options are not repeated | back/aiutils | 🕯️ |  |
-| Loader animation when initializing a AI model | front | 🔨 | Needs alignment |
-| Error messages in the UI | front | 🔨 | Maybe implement a controller to catch any error |
+| Loader animation when initializing a AI model | front | ✅️ | |
+| Error messages in the UI | front | 🔨 | Should add a "close" button to the error notifs |
 | AI model switch | front | 🔨 | Pending to implement a tooltip to show ai model comment and type, or some UI structure for it |
 | Document how to build for prod (Without docker) |  | 💻 | finish the dev first |
-| Text writing animation on the UI | front | 🔨 | Don't know why it breaks so much. Seems to be working now. |
+| Text writing animation on the UI | front | 🕯️ | |
 | Sidebar with glass transparency effect | front | 💻 | Check if tailwind has something |
 | Check responsive | front | 💻 | 
 | UI Action feedback - animation + loader | front | 💻 | Check if tailwind has something |
@@ -66,10 +66,11 @@ There's also a .scss file in the client folder
 | If a user registers while playing a game, implement a separate endpoint to associate the game with the newly registered user | front+back | 🕯️ |  take the game's publicId and the user's ID, then updates the game's userId field. This endpoint should be called after successful user registration if there's an active game. |
 | Make sure errors dont halt server in prod | front + back | 💻 |  |
 | Add the username or a user icon somewhere to aknowledge the logged user | front | 💻 |  |
-| Add a big error X and message if the game cant start | front | 💻 |  |
+| Add a big error X and message if the game cant start | front | ❌ |  |
 | If the user starts a new game it should completely refresh storyDisplay | front | 💻 |  |
-| Only allow one query to "new game" and "submit action", lock the action buttons until query processed | front | 🔨 |  |
+| Only allow one query to "new game" and "submit action", lock the action buttons until query processed | front | 🕯️ |  |
 | Add "Error processing action" - "SyntaxError: Invalid regular expression" when the backend detects an option in the AI story | backend | 💻 |  |
+| The UI is not updating the storyDisplay after starting a new game. It shows the previous game and mixes it up with the new actions | backend | 💻 |  |
 
 
 💻: To be done

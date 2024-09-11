@@ -13,6 +13,7 @@ import Sidebar from './Sidebar';
 import StoryDisplay from './StoryDisplay';
 import ActionInput from './ActionInput';
 import LoadingOverlay from './LoadingOverlay';
+import ModelSelector from './ModelSelector';
 
 function Game() {
   const dispatch = useDispatch();
@@ -29,7 +30,8 @@ function Game() {
     isSubmittingAction,
   } = useSelector((state) => state.game);
   const { currentUser, token } = useSelector((state) => state.user);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [leftSidebarOpen, setLeftSidebarOpen] = useState(false);
+  const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
   const [selectedModel, setSelectedModel] = useState('');
   const [isInitializing, setIsInitializing] = useState(true);
   const [backendMessages, setBackendMessages] = useState([]);
@@ -145,9 +147,11 @@ function Game() {
     }
   }, [dispatch, selectedModel, startNewGameHandler]);
 
-  const handleModelChange = (e) => {
-    setSelectedModel(e.target.value);
-  };
+  const handleModelChange = useCallback((modelName) => {
+    setSelectedModel(modelName);
+    dispatch(clearGameState());
+    startNewGameHandler(modelName);
+  }, [dispatch, startNewGameHandler]);
 
   useEffect(() => {
     if (error) addBackendMessage(error, true);
@@ -156,34 +160,38 @@ function Game() {
   return (
     <div className={`flex flex-col h-full ${sidebarPinned ? 'ml-64' : ''}`}>
       <Sidebar 
-        isOpen={sidebarOpen} 
-        onClose={() => setSidebarOpen(false)} 
+        isOpen={leftSidebarOpen} 
+        onClose={() => setLeftSidebarOpen(false)} 
         onNewGame={handleNewGame}
         userGames={userGames}
         currentGameId={gameId}
         isPinned={sidebarPinned}
         onPin={() => setSidebarPinned(!sidebarPinned)}
       />
+      <ModelSelector
+        models={availableModels}
+        selectedModel={selectedModel}
+        onModelChange={handleModelChange}
+        isOpen={rightSidebarOpen}
+        onClose={() => setRightSidebarOpen(false)}
+      />
       {loadingMessage && <LoadingOverlay message={loadingMessage} />}
-      <div className="flex flex-col md:flex-row items-center justify-between p-4 bg-gray-800">
+      <div className="flex flex-col md:flex-row items-center justify-between p-4 bg-gray-800 border-b border-gray-600">
         <button
           className="px-4 py-2 bg-green-700 text-white rounded mb-2 md:mb-0"
-          onClick={() => setSidebarOpen(true)}
+          onClick={() => setLeftSidebarOpen(true)}
         >
           Open Sidebar
         </button>
         <h1 className="text-2xl font-bold text-green-300 mb-2 md:mb-0">
           {title || 'New Adventure'}
         </h1>
-        <select
-          value={selectedModel}
-          onChange={handleModelChange}
-          className="px-4 py-2 bg-green-700 text-white rounded w-full md:w-auto"
+        <button
+          className="px-4 py-2 bg-green-700 text-white rounded mb-2 md:mb-0"
+          onClick={() => setRightSidebarOpen(true)}
         >
-          {availableModels.map((model) => (
-            <option key={model.name} value={model.name}>{model.name}</option>
-          ))}
-        </select>
+          {selectedModel || "Select AI Model"}
+        </button>
       </div>
       <div className="flex-grow overflow-hidden">
         <StoryDisplay 
@@ -195,7 +203,7 @@ function Game() {
         <ActionInput 
           options={options} 
           onSubmit={handleActionSubmit} 
-          disabled={loading || isInitializing} 
+          disabled={loading || isStartingNewGame} 
         />
       </div>
       <div className="fixed bottom-4 right-4 z-50">

@@ -26,7 +26,9 @@ function StoryDisplay({ conversationHistory, loading }) {
       }
     };
 
-    animateNewEntries();
+    if (Array.isArray(conversationHistory)) {
+      animateNewEntries();
+    }
   }, [conversationHistory, animatedHistory, queueAnimation, setAnimatedHistory]);
 
   useEffect(() => {

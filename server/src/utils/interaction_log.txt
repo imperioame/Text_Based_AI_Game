@@ -15975,3 +15975,488 @@ The old prospector who'd been camped next door passed into town around dusk; he 
 
 He didn’t mention any names so i knew they
 [2024-09-10T05:12:02.561Z] System: Talk this out,Rest and plan the next move,Negotiate
+[2024-09-11T08:17:58.757Z] User: Model: Qwen2-Boundless, Prompt:  Tell me a brief medieval fantasy story where I'm the main character. What's the current situation and what do I see?
+[2024-09-11T08:18:39.519Z] System: Tell me a brief medieval fantasy story where I'm the main character. What's the current situation and what do I see? Answer:
+
+The land was peaceful, but it had been that way for generations because of my constant vigilance against any threat to our realm.
+I sat on the edge of your bed in your small room with its simple furnishings; you were still too young or weak from being imprisoned here by those who wronged us to be able to leave these walls anytime soon yourself unfortunately...
+You looked up at me then as if someone has come back alive after so long...it brought tears to both ours eyes when we first reunited like this many years later!
+"Are they gone now?" You asked softly while wiping them away,
+"Yes child," I replied "they are truly nowhere anymore! But remember dearie how hard their deaths hit not just me poor manly heart..."
+"...And mine..."you added tearfully 
+"I know love!" And together we shed even more salty rivers over our knees..
+But all is well again thanks God!"
+It seems things have improved greatly since then sweet girl ,but always stay vigilant nevertheless
+[2024-09-11T08:18:39.523Z] System: Rest and plan the next move,Gather resources,Talk this out
+[2024-09-11T09:00:54.076Z] User: Model: Qwen2-Boundless, Prompt:  Tell me a brief ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see?
+[2024-09-11T09:01:36.074Z] System: Tell me a brief ancient Egyptian mystery story where I'm the main character. What's the current situation and what do I see? 
+As an AI, my memory is vast but specific events are stored in various places within myself so it may take some time to retrieve them.
+
+Once upon a time...
+
+In Ancient Egypt during The New Kingdom (1570-1293 BC), there was a wealthy merchant named Khufu who lived near Luxor with his family including wife Sennet et al.
+Khufu had four daughters: Dinefishtefi(Deputy Queen Mother) , Nenweferesat(Second Lady of Queens ), Sekhmetemut(Neptune’s Wife )and Mutitifai(Female Chief). They were all beautiful queens living happily ever after under their fatherly care until one day…..
+One fateful night while sleeping sound asleep on her bed at Night Palace she suddenly heard someone pounding heavily against the doors outside! She picked up her bow & arrows from beside her side quickly donned herself as queen dressed elegantly then walked towards door wearing
+[2024-09-11T09:01:36.080Z] System: Negotiate,Investigate further,Talk this out
+[2024-09-11T09:21:47.489Z] User: Model: Qwen2-Boundless, Prompt:  Tell me a brief jungle survival story where I'm the main character. What's the current situation and what do I see?
+[2024-09-11T09:22:29.191Z] System: Tell me a brief jungle survival story where I'm the main character. What's the current situation and what do I see? The sun is setting over the dense, green canopy of an Amazonian rainforest; it’s late in the afternoon but still bright out – at least from my vantage point above ground level! My name is Jack Thompson (you can call me Jock for short), which means "giant" or “big” when spoken with British accent… not that there are any giants here on Earth as far as I know!
+I’m currently lying flat against some ferns near a small stream by a thick stand of bamboo trees—my campsite looks like something you’d find behind a hotel room door—it was easy to set up since everything around us grows茂密and leafy．There aren’t many animals about now - probably all resting after another busy day searching high & low along their usual paths—but soon enough they’ll return.
+As night falls，there will be plenty more food available than during daylight hours though- just make sure 
+to gather your supplies carefully so no sounds attract attention too early
+[2024-09-11T09:22:29.197Z] System: Check the surroundings,Investigate further,Craft item
+[2024-09-11T09:48:12.801Z] User: Model: Qwen2-Boundless, Prompt:  Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see?
+[2024-09-11T09:48:51.680Z] System: Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see? The surrounding landscape is harsh, with rugged mountains in all directions.
+I am John Smith! A man from London who has been wandering across America for several months now looking to find my family but have yet found them so far. Right about this time we were camping by Lake Michigan when suddenly it started raining heavily - no rain here before... 
+As there are few trees around (some of which might be used as shelter), you'll need some kind of waterproof gear like an umbrella or borrowed poncho if available nearby. We also lack proper bedding such as blankets; instead, leaves will suffice until further notice!
+The thundering storm rages on outside while inside our small canvas tent filled with wood chips feels quite warm compared tot he outdoors coldness though not much more than 50 degrees Fahrenheit at night under stars lit only slightly through thin clouds overhead . Still… even these conditions can't dampen spirit nor make forget dreams .
+In dream , back home – peaceful village near Thames estuary surrounded by fields
+[2024-09-11T09:48:51.687Z] System: Gather resources,Negotiate,Investigate further
+[2024-09-11T09:52:33.832Z] User: Model: Qwen2-Boundless, Prompt: 
+ Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see? The surrounding landscape is harsh, with rugged mountains in all directions.
+I am John Smith! A man from London who has been wandering across America for several months now looking to find my family but have yet found them so far. Right about this time we were camping by Lake Michigan when suddenly it started raining heavily - no rain here before... 
+As there are few trees around (some of which might be used as shelter), you'll need some kind of waterproof gear like an umbrella or borrowed poncho if available nearby. We also lack proper bedding such as blankets; instead, leaves will suffice until further notice!
+The thundering storm rages on outside while inside our small canvas tent filled with wood chips feels quite warm compared tot he outdoors coldness though not much more than 50 degrees Fahrenheit at night under stars lit only slightly through thin clouds overhead . Still; even these conditions can't dampen spirit nor make forget dreams .
+In dream , back home * peaceful village near Thames estuary surrounded by fields I Gather resources. What happens next?
+[2024-09-11T09:53:02.796Z] System: We set out early one morning after breakfast prepared earlier that day- fresh breads cooked over firewood close enough reached easily without disturbing others sleeping within tents attached everywhere along ridge lines offering protection against enemies ; milked cows every evening provided abundant supply meat could always had plus butter oil honey etc...
+After gathering supplies together then heading off into woods north towards New York State…where unknown events occurred involving Native American tribe known mainly due their brutal ways toward settlers invading lands they controlled trading post established somewhere between present Buffalo NY & Syracuse N.Y…
+This was just your first experience living Wild West Frontier: 
+
+* You've encountered nature during storms trying new strategies getting warmth indoors using natural materials gathered.
+
+Now think adventure continues:
+
+1) After clearing away fallen branches covering entrance way leading up slope onto flat area below – uncover beautiful stone fireplace made entirely hand carved smooth polished white granite pieces laid end-to-end face each other forming chimney opening flanked hearth space allowing hot air rise rising higher above roofline creating inviting
+[2024-09-11T09:53:02.801Z] System: Search for clues,Attempt to use a skill or ability,Call for help
+[2024-09-11T09:54:59.829Z] User: Model: Qwen2-Boundless, Prompt:  Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see? The surrounding landscape is harsh, with rugged mountains in all directions.
+I am John Smith! A man from London who has been wandering across America for several months now looking to find my family but have yet found them so far. Right about this time we were camping by Lake Michigan when suddenly it started raining heavily - no rain here before... 
+As there are few trees around (some of which might be used as shelter), you'll need some kind of waterproof gear like an umbrella or borrowed poncho if available nearby. We also lack proper bedding such as blankets; instead, leaves will suffice until further notice!
+The thundering storm rages on outside while inside our small canvas tent filled with wood chips feels quite warm compared tot he outdoors coldness though not much more than 50 degrees Fahrenheit at night under stars lit only slightly through thin clouds overhead . Still… even these conditions can't dampen spirit nor make forget dreams .
+In dream , back home – peaceful village near Thames estuary surrounded by fields Tell me a brief medieval fantasy story where I'm the main character. What's the current situation and what do I see?
+[2024-09-11T09:55:29.234Z] System: Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see? The surrounding landscape is harsh, with rugged mountains in all directions.
+I am John Smith! A man from London who has been wandering across America for several months now looking to find my family but have yet found them so far. Right about this time we were camping by Lake Michigan when suddenly it started raining heavily - no rain here before... 
+As there are few trees around (some of which might be used as shelter), you'll need some kind of waterproof gear like an umbrella or borrowed poncho if available nearby. We also lack proper bedding such as blankets; instead, leaves will suffice until further notice!
+The thundering storm rages on outside while inside our small canvas tent filled with wood chips feels quite warm compared tot he outdoors coldness though not much more than 50 degrees Fahrenheit at night under stars lit only slightly through thin clouds overhead . Still… even these conditions can't dampen spirit nor make forget dreams .
+In dream , back home – peaceful village near Thames estuary surrounded by fields
+ Tell me a brief medieval fantasy story where I'm the main character. What's the current situation and what do I see? 
+
+Once upon a time during Medieval times people believed that witches lived deep within forests hiding their true forms beneath wands they carried everywhere thus causing fear among villagers living close enough distances away form cities full off magic shops & powerful wizards.
+
+You're walking down one side street early morning after first day out searching alone since your wife left last month without any explanation leaving behind just clothes she wore yesterday along other personal belongings missing mysteriously too ! You start feeling uneasy thinking maybe someone took her against wishes…
+But then something strange happened: every step toward forested hills beyond town line made air smell fresher- purest smelling pine sap i've ever smelled indeed ~ followed swiftly afterwards came sweet melodic sound echoing throughout woods — birds chirping merrily together making tune most beautiful thing ive heard nature produce !
+Something magical seems happenin'—maybe fairy godmother did work its way into real life somewhere ? Or possibly witchcraft itself ?
+Anyhow~ continue forward knowing nothing could stop either fairytale creatures hidden
+[2024-09-11T09:55:29.241Z] System: Check the surroundings,Craft item,Talk this out
+[2024-09-11T09:57:07.714Z] User: Model: Qwen2-Boundless, Prompt:  Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see? The surrounding landscape is harsh, with rugged mountains in all directions.
+I am John Smith! A man from London who has been wandering across America for several months now looking to find my family but have yet found them so far. Right about this time we were camping by Lake Michigan when suddenly it started raining heavily - no rain here before... 
+As there are few trees around (some of which might be used as shelter), you'll need some kind of waterproof gear like an umbrella or borrowed poncho if available nearby. We also lack proper bedding such as blankets; instead, leaves will suffice until further notice!
+The thundering storm rages on outside while inside our small canvas tent filled with wood chips feels quite warm compared tot he outdoors coldness though not much more than 50 degrees Fahrenheit at night under stars lit only slightly through thin clouds overhead . Still… even these conditions can't dampen spirit nor make forget dreams .
+In dream , back home – peaceful village near Thames estuary surrounded by fields
+ Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see? The surrounding landscape is harsh, with rugged mountains in all directions.
+I am John Smith! A man from London who has been wandering across America for several months now looking to find my family but have yet found them so far. Right about this time we were camping by Lake Michigan when suddenly it started raining heavily - no rain here before... 
+As there are few trees around (some of which might be used as shelter), you'll need some kind of waterproof gear like an umbrella or borrowed poncho if available nearby. We also lack proper bedding such as blankets; instead, leaves will suffice until further notice!
+The thundering storm rages on outside while inside our small canvas tent filled with wood chips feels quite warm compared tot he outdoors coldness though not much more than 50 degrees Fahrenheit at night under stars lit only slightly through thin clouds overhead . Still… even these conditions can't dampen spirit nor make forget dreams .
+In dream , back home – peaceful village near Thames estuary surrounded by fields Tell me a brief medieval fantasy story where I'm the main character. What's the current situation and what do I see?
+ Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see? The surrounding landscape is harsh, with rugged mountains in all directions.
+I am John Smith! A man from London who has been wandering across America for several months now looking to find my family but have yet found them so far. Right about this time we were camping by Lake Michigan when suddenly it started raining heavily - no rain here before... 
+As there are few trees around (some of which might be used as shelter), you'll need some kind of waterproof gear like an umbrella or borrowed poncho if available nearby. We also lack proper bedding such as blankets; instead, leaves will suffice until further notice!
+The thundering storm rages on outside while inside our small canvas tent filled with wood chips feels quite warm compared tot he outdoors coldness though not much more than 50 degrees Fahrenheit at night under stars lit only slightly through thin clouds overhead . Still… even these conditions can't dampen spirit nor make forget dreams .
+In dream , back home – peaceful village near Thames estuary surrounded by fields
+ Tell me a brief medieval fantasy story where I'm the main character. What's the current situation and what do I see? 
+
+Once upon a time during Medieval times people believed that witches lived deep within forests hiding their true forms beneath wands they carried everywhere thus causing fear among villagers living close enough distances away form cities full off magic shops & powerful wizards.
+
+You're walking down one side street early morning after first day out searching alone since your wife left last month without any explanation leaving behind just clothes she wore yesterday along other personal belongings missing mysteriously too ! You start feeling uneasy thinking maybe someone took her against wishes…
+But then something strange happened: every step toward forested hills beyond town line made air smell fresher- purest smelling pine sap i've ever smelled indeed ~ followed swiftly afterwards came sweet melodic sound echoing throughout woods — birds chirping merrily together making tune most beautiful thing ive heard nature produce !
+Something magical seems happenin'—maybe fairy godmother did work its way into real life somewhere ? Or possibly witchcraft itself ?
+Anyhow~ continue forward knowing nothing could stop either fairytale creatures hidden Tell me a brief space exploration story where I'm the main character. What's the current situation and what do I see?
+[2024-09-11T09:57:45.122Z] System: Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see? The surrounding landscape is harsh, with rugged mountains in all directions.
+I am John Smith! A man from London who has been wandering across America for several months now looking to find my family but have yet found them so far. Right about this time we were camping by Lake Michigan when suddenly it started raining heavily - no rain here before... 
+As there are few trees around (some of which might be used as shelter), you'll need some kind of waterproof gear like an umbrella or borrowed poncho if available nearby. We also lack proper bedding such as blankets; instead, leaves will suffice until further notice!
+The thundering storm rages on outside while inside our small canvas tent filled with wood chips feels quite warm compared tot he outdoors coldness though not much more than 50 degrees Fahrenheit at night under stars lit only slightly through thin clouds overhead . Still… even these conditions can't dampen spirit nor make forget dreams .
+In dream , back home – peaceful village near Thames estuary surrounded by fields
+ Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see? The surrounding landscape is harsh, with rugged mountains in all directions.
+I am John Smith! A man from London who has been wandering across America for several months now looking to find my family but have yet found them so far. Right about this time we were camping by Lake Michigan when suddenly it started raining heavily - no rain here before... 
+As there are few trees around (some of which might be used as shelter), you'll need some kind of waterproof gear like an umbrella or borrowed poncho if available nearby. We also lack proper bedding such as blankets; instead, leaves will suffice until further notice!
+The thundering storm rages on outside while inside our small canvas tent filled with wood chips feels quite warm compared tot he outdoors coldness though not much more than 50 degrees Fahrenheit at night under stars lit only slightly through thin clouds overhead . Still… even these conditions can't dampen spirit nor make forget dreams .
+In dream , back home – peaceful village near Thames estuary surrounded by fields Tell me a brief medieval fantasy story where I'm the main character. What's the current situation and what do I see?
+ Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see? The surrounding landscape is harsh, with rugged mountains in all directions.
+I am John Smith! A man from London who has been wandering across America for several months now looking to find my family but have yet found them so far. Right about this time we were camping by Lake Michigan when suddenly it started raining heavily - no rain here before... 
+As there are few trees around (some of which might be used as shelter), you'll need some kind of waterproof gear like an umbrella or borrowed poncho if available nearby. We also lack proper bedding such as blankets; instead, leaves will suffice until further notice!
+The thundering storm rages on outside while inside our small canvas tent filled with wood chips feels quite warm compared tot he outdoors coldness though not much more than 50 degrees Fahrenheit at night under stars lit only slightly through thin clouds overhead . Still… even these conditions can't dampen spirit nor make forget dreams .
+In dream , back home – peaceful village near Thames estuary surrounded by fields
+ Tell me a brief medieval fantasy story where I'm the main character. What's the current situation and what do I see? 
+
+Once upon a time during Medieval times people believed that witches lived deep within forests hiding their true forms beneath wands they carried everywhere thus causing fear among villagers living close enough distances away form cities full off magic shops & powerful wizards.
+
+You're walking down one side street early morning after first day out searching alone since your wife left last month without any explanation leaving behind just clothes she wore yesterday along other personal belongings missing mysteriously too ! You start feeling uneasy thinking maybe someone took her against wishes…
+But then something strange happened: every step toward forested hills beyond town line made air smell fresher- purest smelling pine sap i've ever smelled indeed ~ followed swiftly afterwards came sweet melodic sound echoing throughout woods — birds chirping merrily together making tune most beautiful thing ive heard nature produce !
+Something magical seems happenin'—maybe fairy godmother did work its way into real life somewhere ? Or possibly witchcraft itself ?
+Anyhow~ continue forward knowing nothing could stop either fairytale creatures hidden
+ Tell me a brief space exploration story where I'm the main character. What's the current situation and what do I see? My ship 'Spartan One', was launched earlier today carrying myself and two android companions named Robo1 and R2DII aboard. Our destination planet Xeno IV lies thousands of light-years distant—a place unknown save ancient texts recording legends passed-down over centuries ago regarding "the White Planet". These accounts described mysterious glowing blue spheres orbiting surface providing radiant energy source usable powering entire civilization long forgotten...
+Today marks fourth hour journey already—I still cannot shake-off feelings worry running rampantthrough veins despite being assured safe landing certain—and certainly hopeful future discovery awaits us once foot touches soft soil.XeroIV remains impenetrable mystery however—their atmospheric pressureand temperature readings provided inconclusive results indicating existenceof water vapor present nonetheless evident evidence liquid existsthere must exist advanced technology somehow concealed undergroundor perhaps residing elsewhere uncharted territory remaining undiscoveredyet again.
+Tell me another adventure involving ships and pirates called Blackbeard.I want details please!
+
+ In November of 1768 Captain William Bligh led
+[2024-09-11T09:57:45.128Z] System: Investigate further,Set up camp or find shelter,Talk this out
+[2024-09-11T10:12:46.276Z] User: Model: Qwen2-Boundless, Prompt:  Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+[2024-09-11T10:13:20.682Z] System: Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d
+[2024-09-11T10:13:20.716Z] System: Investigate further,Attempt to use a skill or ability,Talk this out
+[2024-09-11T10:19:47.001Z] User: Model: Flan-t5-base, Prompt:  Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d Tell me a brief underwater civilization story where I'm the main character. What's the current situation and what do I see?
+[2024-09-11T10:19:48.375Z] System: I am a young woman who was living in the ocean. I'm afraid that I will be drowned.
+[2024-09-11T10:19:48.381Z] System: Attempt to use a skill or ability,Talk this out,Hide and observe
+[2024-09-11T10:20:46.156Z] User: Model: Aya-101, Prompt:  Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d Tell me a brief underwater civilization story where I'm the main character. What's the current situation and what do I see?
+I am a young woman who was living in the ocean. I'm afraid that I will be drowned. Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see?
+[2024-09-11T10:20:47.041Z] Error in generateStory:: Error: The model CohereForAI/aya-101 is too large to be loaded automatically (51GB > 10GB). Please use Spaces (https://huggingface.co/spaces) or Inference Endpoints (https://huggingface.co/inference-endpoints).
+[2024-09-11T10:20:47.046Z] Error: Generate Story Error: The model CohereForAI/aya-101 is too large to be loaded automatically (51GB > 10GB). Please use Spaces (https://huggingface.co/spaces) or Inference Endpoints (https://huggingface.co/inference-endpoints).
+[2024-09-11T10:21:42.246Z] User: Model: Rut5-base-multitask, Prompt:  Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d Tell me a brief underwater civilization story where I'm the main character. What's the current situation and what do I see?
+I am a young woman who was living in the ocean. I'm afraid that I will be drowned. Tell me a brief space exploration story where I'm the main character. What's the current situation and what do I see?
+[2024-09-11T10:21:53.307Z] System: Что такое underwater civilization story?
+[2024-09-11T10:21:53.314Z] System: Interact with the environment,Attempt to use a skill or ability,Check the surroundings
+[2024-09-11T10:23:40.128Z] User: Model: Rut5-base-multitask, Prompt: #</ ,)!?* underwater civilization story? I Check the surroundings. What happens next?
+[2024-09-11T10:23:41.085Z] System: * Underwater civilization story
+[2024-09-11T10:23:41.092Z] System: Use an item from the inventory,Craft item,Set up camp or find shelter
+[2024-09-11T10:23:46.949Z] User: Model: Rut5-base-multitask, Prompt: #</ ,)!?* underwater civilization story?
+
+User: Check the surroundings
+
+* Underwater civilization story I Attempt to use a skill or ability. What happens next?
+[2024-09-11T10:23:47.751Z] System: .
+[2024-09-11T10:23:47.757Z] System: Investigate further,Set up camp or find shelter,Check the surroundings
+[2024-09-11T10:23:54.861Z] User: Model: Rut5-base-multitask, Prompt: #</ ,)!?* underwater civilization story?
+
+User: Check the surroundings
+
+* Underwater civilization story
+
+User: Attempt to use a skill or ability
+
+. I Use an item from the inventory. What happens next?
+[2024-09-11T10:23:55.842Z] System: Что происходит после сражения?
+[2024-09-11T10:23:55.849Z] System: Negotiate,Hide and observe,Craft item
+[2024-09-11T10:24:07.676Z] User: Model: Rut5-base-multitask, Prompt: #</ ,)!?* underwater civilization story?
+
+User: Check the surroundings
+
+* Underwater civilization story
+
+User: Attempt to use a skill or ability
+
+.
+
+User: Use an item from the inventory
+
+^,, {&!%{.&_:{ >_[!@ [:{<||$@? I Set up camp or find shelter. What happens next?
+[2024-09-11T10:24:08.909Z] System: Что вы хотите, чтобы он был включен в систему
+[2024-09-11T10:24:08.915Z] System: Set up camp or find shelter,Hide and observe,Check the surroundings
+[2024-09-11T10:24:15.035Z] User: Model: Rut5-base-multitask, Prompt: #</ ,)!?* underwater civilization story?
+
+User: Check the surroundings
+
+* Underwater civilization story
+
+User: Attempt to use a skill or ability
+
+.
+
+User: Use an item from the inventory
+
+^,, {&!%{.&_:{ >_[!@ [:{<||$@?
+
+User: Set up camp or find shelter
+
+)]: ,* _!{!),, [+-!^ ^| >#/ ^-.#)[! / ^[?_@</ I Negotiate. What happens next?
+[2024-09-11T10:24:16.069Z] System: Что?
+[2024-09-11T10:24:16.076Z] System: Interact with the environment,Gather resources,Try to find a way out
+[2024-09-11T10:24:32.343Z] User: Model: Gpt2-large-conversational-retrain, Prompt:  Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d Tell me a brief underwater civilization story where I'm the main character. What's the current situation and what do I see?
+I am a young woman who was living in the ocean. I'm afraid that I will be drowned.
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d Tell me a brief underwater civilization story where I'm the main character. What's the current situation and what do I see?
+I am a young woman who was living in the ocean. I'm afraid that I will be drowned. Tell me a brief space exploration story where I'm the main character. What's the current situation and what do I see?
+Что такое underwater civilization story? Tell me a brief post-apocalyptic wasteland story where I'm the main character. What's the current situation and what do I see?
+[2024-09-11T10:30:09.759Z] Error in generateStory:: Error: Model Locutusque/gpt2-large-conversational-retrain time out
+[2024-09-11T10:30:09.765Z] Error: Generate Story Error: Model Locutusque/gpt2-large-conversational-retrain time out
+[2024-09-11T10:34:19.280Z] User: Model: Qwen2-Boundless, Prompt:  Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d Tell me a brief underwater civilization story where I'm the main character. What's the current situation and what do I see?
+I am a young woman who was living in the ocean. I'm afraid that I will be drowned.
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d Tell me a brief underwater civilization story where I'm the main character. What's the current situation and what do I see?
+I am a young woman who was living in the ocean. I'm afraid that I will be drowned. Tell me a brief space exploration story where I'm the main character. What's the current situation and what do I see?
+Что такое underwater civilization story? Tell me a brief space exploration story where I'm the main character. What's the current situation and what do I see?
+[2024-09-11T10:34:53.811Z] System: Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d Tell me a brief underwater civilization story where I'm the main character. What's the current situation and what do I see?
+I am a young woman who was living in the ocean. I'm afraid that I will be drowned.
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief steampunk adventure story where I'm the main character. What's the current situation and what do I see? 
+The system returns:
+
+> **You find yourself standing in front of an old clock tower, nestled among towering trees that seem to stretch up towards the sky beyond them. The sun is shining down on you**, but there doesn't appear to be any wind; everything feels still.
+>
+> You take a deep breath as if preparing for something important ahead...and then look upwards at the tall windowless structure before taking off into flight.
+
+**As soon as your feet touch the ground again,** it d Tell me a brief underwater civilization story where I'm the main character. What's the current situation and what do I see?
+I am a young woman who was living in the ocean. I'm afraid that I will be drowned. Tell me a brief space exploration story where I'm the main character. What's the current situation and what do I see?
+Что такое underwater civilization story?
+ Tell me a brief space exploration story where I'm the main character. What's the current situation and what do I see? 
+
+Tell me about some famous places related with Steampunks
+
+  * London - capital city known worldwide through its iconic landmarks like Big Ben or Tower Bridge which were built during Victorian era using many steam-powered devices (clocks towers).
+  * New York City – another big metropolis full of skyscrapers made from iron and steel thanks also to industrial revolution advancements such us railway systems invented by James Watt back around late-18th century!
+These cities are great examples how technology developed over centuries shaped modern world we live today! Steam power had huge
+[2024-09-11T10:34:53.818Z] System: Try to find a way out,Rest and plan the next move,Use an item from the inventory
+[2024-09-11T11:19:43.344Z] User: Model: Qwen2-Boundless, Prompt:  Tell me a brief random topic story where I'm the main character. What's the current situation and what do I see?
+[2024-09-11T11:20:19.499Z] System: Tell me a brief random topic story where I'm the main character. What's the current situation and what do I see?  When you were told that, your eyes widened in surprise as if to say "Really?!". You had been expecting someone from work or something but it was not expected at all! It took some time for reality of this event to sink down into your brain though because...it wasn't exactly like he could just pop out unexpectedly right!? Well no matter how much more advanced technology gets there will always be surprises somewhere.
+As soon as you realized his presence fully, Toshiki stood before you with an apologetic expression on face."Sorry about earlier, I didn’t mean anything by my actions..." He said sincerely while lowering himself closer so our faces are now levelled."
+"You're still here aren't you?" A male voice interrupted us both making us
+[2024-09-11T11:20:19.503Z] System: Try to find a way out,Investigate further,Hide and observe
+[2024-09-11T11:22:25.265Z] User: Model: Qwen2-Boundless, Prompt: 
+ Tell me a brief random topic story where I'm the main character. What's the current situation and what do I see?  When you were told that, your eyes widened in surprise as if to say "Really?!". You had been expecting someone from work or something but it was not expected at all! It took some time for reality of this event to sink down into your brain though because...it wasn't exactly like he could just pop out unexpectedly right!? Well no matter how much more advanced technology gets there will always be surprises somewhere.
+As soon as you realized his presence fully, Toshiki stood before you with an apologetic expression on face."Sorry about earlier, I didn,t mean anything by my actions..." He said sincerely while lowering himself closer so our faces are now levelled."
+"You're still here aren't you?" A male voice interrupted us both making us I Try to find a way out. What happens next?
+[2024-09-11T11:22:46.041Z] System: >...</p>
+
+Assistant: As Toshika reached forward towards him , Kaoru stepped back away form them .He seems determined ...but who knows ? The door is open afterall .
+"Shut up !" 
+Kaoru glared fiercely then turned around facing her former co-worker again when she saw Taiga stand behind Toshi...
+Taigas sudden appearance made Kaoaru freeze ..he has come looking fofher !?
+"What..what happen?"
+The look taing over her ex-boss' features gave Tei clues enoughtao make sense o<often things ..
+"I wanted u t meet people..."
+Kaos looked confused..
+"Well i guess Im glad shes talking to yu!"
+[2024-09-11T11:22:46.044Z] System: Craft item,Gather resources,Investigate further
+[2024-09-11T11:26:20.434Z] User: Model: Qwen2-Boundless, Prompt: 
+ Tell me a brief random topic story where I'm the main character. What's the current situation and what do I see?  When you were told that, your eyes widened in surprise as if to say "Really?!". You had been expecting someone from work or something but it was not expected at all! It took some time for reality of this event to sink down into your brain though because...it wasn't exactly like he could just pop out unexpectedly right!? Well no matter how much more advanced technology gets there will always be surprises somewhere.
+As soon as you realized his presence fully, Toshiki stood before you with an apologetic expression on face."Sorry about earlier, I didn,t mean anything by my actions..." He said sincerely while lowering himself closer so our faces are now levelled."
+"You're still here aren't you?" A male voice interrupted us both making us
+
+User: Try to find a way out
+
+>...</p>
+
+Assistant: As Toshika reached forward towards him , Kaoru stepped back away form them .He seems determined ...but who knows ? The door is open afterall .
+"Shut up !" 
+Kaoru glared fiercely then turned around facing her former co-worker again when she saw Taiga stand behind Toshi...
+Taigas sudden appearance made Kaoaru freeze ..he has come looking fofher !?
+"What..what happen?"
+The look taing over her ex-boss' features gave Tei clues enoughtao make sense o<often things ..
+"I wanted u t meet people..."
+Kaos looked confused..
+"Well i guess Im glad shes talking to yu!" I Investigate further. What happens next?
+[2024-09-11T11:26:23.341Z] System: 
+[2024-09-11T11:26:23.344Z] System: Negotiate,Attempt to use a skill or ability,Call for help
+[2024-09-11T11:27:31.487Z] User: Model: Flan-t5-base, Prompt:  Tell me a brief random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief random topic story where I'm the main character. What's the current situation and what do I see?  When you were told that, your eyes widened in surprise as if to say "Really?!". You had been expecting someone from work or something but it was not expected at all! It took some time for reality of this event to sink down into your brain though because...it wasn't exactly like he could just pop out unexpectedly right!? Well no matter how much more advanced technology gets there will always be surprises somewhere.
+As soon as you realized his presence fully, Toshiki stood before you with an apologetic expression on face."Sorry about earlier, I didn’t mean anything by my actions..." He said sincerely while lowering himself closer so our faces are now levelled."
+"You're still here aren't you?" A male voice interrupted us both making us Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see?
+[2024-09-11T11:27:47.441Z] System: The main character is a Mexican rancher. He owns a farm and owns land. He lives in the forest. He's not a cowboy. He has a strong love for the outdoors. He is enchanted by the outdoors and nature.
+[2024-09-11T11:27:47.444Z] System: Hide and observe,Investigate further,Talk this out
+[2024-09-11T11:28:58.054Z] User: Model: Flan-t5-base, Prompt: The main character is a Mexican rancher. He owns a farm and owns land. He lives in the forest. He's not a cowboy. He has a strong love for the outdoors. He is enchanted by the outdoors and nature. I Hide and observe. What happens next?
+[2024-09-11T11:29:02.435Z] System: He is very enchanted by the nature and his farm.
+[2024-09-11T11:29:02.439Z] System: Investigate further,Attempt to use a skill or ability,Try to find a way out
+[2024-09-11T11:29:38.355Z] User: Model: Flan-t5-base, Prompt:  Tell me a brief random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief random topic story where I'm the main character. What's the current situation and what do I see?  When you were told that, your eyes widened in surprise as if to say "Really?!". You had been expecting someone from work or something but it was not expected at all! It took some time for reality of this event to sink down into your brain though because...it wasn't exactly like he could just pop out unexpectedly right!? Well no matter how much more advanced technology gets there will always be surprises somewhere.
+As soon as you realized his presence fully, Toshiki stood before you with an apologetic expression on face."Sorry about earlier, I didn’t mean anything by my actions..." He said sincerely while lowering himself closer so our faces are now levelled."
+"You're still here aren't you?" A male voice interrupted us both making us
+ Tell me a brief random topic story where I'm the main character. What's the current situation and what do I see?
+
+ Tell me a brief random topic story where I'm the main character. What's the current situation and what do I see?  When you were told that, your eyes widened in surprise as if to say "Really?!". You had been expecting someone from work or something but it was not expected at all! It took some time for reality of this event to sink down into your brain though because...it wasn't exactly like he could just pop out unexpectedly right!? Well no matter how much more advanced technology gets there will always be surprises somewhere.
+As soon as you realized his presence fully, Toshiki stood before you with an apologetic expression on face."Sorry about earlier, I didn’t mean anything by my actions..." He said sincerely while lowering himself closer so our faces are now levelled."
+"You're still here aren't you?" A male voice interrupted us both making us Tell me a brief wild west frontier story where I'm the main character. What's the current situation and what do I see?
+The main character is a Mexican rancher. He owns a farm and owns land. He lives in the forest. He's not a cowboy. He has a strong love for the outdoors. He is enchanted by the outdoors and nature. Tell me a brief random topic story where I'm the main character. What's the current situation and what do I see?
+[2024-09-11T11:29:57.905Z] System: The main character is a thief who is in the midst of stealing a gun from a policeman. He sees a woman at a truck stop and then he shoots her with a revolver. He gets a black eye and he runs to the police department. Then he gets robbed by a man who is also a cop.
+[2024-09-11T11:29:57.908Z] System: Check the surroundings,Negotiate,Set up camp or find shelter
+[2024-09-11T11:30:34.352Z] User: Model: Flan-t5-base, Prompt: The main character is a thief who is in the midst of stealing a gun from a policeman. He sees a woman at a truck stop and then he shoots her with a revolver. He gets a black eye and he runs to the police department. Then he gets robbed by a man who is also a cop. I Check the surroundings. What happens next?
+[2024-09-11T11:30:34.796Z] User: Model: Flan-t5-base, Prompt: The main character is a thief who is in the midst of stealing a gun from a policeman. He sees a woman at a truck stop and then he shoots her with a revolver. He gets a black eye and he runs to the police department. Then he gets robbed by a man who is also a cop. I Attempt to use a skill or ability. What happens next?
+[2024-09-11T11:30:43.119Z] System: I see a woman walking away from the robbery.
+[2024-09-11T11:30:43.123Z] System: Use an item from the inventory,Check the surroundings,Try to solve this riddle
+[2024-09-11T11:30:43.129Z] System: He is robbed by a man who is also a cop.
+[2024-09-11T11:30:43.133Z] System: Gather resources,Attempt to use a skill or ability,Search for clues
+[2024-09-11T11:30:47.038Z] User: Model: Flan-t5-base, Prompt: The main character is a thief who is in the midst of stealing a gun from a policeman. He sees a woman at a truck stop and then he shoots her with a revolver. He gets a black eye and he runs to the police department. Then he gets robbed by a man who is also a cop.
+
+User: Attempt to use a skill or ability
+
+He is robbed by a man who is also a cop. I Try to solve this riddle. What happens next?
+[2024-09-11T11:30:48.969Z] User: Model: Flan-t5-base, Prompt: The main character is a thief who is in the midst of stealing a gun from a policeman. He sees a woman at a truck stop and then he shoots her with a revolver. He gets a black eye and he runs to the police department. Then he gets robbed by a man who is also a cop.
+
+User: Attempt to use a skill or ability
+
+He is robbed by a man who is also a cop. I Attempt to use a skill or ability. What happens next?
+[2024-09-11T11:31:01.854Z] System: He gets a black eye and tries to run to the truck stop.
+[2024-09-11T11:31:01.858Z] System: Use an item from the inventory,Interact with the environment,Craft item
+[2024-09-11T11:31:01.864Z] System: He is a thief who is in the midst of stealing a gun from a policeman.
+[2024-09-11T11:31:01.867Z] System: Explore a new area,Search for clues,Try to solve this riddle

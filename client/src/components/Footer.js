@@ -2,13 +2,34 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="bg-gray-800 text-green-300 py-2 px-4 flex justify-between items-center">
+    <footer className="bg-gray-800 text-green-300 py-4 px-8 flex justify-between items-center">
       <div className="text-sm">AI Adventure Game</div>
-      <div className="text-sm">
-        Made by J. Mario Amé 
-        <a href="#" className="ml-2 hover:text-green-200">Website</a>
-        <a href="#" className="ml-2 hover:text-green-200">GitHub</a>
-        <a href="#" className="ml-2 hover:text-green-200">LinkedIn</a>
+      <div className="text-sm text-center">Made by J. Mario Amé</div>
+      <div className="text-sm flex flex-col items-end text-right">
+        <a 
+          href="https://julianmmame.com.ar/" 
+          className="mb-1 hover:text-green-200 underline"
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          Website
+        </a>
+        <a 
+          href="https://github.com/imperioame" 
+          className="mb-1 hover:text-green-200 underline"
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+        <a 
+          href="https://www.linkedin.com/in/julian-ame/" 
+          className="hover:text-green-200 underline"
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
       </div>
     </footer>
   );

@@ -18,16 +18,6 @@ export const startNewGame = createAsyncThunk(
       return rejectWithValue(error.response?.data || { message: error.message });
     }
   }
-  /*async (model, { getState, rejectWithValue }) => {
-    try {
-      const { user } = getState();
-      const headers = user.token ? { Authorization: `Bearer ${user.token}` } : {};
-      const response = await debouncedPost(`${API_URL}/game/new`, { aiModel: model }, { headers });
-      return response.data; // Assuming the server sends the data directly
-    } catch (error) {
-      return rejectWithValue(error.response ? error.response.data : error.message);
-    }
-  }*/
 );
 
 export const submitAction = createAsyncThunk(
@@ -53,7 +43,10 @@ export const getAvailableModels = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get(`${API_URL}/game/models`);
-      return response.data;
+      return response.data.map(model => ({
+        ...model,
+        repo: model.repo || model.name.toLowerCase().replace(/\s+/g, '-')
+      }));
     } catch (error) {
       return rejectWithValue(error.response ? error.response.data : error.message);
     }
@@ -124,65 +117,71 @@ const gameSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(startNewGame.pending, (state) => {
-        state.isStartingNewGame = true;
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(startNewGame.fulfilled, (state, action) => {
-        state.loading = false;
-        state.isStartingNewGame = false;
-        state.error = null;
-      })
-      .addCase(startNewGame.rejected, (state, action) => {
-        state.isStartingNewGame = false;
-        state.loading = false;
-        state.error = action.payload?.message || 'An unexpected error occurred';
-      })
-      .addCase(submitAction.pending, (state) => {
-        state.isSubmittingAction = true;
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(submitAction.fulfilled, (state, action) => {
-        state.conversationHistory = action.payload.conversationHistory;
-        state.options = action.payload.options;
-        state.gameState = action.payload.gameState;
-        state.loading = false;
-        state.isSubmittingAction = false;
-      })
-      .addCase(submitAction.rejected, (state, action) => {
-        state.isSubmittingAction = false;
-        state.loading = false;
-        state.error = action.payload?.message || 'An unexpected error occurred';
-      })
-      .addCase(getAvailableModels.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(getAvailableModels.fulfilled, (state, action) => {
-        state.loading = false;
-        state.availableModels = action.payload;
-      })
-      .addCase(getAvailableModels.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload?.message || 'An unexpected error occurred';
-      })
-      .addCase(getUserGames.fulfilled, (state, action) => {
-        state.userGames = action.payload;
-      })
-      .addCase(associateGameWithUser.fulfilled, (state, action) => {
-        // Update the current game with the associated user if needed
-        if (action.payload.id === state.gameId) {
-          state.gameState = { ...state.gameState, userId: action.payload.userId };
-        }
-        // Update the userGames list if it exists
-        if (state.userGames.length > 0) {
-          state.userGames = state.userGames.map(game => 
-            game.id === action.payload.id ? action.payload : game
-          );
-        }
-      });
+    .addCase(startNewGame.pending, (state) => {
+      state.isStartingNewGame = true;
+      state.loading = true;
+      state.error = null;
+    })
+    .addCase(startNewGame.fulfilled, (state, action) => {
+      const gameData = action.payload.data; // Access the 'data' object from the response
+      state.loading = false;
+      state.isStartingNewGame = false;
+      state.error = null;
+      state.title = gameData.title;
+      state.conversationHistory = gameData.conversationHistory;
+      state.options = gameData.options;
+      state.gameState = gameData.gameState;
+      state.gameId = gameData.id;
+    })
+    .addCase(startNewGame.rejected, (state, action) => {
+      state.isStartingNewGame = false;
+      state.loading = false;
+      state.error = action.payload?.message || 'An unexpected error occurred';
+    })
+    .addCase(submitAction.pending, (state) => {
+      state.isSubmittingAction = true;
+      state.loading = true;
+      state.error = null;
+    })
+    .addCase(submitAction.fulfilled, (state, action) => {
+      state.conversationHistory = action.payload.conversationHistory;
+      state.options = action.payload.options;
+      state.gameState = action.payload.gameState;
+      state.loading = false;
+      state.isSubmittingAction = false;
+    })
+    .addCase(submitAction.rejected, (state, action) => {
+      state.isSubmittingAction = false;
+      state.loading = false;
+      state.error = action.payload?.message || 'An unexpected error occurred';
+    })
+    .addCase(getAvailableModels.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    })
+    .addCase(getAvailableModels.fulfilled, (state, action) => {
+      state.loading = false;
+      state.availableModels = action.payload;
+    })
+    .addCase(getAvailableModels.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload?.message || 'An unexpected error occurred';
+    })
+    .addCase(getUserGames.fulfilled, (state, action) => {
+      state.userGames = action.payload;
+    })
+    .addCase(associateGameWithUser.fulfilled, (state, action) => {
+      // Update the current game with the associated user if needed
+      if (action.payload.id === state.gameId) {
+        state.gameState = { ...state.gameState, userId: action.payload.userId };
+      }
+      // Update the userGames list if it exists
+      if (state.userGames.length > 0) {
+        state.userGames = state.userGames.map(game => 
+          game.id === action.payload.id ? action.payload : game
+        );
+      }
+    });
   },
 });
 
