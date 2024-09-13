@@ -7,6 +7,7 @@ import {
   getUserGames,
   clearGameState,
   associateGameWithUser,
+  clearError,
 } from '../redux/gameSlice';
 import { checkAuth } from '../redux/userSlice';
 import Sidebar from './Sidebar';
@@ -110,6 +111,10 @@ function Game() {
           } else {
             throw new Error('No AI models available');
           }
+        }else if (!gameId) {
+          // If models are already loaded but there's no gameId, start a new game
+          await startNewGameHandler(selectedModel);
+          console.log('New game started');
         }
 
         if (token && userGames.length === 0) {
@@ -126,23 +131,27 @@ function Game() {
     };
 
     initializeGame();
-  }, [dispatch, token, startNewGameHandler, availableModels, userGames, addBackendMessage]);
+  }, [dispatch, token, startNewGameHandler, availableModels, userGames, addBackendMessage, selectedModel, gameId]);
 
-  const handleActionSubmit = useCallback((action) => {
-    if (!isSubmittingAction) {
-      if (lastRequestRef.current) return;
+  const handleActionSubmit = useCallback(async (action) => {
+    if (!isSubmittingAction && !lastRequestRef.current) {
       setLoadingMessage('Processing your action...');
-      lastRequestRef.current = dispatch(submitAction(action));
-      lastRequestRef.current.then(() => {
+      try {
+        lastRequestRef.current = dispatch(submitAction(action));
+        await lastRequestRef.current.unwrap();
+      } catch (err) {
+        console.error('Error submitting action:', err);
+      } finally {
         lastRequestRef.current = null;
         setLoadingMessage('');
-      });
+      }
     }
   }, [dispatch, isSubmittingAction]);
 
   const handleNewGame = useCallback(() => {
     if (selectedModel) {
       dispatch(clearGameState());
+      setLoadingMessage('Starting a new game...');
       startNewGameHandler(selectedModel);
     }
   }, [dispatch, selectedModel, startNewGameHandler]);
@@ -150,12 +159,16 @@ function Game() {
   const handleModelChange = useCallback((modelName) => {
     setSelectedModel(modelName);
     dispatch(clearGameState());
+    setLoadingMessage('Starting a new game...');
     startNewGameHandler(modelName);
   }, [dispatch, startNewGameHandler]);
 
   useEffect(() => {
-    if (error) addBackendMessage(error, true);
-  }, [error, addBackendMessage]);
+    if (error) {
+      addBackendMessage(error, true);
+      dispatch(clearError());
+    }
+  }, [error, addBackendMessage, dispatch]);
 
   return (
     <div className={`flex flex-col h-full ${sidebarPinned ? 'ml-64' : ''}`}>
@@ -176,7 +189,7 @@ function Game() {
         onClose={() => setRightSidebarOpen(false)}
       />
       {loadingMessage && <LoadingOverlay message={loadingMessage} />}
-      <div className="flex flex-col md:flex-row items-center justify-between p-4 bg-gray-800 border-b border-gray-600">
+      <div className="flex flex-col md:flex-row items-center justify-between p-4 bg-gray-800">
         <button
           className="px-4 py-2 bg-green-700 text-white rounded mb-2 md:mb-0"
           onClick={() => setLeftSidebarOpen(true)}
@@ -203,7 +216,7 @@ function Game() {
         <ActionInput 
           options={options} 
           onSubmit={handleActionSubmit} 
-          disabled={loading || isStartingNewGame} 
+          disabled={loading || isStartingNewGame || isSubmittingAction} 
         />
       </div>
       <div className="fixed bottom-4 right-4 z-50">

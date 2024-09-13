@@ -13,6 +13,11 @@ function StoryDisplay({ conversationHistory, loading }) {
 
   useEffect(() => {
     const animateNewEntries = async () => {
+      if (conversationHistory.length === 0) {
+        setAnimatedHistory([]);
+        return;
+      }
+      
       for (let i = animatedHistory.length; i < conversationHistory.length; i++) {
         const entry = conversationHistory[i];
         setAnimatedHistory(prev => [...prev, { ...entry, content: '' }]);

@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["npm", "run", "tailwind-and-start"]
+CMD ["npm", "run", "start"]

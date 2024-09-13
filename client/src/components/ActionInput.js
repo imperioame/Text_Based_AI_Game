@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 
 function ActionInput({ options, onSubmit, disabled }) {
   const [customAction, setCustomAction] = useState('');
-  const isSubmittingAction = useSelector(state => state.game.isSubmittingAction);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!isSubmittingAction && customAction.trim()) {
-      onSubmit(customAction);
+    if (!disabled && customAction.trim()) {
+      await onSubmit(customAction);
       setCustomAction('');
     }
   };

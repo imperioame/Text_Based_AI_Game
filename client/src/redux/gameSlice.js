@@ -9,8 +9,10 @@ const debouncedPost = debounce((url, data, config) => axios.post(url, data, conf
 
 export const startNewGame = createAsyncThunk(
   'game/startNew',
-  async (model, { rejectWithValue }) => {
+  async (model, { dispatch, rejectWithValue }) => {
     try {
+      // Clear the game state before starting a new game
+      dispatch(clearGameState());
       const response = await axios.post(`${API_URL}/game/new`, { aiModel: model });
       return response.data;
     } catch (error) {
@@ -26,14 +28,21 @@ export const submitAction = createAsyncThunk(
     try {
       const { game, user } = getState();
       const headers = user.token ? { Authorization: `Bearer ${user.token}` } : {};
-      const response = await debouncedPost(
+      const response = await axios.post(
         `${API_URL}/game/${game.gameId}/action`,
         { action, gameState: game.gameState, history: game.conversationHistory },
         { headers }
       );
+      //While debouncing can be useful in some cases, it might be causing issues with the timing of our requests and responses.
+      /*const response = await debouncedPost(
+        `${API_URL}/game/${game.gameId}/action`,
+        { action, gameState: game.gameState, history: game.conversationHistory },
+        { headers }
+      );*/
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response ? error.response.data : error.message);
+      return rejectWithValue(error.response?.data || { message: error.message });
+      //return rejectWithValue(error.response ? error.response.data : error.message);
     }
   }
 );
@@ -98,7 +107,7 @@ const gameSlice = createSlice({
     availableModels: [],
     userGames: [],
     isStartingNewGame: false,
-    isSubmittingAction: false
+    isSubmittingAction: false,
   },
   reducers: {
     clearGameState: (state) => {
@@ -110,6 +119,7 @@ const gameSlice = createSlice({
       state.isStartingNewGame = false;
       state.isSubmittingAction = false;
       state.error = null;
+      state.loading = true; // Set loading to true when clearing state
     },
     clearError: (state) => {
       state.error = null;
@@ -147,8 +157,9 @@ const gameSlice = createSlice({
       state.conversationHistory = action.payload.conversationHistory;
       state.options = action.payload.options;
       state.gameState = action.payload.gameState;
-      state.loading = false;
       state.isSubmittingAction = false;
+      state.loading = false;
+      state.error = null;
     })
     .addCase(submitAction.rejected, (state, action) => {
       state.isSubmittingAction = false;
@@ -185,6 +196,6 @@ const gameSlice = createSlice({
   },
 });
 
-export const { clearGameState } = gameSlice.actions;
+export const { clearGameState, clearError } = gameSlice.actions;
 
 export default gameSlice.reducer;

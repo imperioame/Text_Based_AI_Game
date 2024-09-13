@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="bg-gray-800 text-green-300 py-4 px-8 flex justify-between items-center">
+    <footer className="bg-gray-800 text-green-300 py-4 px-8 flex justify-between items-center border-t border-gray-600">
       <div className="text-sm">AI Adventure Game</div>
       <div className="text-sm text-center">Made by J. Mario Amé</div>
       <div className="text-sm flex flex-col items-end text-right">

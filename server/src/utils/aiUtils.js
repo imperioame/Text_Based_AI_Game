@@ -59,7 +59,7 @@ const MODELS = [{
   {
     name: 'Gpt2-large-conversational-retrain',
     repo: 'Locutusque/gpt2-large-conversational-retrain',
-    comments: 'Slow load',
+    comments: 'Super slow load',
     type: MODELTYPES[2]
   },
   {

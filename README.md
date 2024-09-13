@@ -40,17 +40,17 @@ There's also a .scss file in the client folder
 | Try for the AI to provide options for the user | back/aiUtils | 💻 | The extractStoryAndOptions in aiutils tryes to catch options fron the ai story and provides presets if unable. It barely works and would be good to expand it with different empirically tested ways that the AIs define options |
 | Validate that the pre-made user options are not repeated | back/aiutils | 🕯️ |  |
 | Loader animation when initializing a AI model | front | ✅️ | |
-| Error messages in the UI | front | 🔨 | Should add a "close" button to the error notifs |
-| AI model switch | front | 🔨 | Pending to implement a tooltip to show ai model comment and type, or some UI structure for it |
+| Error messages in the UI | front | 💻 | Partially implemented, should add a "close" button to the error notifs |
+| AI model switch | front | 🕯️ | Pending to implement a tooltip to show ai model comment and type, or some UI structure for it |
 | Document how to build for prod (Without docker) |  | 💻 | finish the dev first |
-| Text writing animation on the UI | front | 🕯️ | |
+| Text writing animation on the UI | front | ✅️ | |
 | Sidebar with glass transparency effect | front | 💻 | Check if tailwind has something |
 | Check responsive | front | 💻 | 
 | UI Action feedback - animation + loader | front | 💻 | Check if tailwind has something |
 | CRT monitor sound effect | front | 💻 | Investigate sonorization options |
-| Get a title for each adventure | back/aiutils | 🔨 | The title is beign provided but not placed on UI |
+| Get a title for each adventure | back/aiutils | 🕯️ | could be improved |
 | Add a help button with basic info of the game | front | 💻 |  |
-| Add a footer with my info | front | 💻 |  |
+| Add a footer with my info | front | ✅️ |  |
 | Also print user inputs | ✅️ | Back should provide both user action and story |
 | Clean css and normalize as .scss | front | 💻 |  |
 | Incorporate tailwind in the scss and adjust npm script to build scss and tailwind | front | 💻 | normalize css |
@@ -61,16 +61,16 @@ There's also a .scss file in the client folder
 | The Ai model or my languageUtils are generating special unicode blocks (https://en.wikipedia.org/wiki/Specials_%28Unicode_block%29) as \xEF\xBC\ or such. DB is breaking at this point | back/aiutils | 🕯️ |  |
 | The Ais sometimes provide emojis, the backend provides this in conversationHistory but not in lastChunk, I would like to keep this | back/aiutils | 🕯️ |  |
 | When opening the site, it's making to requests for a new game | front | 🕯️ |  |
-| If sidebar is pinned, push content right | front | 💻 |  |
+| If sidebar is pinned, push content right | front | ✅️ |  |
 | Normalize use and style of spinner | front | 💻 |  |
 | If a user registers while playing a game, implement a separate endpoint to associate the game with the newly registered user | front+back | 🕯️ |  take the game's publicId and the user's ID, then updates the game's userId field. This endpoint should be called after successful user registration if there's an active game. |
 | Make sure errors dont halt server in prod | front + back | 💻 |  |
 | Add the username or a user icon somewhere to aknowledge the logged user | front | 💻 |  |
 | Add a big error X and message if the game cant start | front | ❌ |  |
-| If the user starts a new game it should completely refresh storyDisplay | front | 💻 |  |
+| If the user starts a new game it should completely refresh storyDisplay | front | 🔨 |  |
 | Only allow one query to "new game" and "submit action", lock the action buttons until query processed | front | 🕯️ |  |
 | Add "Error processing action" - "SyntaxError: Invalid regular expression" when the backend detects an option in the AI story | backend | 💻 |  |
-| The UI is not updating the storyDisplay after starting a new game. It shows the previous game and mixes it up with the new actions | backend | 💻 |  |
+| The UI is not updating the storyDisplay after starting a new game. It shows the previous game and mixes it up with the new actions | Frontend | ✅️ |  |
 
 
 💻: To be done

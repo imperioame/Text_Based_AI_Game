@@ -12,6 +12,7 @@ exports.startNewGame = async (req, res) => {
     const initialStory = await generateStory(aiModel);
     
     const newGame = await Game.create({
+      publicId: publicId,
       title: sanitizeText(initialStory.title),
       fullStory: sanitizeText(initialStory.fullStory),
       lastChunk: sanitizeText(initialStory.newChunk),
@@ -23,7 +24,6 @@ exports.startNewGame = async (req, res) => {
       })),
       aiModel,
       userId,
-      publicId
     });
 
     res.status(201).json({
