@@ -1,0 +1,188 @@
+@import 'tailwind.output.css';
+html {
+  background-color: rgb(64, 64, 64);
+}
+
+body {
+  font-family: "VT323", monospace;
+  font-size: larger;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  color: white;
+  text-shadow: 0 0 8px greenyellow;
+}
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 2px, transparent 2px, transparent 4px);
+  pointer-events: none;
+}
+
+::selection {
+  @apply bg-blue-600;
+}
+
+#storyDisplay {
+  @apply text-center max-h-[25vh] overflow-y-auto text-xl text-green-300;
+}
+
+.option_button {
+  @apply bg-transparent border-2 border-white hover:bg-green-700 transition-colors duration-200;
+}
+
+#root {
+  @apply m-8 h-[calc(100vh-4rem)] rounded-md;
+}
+
+.loader {
+  @apply border-4 border-gray-300 border-t-4 border-t-blue-500 rounded-full w-12 h-12 animate-spin;
+}
+
+.loading-bar {
+  @apply w-0 animate-[fillBar_2s_linear_infinite];
+}
+
+.vintage-cursor {
+  @apply animate-[blink_1s_steps(1)_infinite];
+}
+
+.vintage-spinner {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(#ffff00 0 0) top/20% 2px, linear-gradient(#ffff00 0 0) right/2px 20%, linear-gradient(#ffff00 0 0) bottom/20% 2px, linear-gradient(#ffff00 0 0) left/2px 20%;
+  background-repeat: no-repeat;
+  animation: vintage-spin 1s linear infinite;
+  filter: drop-shadow(0 0 2px #ffff00);
+}
+
+.vintage-loadbar {
+  @apply h-8 w-72 bg-[repeating-linear-gradient(90deg,#2c3e50,#2c3e50_2px,#34495e_2px,#34495e_4px)] transition-[width] duration-500 ease-in-out;
+}
+
+.vintage-ellipsis {
+  @apply animate-[ellipsis_1s_steps(4)_infinite] inline-block w-5 text-left;
+}
+.vintage-ellipsis::after {
+  content: "...";
+  @apply absolute;
+}
+
+.crt-screen {
+  @apply relative overflow-hidden rounded-2xl shadow-[0_0_20px_rgba(0,255,0,0.6)];
+}
+.crt-screen::before {
+  content: " ";
+  @apply block absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-10 bg-[length:100%_2px,3px_100%] pointer-events-none;
+}
+.crt-screen::after {
+  content: " ";
+  @apply block absolute inset-0 bg-[rgba(18,16,16,0.1)] opacity-0 z-10 pointer-events-none animate-[flicker_0.15s_infinite];
+}
+
+.crt-frame {
+  @apply absolute -inset-2.5 border-[15px] border-solid border-gray-800 rounded-3xl shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] pointer-events-none;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #4ade80 #1f2937;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply bg-green-400 rounded-full border-4 border-solid border-gray-800;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  @apply bg-green-500;
+}
+
+@keyframes vintage-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@keyframes ellipsis {
+  to {
+    width: 20px;
+  }
+}
+@keyframes flicker {
+  0% {
+    opacity: 0.27861;
+  }
+  5% {
+    opacity: 0.34769;
+  }
+  10% {
+    opacity: 0.23604;
+  }
+  15% {
+    opacity: 0.90626;
+  }
+  20% {
+    opacity: 0.18128;
+  }
+  25% {
+    opacity: 0.83891;
+  }
+  30% {
+    opacity: 0.65583;
+  }
+  35% {
+    opacity: 0.67807;
+  }
+  40% {
+    opacity: 0.26559;
+  }
+  45% {
+    opacity: 0.84693;
+  }
+  50% {
+    opacity: 0.96019;
+  }
+  55% {
+    opacity: 0.08594;
+  }
+  60% {
+    opacity: 0.20313;
+  }
+  65% {
+    opacity: 0.71988;
+  }
+  70% {
+    opacity: 0.53455;
+  }
+  75% {
+    opacity: 0.37288;
+  }
+  80% {
+    opacity: 0.71428;
+  }
+  85% {
+    opacity: 0.70419;
+  }
+  90% {
+    opacity: 0.7003;
+  }
+  95% {
+    opacity: 0.36108;
+  }
+  100% {
+    opacity: 0.24387;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

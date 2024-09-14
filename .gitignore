@@ -1,3 +1,5 @@
 node_modules
 .env
+.env.development
 interaction_log.txt
+client/build

@@ -119,7 +119,7 @@ const gameSlice = createSlice({
       state.isStartingNewGame = false;
       state.isSubmittingAction = false;
       state.error = null;
-      state.loading = true; // Set loading to true when clearing state
+      state.loading = true;
     },
     clearError: (state) => {
       state.error = null;

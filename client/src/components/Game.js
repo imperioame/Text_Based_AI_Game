@@ -61,6 +61,7 @@ function Game() {
     if (isStartingNewGame) return;
     setLoadingMessage('Starting a new game...');
     try {
+      dispatch(clearGameState());
       const action = await dispatch(startNewGame(model));
       if (action.error) {
         throw new Error(action.error.message || 'Failed to start new game');

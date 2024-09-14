@@ -31,8 +31,8 @@ There's also a .scss file in the client folder
 | Login for user | front | 🕯️ | It's working but I would like to keep on testing it |
 | Call for /api/user/games when starting a new game | front | 🕯️ | It's working but I would like to keep on testing it |
 | Dont call /api/user/games if the user is not logged | front | 🕯️ |  |
-| keep the user logged in | front | 🔨 |  |
-| Sidebar games history | front | 🔨 | answering empty |
+| keep the user logged in | front | 💻 |  |
+| Sidebar games history | front | 💻 | it's not calling the API for the user games |
 | The API /:id is not authenticated, needs to be crossed with user info | back | 💻 | Login for user |
 | UI story view scroll to last entry | front | ✅️ |  |
 | Declare new text2text generation in modeltypes | back | ✅️ |  |
@@ -44,16 +44,16 @@ There's also a .scss file in the client folder
 | AI model switch | front | 🕯️ | Pending to implement a tooltip to show ai model comment and type, or some UI structure for it |
 | Document how to build for prod (Without docker) |  | 💻 | finish the dev first |
 | Text writing animation on the UI | front | ✅️ | |
-| Sidebar with glass transparency effect | front | 💻 | Check if tailwind has something |
+| Sidebar with glass transparency effect | front | ❌ | It will look too messy with the overall styles |
 | Check responsive | front | 💻 | 
 | UI Action feedback - animation + loader | front | 💻 | Check if tailwind has something |
 | CRT monitor sound effect | front | 💻 | Investigate sonorization options |
 | Get a title for each adventure | back/aiutils | 🕯️ | could be improved |
 | Add a help button with basic info of the game | front | 💻 |  |
 | Add a footer with my info | front | ✅️ |  |
-| Also print user inputs | ✅️ | Back should provide both user action and story |
-| Clean css and normalize as .scss | front | 💻 |  |
-| Incorporate tailwind in the scss and adjust npm script to build scss and tailwind | front | 💻 | normalize css |
+| Also print user inputs | front | ✅️ | Back should provide both user action and story |
+| Clean css and normalize as .scss | front | ✅️ |  |
+| Incorporate tailwind in the scss and adjust npm script to build scss and tailwind | front | ❌ | tailwind cannot compile sass, i've optimized a little bit and kept it separated |
 | Code review and optimization | front and back | 💻 | have a happily functional prototype |
 | Qwen2-Boundless tends to answer in an asian language that breaks the utf encoding when pushig to db. try to limit this | back | ✅️ |  |
 | in aiUtils check if the response has the original prompt, and trim it | back | ✅️ |  |
@@ -67,10 +67,11 @@ There's also a .scss file in the client folder
 | Make sure errors dont halt server in prod | front + back | 💻 |  |
 | Add the username or a user icon somewhere to aknowledge the logged user | front | 💻 |  |
 | Add a big error X and message if the game cant start | front | ❌ |  |
-| If the user starts a new game it should completely refresh storyDisplay | front | 🔨 |  |
+| If the user starts a new game it should completely refresh storyDisplay | front | 🕯️ |  |
 | Only allow one query to "new game" and "submit action", lock the action buttons until query processed | front | 🕯️ |  |
 | Add "Error processing action" - "SyntaxError: Invalid regular expression" when the backend detects an option in the AI story | backend | 💻 |  |
 | The UI is not updating the storyDisplay after starting a new game. It shows the previous game and mixes it up with the new actions | Frontend | ✅️ |  |
+| Stylize the scrollbars | Frontend | ✅️ |  |
 
 
 💻: To be done

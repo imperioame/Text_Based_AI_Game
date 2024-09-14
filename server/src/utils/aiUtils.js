@@ -211,13 +211,6 @@ function getModelConfig(prompt1, prompt2 = '') {
       break;
     case MODELTYPES[2]:
     case MODELTYPES[3]:
-      /*
-      const pastInputs = Array.isArray(prompt1) ? prompt1.join('\n') : prompt1;
-      const pastResponses = Array.isArray(prompt3) ? prompt3.join('\n') : prompt3;
-      inputs = `${pastInputs}\n${pastResponses}\n ${prompt2}`;
-      break;
-      */
-
       const fullRecord = Array.isArray(prompt1) ? prompt1.join('\n') : prompt1;
       inputs = `${fullRecord}\n ${prompt2}`;
       break;
@@ -278,6 +271,10 @@ exports.generateStory = async (modelName) => {
     throw new Error(`Model ${currentModel.name} is not ready or unavailable.`);
   }
 
+  conversationHistory.fullRecord = [];
+  conversationHistory.pastUserInputs = [];
+  conversationHistory.generatedResponses = [];
+
   const randomTheme = storyThemes[Math.floor(Math.random() * storyThemes.length)];
   let prompt1, prompt2;
 
@@ -291,10 +288,8 @@ exports.generateStory = async (modelName) => {
       break;
     case MODELTYPES[2]:
     case MODELTYPES[3]:
-
-      prompt1 = conversationHistory.fullRecord.join('\n');
+      prompt1 = '';
       prompt2 = `Tell me a brief ${randomTheme} story where I'm the main character. What's the current situation and what do I see?`;
-      //prompt2 = `Let's start a ${randomTheme} story where I'm the main character. What's the current situation and what do I see?`;
       break;
   }
 
@@ -302,17 +297,15 @@ exports.generateStory = async (modelName) => {
 
   try {
     const result = await generateWithLanguageCheck(async () => {
-
       const config = getModelConfig(prompt1, prompt2);
       const response = await hf.textGeneration(config);
 
-
-      //log-Interaction('Debug', `API Response: ${JSON.stringify(response)}`);
       if (!response || !response.generated_text) {
         throw new Error('Invalid response from API');
       };
 
       let story = response.generated_text;
+      story = story.replace(prompt1, '').replace(prompt2, '').trim();
 
       const {
         processedStory,
@@ -324,31 +317,31 @@ exports.generateStory = async (modelName) => {
         lastScene: processedStory
       };
 
-      conversationHistory.generatedResponses.push(processedStory);
+      conversationHistory.generatedResponses = [processedStory];
       if (currentModel.type === MODELTYPES[2]) {
         conversationHistory.pastUserInputs.push(prompt2);
       } else {
         conversationHistory.pastUserInputs.push(`${prompt1} ${prompt2}`);
       };
-      conversationHistory.fullRecord.push(conversationHistory.pastUserInputs[conversationHistory.pastUserInputs.length - 1], story);
+      conversationHistory.fullRecord.push(conversationHistory.pastUserInputs[conversationHistory.pastUserInputs.length - 1], processedStory);
 
       let title;
       try {
         title = await generateTitle(story, randomTheme);
       } catch (titleError) {
         console.error('Error generating title:', titleError);
-        title = `A ${randomTheme} Adventure`; // Fallback title
+        title = `A ${randomTheme} Adventure`;
       }
       
       return {
         title,
-        fullStory: story,
-        newChunk: story,
+        fullStory: processedStory,
+        newChunk: processedStory,
         options,
         gameState,
         conversationHistory: [{
           type: 'ai',
-          content: story
+          content: processedStory
         }],
         aiModel: MODELS[currentModelIndex].name
       }

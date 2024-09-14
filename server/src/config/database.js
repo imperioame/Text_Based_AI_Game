@@ -6,6 +6,8 @@ const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
 const dbHost = process.env.DB_HOST;
 
+console.log('Attempting to connect to database:', dbHost); // Add this line for debugging
+
 const connectWithRetry = async () => {
   let retries = 5;
   while (retries) {
@@ -30,12 +32,12 @@ const connectWithRetry = async () => {
 const sequelize = new Sequelize(dbName, dbUser, dbPassword, {
   host: dbHost,
   dialect: 'mysql',
-  logging: false,
+  logging: process.env.NODE_ENV !== 'production',
 });
 
 const syncDatabase = async () => {
   try {
-    await sequelize.sync({ alter: true });
+    await sequelize.sync({ alter: process.env.NODE_ENV !== 'production' });
     console.log('Database synced successfully');
   } catch (error) {
     console.error('Error syncing database:', error);

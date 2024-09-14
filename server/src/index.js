@@ -7,25 +7,35 @@ const gameRoutes = require('./routes/gameRoutes');
 const userRoutes = require('./routes/userRoutes');
 const cors = require('cors');
 
-const app = express();
+const setupServer = async (app) => {
+  app.use(cors());
+  app.use(express.json());
 
-app.use(cors());
-app.use(express.json());
+  app.use('/api/game', gameRoutes);
+  app.use('/api/user', userRoutes);
 
-app.use('/api/game', gameRoutes);
-app.use('/api/user', userRoutes);
-
-const startServer = async () => {
   try {
     await connectWithRetry();
-    await sequelize.sync({ alter: true });
-    app.listen(5000, () => {
-      console.log('Server running on port 5000');
-      console.log('Database synced successfully');
-    });
+    await sequelize.sync({ alter: process.env.NODE_ENV !== 'production' });
+    console.log('Database synced successfully');
   } catch (error) {
-    console.error('Error starting server:', error);
+    console.error('Error setting up server:', error);
+    throw error; // rethrow the error to be handled by the caller
   }
 };
 
-startServer();
+// If this file is run directly (not imported), start the server
+if (require.main === module) {
+  const app = express();
+  setupServer(app).then(() => {
+    const port = process.env.PORT || 5000;
+    app.listen(port, () => {
+      console.log(`Server running on port ${port}`);
+    });
+  }).catch(error => {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+  });
+}
+
+module.exports = setupServer;
