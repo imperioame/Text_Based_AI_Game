@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteBase /
+
+# Redirect API requests to Node.js server
+RewriteRule ^api/(.*)$ http://localhost:8080/api/$1 [P,L]
+
+# Serve static files directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# Set headers for CORS
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header set Access-Control-Allow-Headers "Content-Type, Authorization"
