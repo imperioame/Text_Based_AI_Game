@@ -3,6 +3,8 @@ import axios from 'axios';
 import { debounce } from 'lodash';
 
 const API_URL = process.env.REACT_APP_API_URL;
+console.log(API_URL);
+
 
 // Debounced version of axios.post
 const debouncedPost = debounce((url, data, config) => axios.post(url, data, config), 300);
