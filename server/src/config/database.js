@@ -2,15 +2,7 @@ const { Sequelize } = require('sequelize');
 const mysql = require('mysql2/promise');
 const dns = require('dns').promises;
 
-const dbName = process.env.DB_NAME;
-const dbUser = process.env.DB_USER;
-const dbPassword = process.env.DB_PASSWORD;
-const dbHost = process.env.DB_HOST;
-console.log('dbName', dbName, 'dbUser', dbUser, 'dbPassword', dbPassword, 'dbHost', dbHost);
-
 const resolveDNS = async (hostname) => {const { Sequelize } = require('sequelize');
-const mysql = require('mysql2/promise');
-const dns = require('dns').promises;
 
 const dbName = process.env.DB_NAME;
 const dbUser = process.env.DB_USER;
