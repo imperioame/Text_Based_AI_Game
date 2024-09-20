@@ -1,6 +1,6 @@
 # Text_Based_AI_Game
-[![Generic badge](https://img.shields.io/badge/Version-0.1-blue.svg)](https://shields.io/)
-[![Generic badge](https://img.shields.io/badge/Mantained-Yes-green.svg)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/Version-1.0-blue.svg)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/Mantained-No-red.svg)](https://shields.io/)
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 
@@ -10,18 +10,22 @@ The game story is developed by the AI model, the user is the player.
 
 
 ## Dev
-Remember to compile css
-
-For tailwind:
-> cd ./client
-> 
-> npm run tailwind
-
-There's also a .scss file in the client folder
-
-## Build for dev
+I used docker to build the server and client.
 > docker-compose up --build
 
+## Prod
+> cd ./client 
+> npm build
+
+Push this build to hosting, in a client's directory
+Add the .htaccess file
+
+Deploy server files to hosting, in a server's directory
+ssh to the hosting and run
+> node --inspect app.js
+Although i used 
+> forever -w -c "node --inspect" app.js
+to restart the server automatically when something happens.
 
 
 ## Backlog:
@@ -42,10 +46,10 @@ There's also a .scss file in the client folder
 | Loader animation when initializing a AI model | front | ✅️ | |
 | Error messages in the UI | front | 💻 | Partially implemented, should add a "close" button to the error notifs |
 | AI model switch | front | 🕯️ | Pending to implement a tooltip to show ai model comment and type, or some UI structure for it |
-| Document how to build for prod (Without docker) |  | 💻 | finish the dev first |
+| Document how to build for prod (Without docker) |  | ✅️ | finish the dev first |
 | Text writing animation on the UI | front | ✅️ | |
 | Sidebar with glass transparency effect | front | ❌ | It will look too messy with the overall styles |
-| Check responsive | front | 💻 | 
+| Check responsive | front | 💻 | Height error with overflow of the storydisplay.
 | UI Action feedback - animation + loader | front | 💻 | Check if tailwind has something |
 | CRT monitor sound effect | front | 💻 | Investigate sonorization options |
 | Get a title for each adventure | back/aiutils | 🕯️ | could be improved |
