@@ -130,7 +130,7 @@ exports.getConversationHistory = () => {
   };
 };
 
-const logFilePath = path.join(__dirname, 'interaction_log.txt');
+//const logFilePath = path.join(__dirname, 'interaction_log.txt');
 
 
 const storyThemes = [
@@ -226,7 +226,7 @@ function getModelConfig(prompt1, prompt2 = '') {
 
 function logInteraction(type, message) {
   const logEntry = `[${new Date().toISOString()}] ${type}: ${message}\n`;
-  fs.appendFileSync(logFilePath, logEntry);
+  //fs.appendFileSync(logFilePath, logEntry);
   console.log(logEntry);
 }
 
